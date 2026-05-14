@@ -31,6 +31,88 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
+<!-- FAQPage JSON-LD for Google rich snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why don't you publish your exact price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every dealership is different. A single-store used-car lot with 6 salespeople has different needs than a 3-rooftop new-car group running 40 reps. We give you an exact quote during our first 15-minute call rather than a public number that's either too high for small stores or undervalues what bigger dealers get. Most quotes land within typical dealership software ranges. Tell us your size — we'll send you the exact number the same day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a setup or onboarding fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your monthly subscription includes setup, onboarding, team invites, and walkthroughs. No 'implementation services' line item. No consultant hours. You give us your team list and goals — we get you live the same day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge per salesperson?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No per-seat fees. Add as many salespeople as you want. Whether you have 8 reps or 80, the price is the same. Per-seat pricing penalizes growing stores and creates incentives to limit team access — we don't believe in either."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Month-to-month, no contracts. If DeskView AI doesn't earn its keep at your store, cancel before your next billing date. No cancellation fee, no 'early termination' trap, no salvage clause. The product has to be worth it every month or it isn't worth it at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer multi-rooftop discounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dealer groups running 2+ rooftops get volume pricing. Discount tiers depend on store count and combined volume — mention you have multiple locations on your quote request and we'll structure pricing across the group."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to integrate with my DMS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. DeskView AI works standalone with your team logging their own deals. Direct DMS integrations are on the roadmap based on customer demand — but you can be fully live and getting value without one. We sit alongside your DMS, not on top of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What payment methods do you accept?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Credit card via Stripe for monthly auto-billing. For dealer groups or enterprise arrangements, ACH and invoiced billing are available — just mention it on your quote request."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I want to try it first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every evaluation starts with a 20-minute personalized demo — we walk you through the product with data shaped like your dealership, answer specific questions about your floor, and show exactly how it would fit. If you're a good fit, we'll set up a 30-day pilot at your store with your real deals and team. Pilot terms are part of the quote conversation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is support included?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Email support is included in every plan. Multi-rooftop groups get priority response. Our goal is to over-answer questions quickly — you shouldn't have to file tickets to get help running your floor."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -674,7 +756,7 @@ a:hover { opacity: .8; }
       <span>DeskView AI</span>
       <span class="logo-dot"></span>
     </a>
-    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary">Book a demo</a>
+    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" data-track="book_demo" class="btn btn-primary">Book a demo</a>
   </div>
 </nav>
 
@@ -691,7 +773,7 @@ a:hover { opacity: .8; }
       <h1 class="h1 reveal">One plan.<br><span class="grad">All the features.</span></h1>
       <p class="hero-subhead reveal">Per-rooftop monthly subscription, scaled to your dealership size. No setup fees. No annual contracts. Cancel anytime.</p>
       <div class="hero-cta-row reveal">
-        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get a quote in 15 minutes</a>
+        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" data-track="get_pricing_quote" class="btn btn-primary btn-lg">Get a quote in 15 minutes</a>
       </div>
       <div class="hero-trust-line reveal">
         <span class="dot">●</span>
@@ -719,7 +801,7 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="plan-cta">
-        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get my quote</a>
+        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" data-track="get_pricing_quote" class="btn btn-primary btn-lg">Get my quote</a>
       </div>
     </div>
   </div>
@@ -944,7 +1026,7 @@ a:hover { opacity: .8; }
     <h2 class="close-headline reveal">See the product. <br><span class="grad">Then see the price.</span></h2>
     <p class="close-sub reveal">Schedule a 15-minute call. We'll show you DeskView AI live, then send tailored pricing for your dealership — same day.</p>
     <div class="close-cta-row reveal">
-      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Book a 15-minute call</a>
+      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" data-track="get_pricing_quote" class="btn btn-primary btn-lg">Book a 15-minute call</a>
     </div>
   </div>
 </section>
@@ -981,6 +1063,22 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ============================================================
+// CONVERSION TRACKING — measure CTA clicks for funnel analysis
+// ============================================================
+document.addEventListener('click', (e) => {
+  const trackable = e.target.closest('[data-track]');
+  if (!trackable) return;
+  if (typeof gtag !== 'function') return;
+  const eventName = trackable.getAttribute('data-track');
+  const label = trackable.textContent.trim().slice(0, 60);
+  gtag('event', eventName, {
+    event_category: 'cta',
+    event_label: label,
+    page_path: window.location.pathname
+  });
+});
 </script>
 
 </body>

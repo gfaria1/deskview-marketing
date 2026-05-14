@@ -1726,7 +1726,7 @@ section { position: relative; z-index: 2; }
     </a>
     <div class="nav-right">
       <a href="/pricing" class="nav-link">Pricing</a>
-      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary">Book a demo</a>
+      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" data-track="book_demo" class="btn btn-primary">Book a demo</a>
     </div>
   </div>
 </nav>
@@ -1751,15 +1751,15 @@ section { position: relative; z-index: 2; }
     <p class="lede hero-lede reveal">Live UP queue. AI Game Plans for every rep. Sold notifications to managers' phones the second deals close. Built mobile-first for the floor — not the back office.</p>
 
     <div class="hero-cta-row reveal">
-      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Book a 20-min demo →</a>
+      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" data-track="book_demo" class="btn btn-primary btn-lg">Book a 20-min demo →</a>
     </div>
 
     <div class="hero-mockup-wrap reveal">
       <div class="mockup-mac">
         <div class="mockup-mac-screen">
-          <div class="carousel" id="hero-carousel">
+          <div class="carousel" id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="DeskView AI product showcase">
             <!-- Slide 1: Dealer Principal Dashboard -->
-            <div class="carousel-slide active" data-slide="0">
+            <div class="carousel-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 4: Dealer Principal dashboard">
               <img src="/screenshots/dashboard-desktop.webp"
                    alt="DeskView AI Dealer Principal dashboard: 75 units and $280,150 MTD gross, real-time trending chart, vehicle mix breakdown, pace tracking, and built-in AI assistant"
                    class="screenshot-img"
@@ -1768,7 +1768,7 @@ section { position: relative; z-index: 2; }
             </div>
 
             <!-- Slide 2: Sales Manager Dashboard -->
-            <div class="carousel-slide" data-slide="1">
+            <div class="carousel-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 4: Sales Manager dashboard">
               <img src="/screenshots/manager-dashboard.webp"
                    alt="DeskView AI Sales Manager daily dashboard: today's pace, Wednesday recap, hourly sales chart, AI daily briefing, and live UP queue"
                    class="screenshot-img"
@@ -1777,7 +1777,7 @@ section { position: relative; z-index: 2; }
             </div>
 
             <!-- Slide 3: AI Chat - Team Performance -->
-            <div class="carousel-slide" data-slide="2">
+            <div class="carousel-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 4: AI conversation about team performance">
               <div class="ai-chat-slide" aria-label="AI conversation example: How is the team doing this month">
                 <div class="ai-chat-header">
                   <div class="ai-chat-spark">✦</div>
@@ -1799,7 +1799,7 @@ section { position: relative; z-index: 2; }
             </div>
 
             <!-- Slide 4: AI Risk Analysis -->
-            <div class="carousel-slide" data-slide="3">
+            <div class="carousel-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 4 of 4: AI conversation about at-risk salespeople">
               <div class="ai-chat-slide" aria-label="AI conversation example: Who is most at risk of missing goal">
                 <div class="ai-chat-header">
                   <div class="ai-chat-spark">✦</div>
@@ -2086,7 +2086,7 @@ section { position: relative; z-index: 2; }
         </div>
       </div>
 
-      <p class="dms-note">Your DMS isn't here? <a href="mailto:sales@deskview.ai?subject=DMS%20integration%20priority%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AOur%20dealership%20uses%20%5BDMS%20NAME%5D.%20I'd%20like%20to%20see%20this%20on%20the%20integration%20roadmap.%0A%0ADealership%3A%20%0AStores%3A%20%0A%0AThanks!">Tell us</a> — founding dealers vote on what we build first.</p>
+      <p class="dms-note">Your DMS isn't here? <a data-track="dms_interest" href="mailto:sales@deskview.ai?subject=DMS%20integration%20priority%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AOur%20dealership%20uses%20%5BDMS%20NAME%5D.%20I'd%20like%20to%20see%20this%20on%20the%20integration%20roadmap.%0A%0ADealership%3A%20%0AStores%3A%20%0A%0AThanks!">Tell us</a> — founding dealers vote on what we build first.</p>
     </div>
   </div>
 </section>
@@ -2126,7 +2126,7 @@ section { position: relative; z-index: 2; }
       <details class="faq-item reveal">
         <summary>What does pricing look like?</summary>
         <div class="faq-answer">
-          Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. See the full breakdown on the <a href="/pricing">pricing page</a> or email <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> for a quote tailored to your dealership.
+          Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. See the full breakdown on the <a href="/pricing">pricing page</a> or email <a data-track="email_sales" href="mailto:sales@deskview.ai">sales@deskview.ai</a> for a quote tailored to your dealership.
         </div>
       </details>
 
@@ -2140,7 +2140,7 @@ section { position: relative; z-index: 2; }
       <details class="faq-item reveal">
         <summary>What's the Founding Dealer Program?</summary>
         <div class="faq-answer">
-          We're partnering with a limited cohort of dealerships to refine DeskView AI alongside the floor managers and salespeople who actually use it. Founding dealers get <strong>lifetime pricing lock</strong> (their rate never goes up), <strong>direct access to the founder</strong> (no support ticket queue), and <strong>roadmap input</strong> — including which DMS integrations we build first. Cohort is intentionally small. <a href="mailto:sales@deskview.ai?subject=Founding%20Dealer%20Program%20interest&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20learn%20more%20about%20the%20Founding%20Dealer%20Program.%0A%0ADealership%3A%20%0AStores%3A%20%0AMy%20role%3A%20%0A%0AThanks!">Get in touch</a> to discuss whether your store is a fit.
+          We're partnering with a limited cohort of dealerships to refine DeskView AI alongside the floor managers and salespeople who actually use it. Founding dealers get <strong>lifetime pricing lock</strong> (their rate never goes up), <strong>direct access to the founder</strong> (no support ticket queue), and <strong>roadmap input</strong> — including which DMS integrations we build first. Cohort is intentionally small. <a data-track="founding_dealer_interest" href="mailto:sales@deskview.ai?subject=Founding%20Dealer%20Program%20interest&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20learn%20more%20about%20the%20Founding%20Dealer%20Program.%0A%0ADealership%3A%20%0AStores%3A%20%0AMy%20role%3A%20%0A%0AThanks!">Get in touch</a> to discuss whether your store is a fit.
         </div>
       </details>
 
@@ -2177,7 +2177,7 @@ section { position: relative; z-index: 2; }
     <h2 class="h2 reveal">Stop guessing.<br><span class="grad">Start seeing.</span></h2>
     <p class="close-quote reveal">DeskView AI was built by <strong>developers who've been in the auto industry for over 20 years.</strong> Every screen, every alert, every metric exists because someone needed it on the floor.</p>
 
-    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg close-cta-button reveal">Book a 20-min demo →</a>
+    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" data-track="book_demo" class="btn btn-primary btn-lg close-cta-button reveal">Book a 20-min demo →</a>
 
     <div class="cta-trust-row reveal">
       <div class="cta-trust-item">
@@ -2194,7 +2194,7 @@ section { position: relative; z-index: 2; }
       </div>
     </div>
 
-    <p class="close-fallback reveal">We answer <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> within one business day.</p>
+    <p class="close-fallback reveal">We answer <a data-track="email_sales" href="mailto:sales@deskview.ai">sales@deskview.ai</a> within one business day.</p>
   </div>
 </section>
 
@@ -2295,8 +2295,49 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     if (e.key === 'ArrowRight') { goTo(current + 1); startAuto(); }
   });
 
+  // Touch swipe — left/right gestures on mobile
+  let touchStartX = null;
+  let touchStartY = null;
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    stopAuto();
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const dx = touchStartX - touchEndX;
+    const dy = touchStartY - touchEndY;
+    // Only navigate if horizontal swipe is dominant and >50px
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx > 0) goTo(current + 1);  // swipe left → next
+      else goTo(current - 1);          // swipe right → prev
+    }
+    touchStartX = null;
+    touchStartY = null;
+    startAuto();
+  }, { passive: true });
+
   startAuto();
 })();
+
+// ============================================================
+// CONVERSION TRACKING — measure CTA clicks for funnel analysis
+// ============================================================
+document.addEventListener('click', (e) => {
+  const trackable = e.target.closest('[data-track]');
+  if (!trackable) return;
+  if (typeof gtag !== 'function') return;
+  const eventName = trackable.getAttribute('data-track');
+  const label = trackable.textContent.trim().slice(0, 60);
+  gtag('event', eventName, {
+    event_category: 'cta',
+    event_label: label,
+    page_path: window.location.pathname
+  });
+});
 </script>
 
 </body>
