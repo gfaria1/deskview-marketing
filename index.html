@@ -606,7 +606,7 @@ section { position: relative; z-index: 2; }
   background: linear-gradient(135deg, #1a2033 0%, #0a0d14 100%);
   border: 1px solid var(--line-bright);
   border-radius: 14px;
-  aspect-ratio: 2033 / 1128;
+  aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
   transform: rotateX(8deg);
@@ -660,6 +660,84 @@ section { position: relative; z-index: 2; }
   text-transform: uppercase;
   text-align: center;
   padding: 24px;
+}
+
+/* ============================================================
+   HERO CAROUSEL — multi-slide product showcase
+   ============================================================ */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
+}
+.carousel-dot.active {
+  background: var(--brand);
+  width: 28px;
+  box-shadow: 0 0 14px rgba(0, 194, 122, 0.6);
+}
+.carousel-caption {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.carousel-caption.active {
+  opacity: 1;
+}
+.carousel-captions-wrap {
+  position: relative;
+  height: 18px;
+  margin-top: 14px;
 }
 
 /* ============================================================
@@ -1438,16 +1516,29 @@ section { position: relative; z-index: 2; }
     <div class="hero-mockup-wrap reveal">
       <div class="mockup-mac">
         <div class="mockup-mac-screen">
-          <img src="/screenshots/dashboard-desktop.webp"
-               alt="DeskView AI Dealer Principal dashboard: month-to-date 75 units and $280,150 gross with real-time MTD trending chart, vehicle mix breakdown (NEW 43, USED 28, CPO 4), units and gross goal progress vs $1.4M annual target, pace tracking, live UP queue (16 working), and built-in Ask DeskView AI assistant"
-               class="screenshot-img"
-               loading="eager"
-               width="2033" height="1128"
-               onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
-          <div class="screenshot-placeholder" style="display:none;">
-            DASHBOARD-DESKTOP.PNG · 1440×900<br>UPLOAD TO /SCREENSHOTS/
+          <div class="carousel" id="hero-carousel">
+            <div class="carousel-slide active" data-slide="0">
+              <img src="/screenshots/dashboard-desktop.webp"
+                   alt="DeskView AI Dealer Principal dashboard: month-to-date 75 units and $280,150 gross with real-time MTD trending chart, vehicle mix breakdown (NEW 43, USED 28, CPO 4), units and gross goal progress vs $1.4M annual target, pace tracking, live UP queue (16 working), and built-in Ask DeskView AI assistant"
+                   loading="eager"
+                   width="2005" height="1128" />
+            </div>
+            <div class="carousel-slide" data-slide="1">
+              <img src="/screenshots/manager-dashboard.webp"
+                   alt="DeskView AI Sales Manager daily dashboard: today's pace (1 unit, $3,850 gross), Wednesday recap (5 units, $17.3k), hourly sales chart, AI Daily Briefing with rep-by-rep coaching insights, live UP queue, and one-tap Log Deal button for the floor"
+                   loading="lazy"
+                   width="2208" height="1242" />
+            </div>
           </div>
         </div>
+      </div>
+      <div class="carousel-captions-wrap">
+        <span class="carousel-caption active" data-caption="0">DEALER PRINCIPAL · STORE-WIDE INTELLIGENCE</span>
+        <span class="carousel-caption" data-caption="1">SALES MANAGER · DAILY FLOOR BRIEFING</span>
+      </div>
+      <div class="carousel-controls" role="tablist" aria-label="Product views">
+        <button class="carousel-dot active" data-target="0" role="tab" aria-label="Dealer Principal dashboard" aria-selected="true"></button>
+        <button class="carousel-dot" data-target="1" role="tab" aria-label="Sales Manager dashboard" aria-selected="false"></button>
       </div>
     </div>
   </div>
@@ -1818,6 +1909,73 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ============================================================
+// HERO CAROUSEL — auto-rotate + click-to-navigate
+// ============================================================
+(() => {
+  const carousel = document.getElementById('hero-carousel');
+  if (!carousel) return;
+
+  const slides = [...carousel.querySelectorAll('.carousel-slide')];
+  const dots = [...document.querySelectorAll('.carousel-dot')];
+  const captions = [...document.querySelectorAll('.carousel-caption')];
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let timer = null;
+  const ROTATION_MS = 6000;
+
+  function goTo(index) {
+    const next = ((index % slides.length) + slides.length) % slides.length;
+    if (next === current) return;
+    slides[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
+    dots[current]?.setAttribute('aria-selected', 'false');
+    captions[current]?.classList.remove('active');
+    current = next;
+    slides[current].classList.add('active');
+    dots[current]?.classList.add('active');
+    dots[current]?.setAttribute('aria-selected', 'true');
+    captions[current]?.classList.add('active');
+  }
+
+  function startAuto() {
+    stopAuto();
+    timer = setInterval(() => goTo(current + 1), ROTATION_MS);
+  }
+  function stopAuto() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goTo(i);
+      startAuto(); // reset timer on manual nav
+    });
+  });
+
+  // Pause on hover, resume on leave
+  const wrap = carousel.closest('.hero-mockup-wrap');
+  wrap?.addEventListener('mouseenter', stopAuto);
+  wrap?.addEventListener('mouseleave', startAuto);
+
+  // Pause when tab is hidden, resume when visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
+
+  // Keyboard navigation (arrow keys when carousel is focused)
+  carousel.setAttribute('tabindex', '-1');
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { goTo(current - 1); startAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); startAuto(); }
+  });
+
+  startAuto();
+})();
 </script>
 
 </body>
