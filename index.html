@@ -718,8 +718,8 @@ section { position: relative; z-index: 2; }
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
 }
 .carousel-controls {
   display: flex;
@@ -1652,7 +1652,7 @@ section { position: relative; z-index: 2; }
                    alt="DeskView AI Dealer Principal dashboard: 75 units and $280,150 MTD gross, real-time trending chart, vehicle mix breakdown, pace tracking, and built-in AI assistant"
                    class="screenshot-img"
                    loading="eager"
-                   width="2005" height="1128" />
+                   width="2033" height="1128" />
             </div>
 
             <!-- Slide 2: Sales Manager Dashboard -->
@@ -1661,7 +1661,7 @@ section { position: relative; z-index: 2; }
                    alt="DeskView AI Sales Manager daily dashboard: today's pace, Wednesday recap, hourly sales chart, AI daily briefing, and live UP queue"
                    class="screenshot-img"
                    loading="lazy"
-                   width="2208" height="1242" />
+                   width="2269" height="1242" />
             </div>
 
             <!-- Slide 3: AI Chat - Team Performance -->
@@ -2106,7 +2106,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   let current = 0;
   let timer = null;
-  const ROTATION_MS = 6000;
+  const ROTATION_MS = 5000;
 
   function goTo(index) {
     const next = ((index % slides.length) + slides.length) % slides.length;
