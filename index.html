@@ -51,30 +51,158 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="DeskView AI" />
 
-<!-- Schema.org -->
+<!-- Schema.org — multi-entity graph: Organization + SoftwareApplication + WebSite + FAQPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "DeskView AI",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "Dealership Management Software",
-  "operatingSystem": "Web, iOS, Android",
-  "description": "Real-time intelligence platform for car dealerships. Live UP queue, AI-powered briefings, per-rep Game Plans, sold notifications. Mobile-first PWA.",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "description": "Flat per-store pricing — contact sales@deskview.ai"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://deskview.ai/#organization",
+      "name": "DeskView AI",
+      "url": "https://deskview.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://deskview.ai/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Real-time dealership intelligence platform for automotive retail. Live UP queue, AI Game Plans, sold notifications, mobile-first.",
+      "email": "sales@deskview.ai",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "sales@deskview.ai",
+        "contactType": "Sales",
+        "availableLanguage": "English"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsAbout": [
+        "Automotive retail",
+        "Dealership management",
+        "Sales floor operations",
+        "Sales coaching",
+        "Real-time analytics",
+        "AI-powered insights"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://deskview.ai/#website",
+      "url": "https://deskview.ai",
+      "name": "DeskView AI",
+      "description": "Real-time insight. Real results.",
+      "publisher": { "@id": "https://deskview.ai/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://deskview.ai/#software",
+      "name": "DeskView AI",
+      "url": "https://deskview.ai",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Dealership Sales Floor Intelligence",
+      "operatingSystem": "Web, iOS (PWA), Android (PWA)",
+      "description": "Real-time intelligence platform for car dealerships. Live UP queue, AI-powered Game Plans, sold notifications, per-rep coaching, mobile-first.",
+      "featureList": [
+        "Live UP queue",
+        "AI Daily Briefing",
+        "Per-rep Game Plans",
+        "Real-time sold notifications",
+        "Sales floor performance dashboards",
+        "Risk engine for at-risk deals",
+        "Mobile PWA install (iOS + Android)",
+        "Manager Coaching Hub"
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Automotive dealerships"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "description": "Flat per-store monthly pricing — no annual contracts. Contact sales@deskview.ai for a quote."
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      "publisher": { "@id": "https://deskview.ai/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://deskview.ai/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does DeskView AI integrate with my DMS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DeskView AI sits alongside your DMS, not on top of it. Your DMS handles accounting, compliance, and end-of-month reporting. DeskView AI handles real-time floor intelligence — UPs, sold notifications, salesperson pacing, AI coaching. Direct DMS integrations are on the roadmap based on customer demand."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from my CRM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A CRM tracks customer conversations and follow-ups. DeskView AI tracks what's happening on your sales floor right now: who took the last UP, who needs coaching, which deals are stuck, who's on pace. Most dealers find DeskView complements their CRM rather than replacing it — your CRM still owns customer records and outreach; DeskView owns floor operations and management intelligence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does setup take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Days, not months. No consultants required. You give us your sales team list and monthly unit goals, and your team starts using DeskView AI the same day. Real-time data flows once your team logs their first few deals — typically within 24-48 hours of go-live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does pricing look like?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flat per-store monthly pricing — no per-user fees, no per-deal charges, no annual contracts. Pricing scales with store size so you only pay for what fits. Email sales@deskview.ai for an exact quote for your dealership."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I try it before committing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can preview the live demo right now at app.deskview.ai/demo — no signup required. For a real pilot at your store, we offer a 30-day evaluation period. Month-to-month means you're never locked in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do my salespeople need training to use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No formal training needed. DeskView AI is built for the floor — large tap targets, mobile-first, no menus to learn. Most salespeople pick it up in their first day. The AI Game Plans tell each rep what to do next; the live UP queue tells them whose turn it is. If they can use a smartphone, they can use DeskView AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it work on iPhones, iPads, and Android phones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DeskView AI is mobile-first and installs as a native-feeling app on iPhones, iPads, and Android devices via Progressive Web App (PWA) technology. Your team uses their existing devices — no hardware to buy, no app store approval to wait for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my dealership data secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We use industry-standard encryption (TLS 1.3 in transit, encryption at rest), authentication on every request, and row-level security so each dealership only accesses its own data. We don't sell your data, share it with advertisers, or train third-party AI models on your dealership data. Full details in our Privacy Policy."
+          }
+        }
+      ]
     }
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "DeskView AI",
-    "url": "https://deskview.ai",
-    "email": "sales@deskview.ai"
-  }
+  ]
 }
 </script>
 
@@ -1045,6 +1173,92 @@ section { position: relative; z-index: 2; }
 .integrations-note strong { color: white; font-weight: 600; }
 
 /* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-section {
+  position: relative;
+}
+.faq-section .h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.faq-section .h2 .grad { color: inherit; }
+.faq-section .eyebrow {
+  margin: 0 auto 32px;
+  display: inline-flex !important;
+}
+.faq-eyebrow-wrap {
+  text-align: center;
+}
+.faq-list {
+  max-width: 800px;
+  margin: 56px auto 0;
+}
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  transition: border-color .2s, background .2s;
+  overflow: hidden;
+}
+.faq-item:hover {
+  border-color: var(--line-bright);
+}
+.faq-item[open] {
+  background: var(--surface-elevated);
+  border-color: var(--line-glow);
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  letter-spacing: -0.005em;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--green-bright);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform .2s;
+}
+.faq-item[open] summary::after {
+  content: "−";
+}
+.faq-answer {
+  padding: 0 26px 24px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  font-size: 15px;
+}
+.faq-answer strong { color: white; font-weight: 600; }
+.faq-answer a { color: var(--green-bright); text-decoration: none; }
+.faq-answer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .faq-item summary {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+  .faq-answer {
+    padding: 0 20px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
    FOUNDER + CTA — merged section
    ============================================================ */
 .close-section {
@@ -1474,6 +1688,76 @@ section { position: relative; z-index: 2; }
         <span class="integration-pill live">Custom API · Available now</span>
       </div>
       <p class="integrations-note">Direct integrations rolling out for the major DMS + CRM platforms. <strong>No API access? Works fully manually too</strong> — every screen, every feature.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6.5 — FAQ (objection handling before final CTA)
+     ============================================================ -->
+<section class="section-padded faq-section" id="faq">
+  <div class="container">
+    <div class="faq-eyebrow-wrap">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>QUESTIONS DEALERS ACTUALLY ASK</div>
+    </div>
+    <h2 class="h2 reveal">Common questions.<br><span class="grad">Honest answers.</span></h2>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Does DeskView AI integrate with my DMS?</summary>
+        <div class="faq-answer">
+          DeskView AI sits <strong>alongside</strong> your DMS, not on top of it. Your DMS handles accounting, compliance, and end-of-month reporting. DeskView AI handles real-time floor intelligence — UPs, sold notifications, salesperson pacing, AI coaching. Direct DMS integrations are on the roadmap based on customer demand.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How is this different from my CRM?</summary>
+        <div class="faq-answer">
+          A CRM tracks customer conversations and follow-ups. DeskView AI tracks what's happening on your sales floor <strong>right now</strong>: who took the last UP, who needs coaching, which deals are stuck, who's on pace. Most dealers find DeskView complements their CRM rather than replacing it — your CRM still owns customer records and outreach; DeskView owns floor operations and management intelligence.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>How long does setup take?</summary>
+        <div class="faq-answer">
+          <strong>Days, not months.</strong> No consultants required. You give us your sales team list and monthly unit goals, and your team starts using DeskView AI the same day. Real-time data flows once your team logs their first few deals — typically within 24-48 hours of go-live.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What does pricing look like?</summary>
+        <div class="faq-answer">
+          Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. Email <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> for an exact quote for your dealership.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I try it before committing?</summary>
+        <div class="faq-answer">
+          Yes. You can preview the live demo right now at <a href="https://app.deskview.ai/demo">app.deskview.ai/demo</a> — no signup required. For a real pilot at your store, we offer a <strong>30-day evaluation period</strong>. Month-to-month means you're never locked in.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do my salespeople need training to use it?</summary>
+        <div class="faq-answer">
+          No formal training needed. DeskView AI is built for the floor — large tap targets, mobile-first, no menus to learn. Most salespeople pick it up in their first day. The AI Game Plans tell each rep what to do next; the live UP queue tells them whose turn it is. <strong>If they can use a smartphone, they can use DeskView AI.</strong>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Will it work on iPhones, iPads, and Android phones?</summary>
+        <div class="faq-answer">
+          Yes. DeskView AI is mobile-first and installs as a native-feeling app on iPhones, iPads, and Android devices via <strong>Progressive Web App (PWA) technology</strong>. Your team uses their existing devices — no hardware to buy, no app store approval to wait for.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Is my dealership data secure?</summary>
+        <div class="faq-answer">
+          Yes. We use industry-standard encryption (TLS 1.3 in transit, encryption at rest), authentication on every request, and row-level security so each dealership only accesses its own data. We don't sell your data, share it with advertisers, or train third-party AI models on your dealership data. Full details in our <a href="/privacy">Privacy Policy</a>.
+        </div>
+      </details>
     </div>
   </div>
 </section>
