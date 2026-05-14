@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0f131c" />
+
+<!-- Primary SEO -->
+<title>DeskView AI — Real-time intelligence for car dealerships</title>
+<meta name="description" content="Real-time dealership intelligence platform. Live UP queue, AI Game Plans, sold notifications, mobile-first. Built for Dealer Principals, GMs, Sales Managers, Greeters, and Salespeople. No annual contracts." />
+<meta name="keywords" content="dealership software, automotive sales software, car dealer software, sales floor intelligence, AI sales coaching, UP system, dealership CRM alternative, real-time dealer dashboard, sold notifications, dealer mobile app" />
+<meta name="author" content="DeskView AI" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<link rel="canonical" href="https://deskview.ai/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://deskview.ai/" />
+<meta property="og:title" content="DeskView AI — Real-time insight. Real results." />
+<meta property="og:description" content="Live UP queue, AI coaching, sold notifications, mobile-first. Built for modern dealerships." />
+<meta property="og:image" content="https://deskview.ai/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="DeskView AI" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DeskView AI — Real-time insight. Real results." />
+<meta name="twitter:description" content="Live UP queue, AI coaching, sold notifications, mobile-first." />
+<meta name="twitter:image" content="https://deskview.ai/og-image.png" />
+
+<!-- Apple PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="DeskView AI" />
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "DeskView AI",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Dealership Management Software",
+  "operatingSystem": "Web, iOS, Android",
+  "description": "Real-time intelligence platform for car dealerships. Live UP queue, AI-powered briefings, per-rep Game Plans, sold notifications. Mobile-first PWA.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "description": "Flat per-store pricing — contact sales@deskview.ai"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DeskView AI",
+    "url": "https://deskview.ai",
+    "email": "sales@deskview.ai"
+  }
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — DeskView AI
+   ============================================================ */
+:root {
+  /* ============================================================
+     v13 — APP-MATCHED PALETTE
+     Reads from your app: pure dark, white text, sparse color
+     Color only appears as small precise accents, never floods
+     ============================================================ */
+
+  /* Backgrounds — matches app's near-black */
+  --bg: #0a0d14;
+  --bg-2: #060912;
+  --bg-deep: #04060c;
+
+  /* Surfaces — restrained gray, NOT green-tinted */
+  --surface: rgba(20, 24, 36, 0.55);
+  --surface-solid: #141826;
+  --surface-elevated: rgba(28, 33, 48, 0.6);
+
+  /* Lines — neutral gray (was green-tinted, that's why everything looked green) */
+  --line: rgba(255, 255, 255, 0.06);
+  --line-bright: rgba(255, 255, 255, 0.12);
+  --line-glow: rgba(255, 255, 255, 0.18);
+
+  /* Text — white-first */
+  --text: #ffffff;
+  --text-dim: rgba(220, 228, 240, 0.72);
+  --text-mute: rgba(170, 180, 200, 0.5);
+  --text-faint: rgba(140, 150, 170, 0.3);
+
+  /* Brand greens — used SPARINGLY for action/win moments only */
+  --green: #00c27a;
+  --green-bright: #1ee98a;
+  --green-soft: rgba(0, 194, 122, 0.08);
+  --green-line: rgba(0, 194, 122, 0.22);
+  --green-glow: rgba(0, 194, 122, 0.4);
+
+  /* Brand purple — used ONLY for AI/intelligence callouts (matches Ask AI card) */
+  --purple: #7c5cff;
+  --purple-bright: #a481ff;
+  --purple-soft: rgba(124, 92, 255, 0.08);
+  --purple-line: rgba(124, 92, 255, 0.22);
+  --purple-glow: rgba(124, 92, 255, 0.4);
+
+  /* Status colors */
+  --warn: #ffc66e;
+  --hot: #ff8a8a;
+
+  /* No gradient text by default — headlines stay WHITE */
+  --gradient-button: linear-gradient(135deg, #00c27a 0%, #008a55 100%);
+
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+
+  --max: 1240px;
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+img, svg { display: block; max-width: 100%; }
+
+/* Subtle ambient glow — barely visible, no animated orbs */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg);
+}
+.aurora::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 194, 122, 0.06) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Grid pattern — restored from v11.1 for "tech" texture
+   Subtle, masked to fade out at edges, not loud */
+.grid-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+/* Eyebrow — restrained: white text on subtle dark surface */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-bright);
+  border-radius: 999px;
+}
+.eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Special-case: AI section eyebrow uses purple dot to match Ask AI card */
+.eyebrow.eyebrow-ai .eyebrow-dot {
+  background: var(--purple);
+  box-shadow: 0 0 8px var(--purple);
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(38px, 7vw, 80px);
+  line-height: 1.0;
+  letter-spacing: -0.038em;
+  margin: 0;
+  color: white;
+}
+/* Pure white headlines like Linear, Stripe, Vercel.
+   .grad span is kept in HTML for layout flexibility but
+   inherits the white color of its parent. No more color flood. */
+.h1 .grad,
+.h2 .grad,
+.h1 em,
+.h2 em {
+  color: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(28px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  margin: 0;
+  color: white;
+}
+
+.lede {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+section { position: relative; z-index: 2; }
+.section-padded { padding: 96px 0; }
+
+@media (max-width: 720px) {
+  .section-padded { padding: 64px 0; }
+  .container { padding: 0 20px; }
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 19, 28, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green-glow);
+  display: inline-block;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  letter-spacing: -0.005em;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary {
+  background: var(--green);
+  color: #00210f;
+}
+.btn-primary:hover {
+  background: var(--green-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--green-glow);
+}
+.btn-ghost {
+  color: var(--text);
+  border: 1px solid var(--line-bright);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+}
+.btn-ghost:hover {
+  border-color: var(--green);
+  background: rgba(0, 194, 122, 0.06);
+  color: var(--green-bright);
+}
+.btn-lg {
+  font-size: 15px;
+  padding: 14px 28px;
+}
+
+@media (max-width: 540px) {
+  .nav-inner { padding: 14px 20px; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 80px 0 64px;
+  position: relative;
+  text-align: center;
+}
+@media (max-width: 720px) {
+  .hero { padding: 48px 0 48px; }
+  .hero-eyebrow { margin-bottom: 20px; }
+}
+
+.hero-eyebrow { margin-bottom: 28px; display: inline-flex; }
+.hero h1 { margin: 0 auto 20px; max-width: 1100px; }
+.hero-slogan {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 auto 28px;
+}
+.hero-slogan .grad {
+  color: var(--green-bright);
+}
+
+/* Hero urgency line — confident, on-brand, no fake data */
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: clamp(14px, 1.3vw, 16px);
+  font-weight: 500;
+  color: var(--text);
+  text-align: left;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+  padding: 14px 22px;
+  background: rgba(0, 194, 122, 0.06);
+  border: 1px solid var(--line-bright);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+.hero-urgency-dot {
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+@media (max-width: 640px) {
+  .hero-urgency { padding: 12px 18px; }
+}
+
+.hero-lede {
+  margin: 0 auto 36px;
+  max-width: 640px;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 56px;
+  justify-content: center;
+}
+
+/* Hero mockup — desktop view of dashboard */
+.hero-mockup-wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
+  perspective: 2000px;
+}
+.hero-mockup-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -50px -100px;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 194, 122, 0.3) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.mockup-mac {
+  background: linear-gradient(135deg, #1a2033 0%, #0a0d14 100%);
+  border: 1px solid var(--line-bright);
+  border-radius: 14px;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+  transform: rotateX(8deg);
+  box-shadow:
+    0 80px 160px rgba(0, 0, 0, 0.7),
+    0 40px 80px rgba(0, 194, 122, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.mockup-mac::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(15, 22, 18, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+  border-bottom: 1px solid var(--line);
+  z-index: 2;
+}
+.mockup-mac::after {
+  content: '';
+  position: absolute;
+  top: 14px; left: 16px;
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: #ff5f57;
+  box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
+  z-index: 3;
+}
+.mockup-mac-screen {
+  position: absolute;
+  top: 36px; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+}
+.screenshot-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+}
+
+/* ============================================================
+   SOCIAL STRIP — built for stores like yours
+   ============================================================ */
+.social-strip {
+  padding: 40px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+.social-strip-label {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 24px;
+}
+.social-strip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.social-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dim);
+}
+.social-strip-icon {
+  width: 22px; height: 22px;
+  color: var(--text-mute);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.social-strip-icon svg { width: 100%; height: 100%; }
+.social-strip-text {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.social-strip-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--line-bright);
+}
+@media (max-width: 720px) {
+  .social-strip { padding: 32px 0 40px; }
+  .social-strip-row {
+    gap: 14px 20px;
+    flex-direction: column;
+  }
+  .social-strip-divider { display: none; }
+}
+
+/* ============================================================
+   3 PILLARS
+   ============================================================ */
+.pillars-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.pillars-header .eyebrow { margin-bottom: 22px; }
+.pillars-header .h2 { margin-bottom: 16px; }
+.pillars-header .lede {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.pillar {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.pillar:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.pillar-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-line);
+  color: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.pillar-icon svg { width: 22px; height: 22px; }
+.pillar-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--text-mute);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.pillar-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: white;
+}
+.pillar-body {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+.results-section {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.results-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.results-header .eyebrow { margin-bottom: 22px; }
+.results-header .h2 { margin: 0; }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.result-card {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.result-card:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+.result-card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-line);
+  color: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.result-card-icon svg { width: 20px; height: 20px; }
+.result-card-headline {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+.result-card-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 900px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .results-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   AI SECTION — purple accent ONLY (matches Ask DeskView AI card)
+   White headlines, neutral surfaces, color sparingly
+   ============================================================ */
+.ai-section {
+  position: relative;
+}
+.ai-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.ai-header .eyebrow { margin-bottom: 22px; }
+.ai-header .h2 { margin-bottom: 16px; }
+/* AI section H2 stays pure white — no purple flood */
+.ai-header .h2 .grad {
+  color: inherit;
+  font-style: normal;
+}
+.ai-header .lede { margin: 0 auto; }
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.ai-content .ai-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--purple-bright);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.ai-content .ai-tag::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 999px;
+  background: var(--purple);
+  box-shadow: 0 0 8px var(--purple);
+}
+.ai-content h3 {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 18px;
+  color: white;
+}
+.ai-content h3 .grad {
+  color: inherit;
+}
+.ai-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin: 0 0 14px;
+}
+.ai-content p:last-child { margin-bottom: 0; }
+
+.ai-visual-phone {
+  width: 280px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  border: 2px solid var(--line-bright);
+  border-radius: 36px;
+  padding: 8px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+.ai-visual-phone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-2);
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ai-risk-block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.ai-risk-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+.ai-risk-header h3 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: white;
+}
+.ai-risk-header h3 .grad {
+  color: inherit;
+}
+.ai-risk-header p {
+  color: var(--text-dim);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.risk-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.risk-rule {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.3s ease;
+}
+.risk-rule:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-1px);
+}
+.risk-rule-severity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.risk-rule-severity::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 999px;
+}
+.risk-rule-severity.high { color: #ff8a8a; }
+.risk-rule-severity.high::before { background: #ff5e5e; box-shadow: 0 0 8px #ff5e5e80; }
+.risk-rule-severity.medium { color: #ffc66e; }
+.risk-rule-severity.medium::before { background: #ffa726; box-shadow: 0 0 8px #ffa72680; }
+.risk-rule-severity.low { color: var(--green-bright); }
+.risk-rule-severity.low::before { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.risk-rule-name {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.012em;
+  margin: 0 0 4px;
+}
+.risk-rule-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+.risk-rules-more {
+  text-align: center;
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .ai-grid { grid-template-columns: 1fr; gap: 40px; }
+  .risk-rules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .risk-rules-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   COMPARE + INTEGRATIONS — merged
+   ============================================================ */
+.compare-section {
+  position: relative;
+}
+.compare-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.compare-header .eyebrow { margin-bottom: 22px; }
+.compare-header .h2 { margin-bottom: 16px; }
+.compare-header .lede { margin: 0 auto; }
+
+.compare-table {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 980px;
+  margin: 0 auto 56px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  border-bottom: 1px solid var(--line);
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-row > div {
+  padding: 20px 24px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.compare-row.head > div {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  background: rgba(10, 13, 20, 0.7);
+  padding-top: 22px;
+  padding-bottom: 22px;
+  font-weight: 600;
+}
+.compare-row.head > div:nth-child(3) {
+  color: var(--green-bright);
+  font-weight: 700;
+}
+.compare-row > div:nth-child(1) { color: var(--text-dim); border-right: 1px solid var(--line); font-weight: 500; }
+.compare-row > div:nth-child(2) { color: var(--text-mute); border-right: 1px solid var(--line); }
+.compare-row > div:nth-child(3) { color: white; font-weight: 500; }
+
+@media (max-width: 720px) {
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); padding: 14px 18px; }
+  .compare-row > div:last-child { border-bottom: none; }
+  .compare-row.head { display: none; }
+  .compare-row > div::before {
+    content: attr(data-label);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-right: 12px;
+    min-width: 100px;
+  }
+}
+
+/* Integrations — text strip below compare */
+.integrations-strip {
+  text-align: center;
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.integrations-strip-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+.integrations-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 14px;
+  margin-bottom: 20px;
+}
+.integration-pill {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  transition: all 0.2s ease;
+}
+.integration-pill.live {
+  color: var(--green-bright);
+  border-color: var(--line-bright);
+  background: rgba(0, 194, 122, 0.06);
+}
+.integrations-note {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.integrations-note strong { color: white; font-weight: 600; }
+
+/* ============================================================
+   FOUNDER + CTA — merged section
+   ============================================================ */
+.close-section {
+  text-align: center;
+  position: relative;
+}
+.close-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 194, 122, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.close-eyebrow { margin-bottom: 24px; display: inline-flex !important; }
+.close-section .h2 { margin-bottom: 24px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.close-section .h2 .grad {
+  color: inherit;
+}
+.close-quote {
+  font-family: var(--display);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-dim);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  letter-spacing: -0.005em;
+}
+.close-quote strong { color: white; font-weight: 600; }
+.close-quote .grad {
+  color: var(--green-bright);
+  font-weight: 600;
+}
+.close-cta-button { margin-bottom: 28px; }
+.cta-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.cta-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.cta-trust-dot {
+  width: 5px; height: 5px;
+  border-radius: 999px;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green);
+}
+.close-fallback {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.close-fallback a {
+  color: var(--green-bright);
+  border-bottom: 1px solid var(--line-glow);
+}
+@media (max-width: 720px) {
+  .cta-trust-row { flex-direction: column; gap: 12px; align-items: center; }
+}
+
+/* ============================================================
+   FOOTER (compact)
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 36px;
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 13, 20, 0.6);
+  backdrop-filter: blur(20px);
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--text-mute);
+  transition: color 0.15s ease;
+}
+.footer-links a:hover { color: var(--green-bright); }
+@media (max-width: 540px) {
+  .footer-inner { flex-direction: column; text-align: center; padding: 0 20px; }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .aurora::before, .aurora::after, .h1 .grad,
+  .hero-urgency-dot, .eyebrow-dot, .cta-trust-dot {
+    animation: none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora"></div>
+<div class="grid-pattern"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span>DeskView AI</span>
+      <span class="logo-dot"></span>
+    </a>
+    <a href="#book-demo" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION 1 — HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow eyebrow reveal">
+      <span class="eyebrow-dot"></span>
+      REAL-TIME DEALERSHIP INTELLIGENCE
+    </div>
+    <h1 class="h1 reveal">Your sales floor, <span class="grad">live in your pocket.</span></h1>
+    <p class="hero-slogan reveal"><span class="grad">Real-time insight.</span> Real results.</p>
+
+    <div class="hero-urgency reveal">
+      <span class="hero-urgency-dot"></span>
+      <span>Every hour your floor isn't visible, you're losing deals you'll never know about.</span>
+    </div>
+
+    <p class="lede hero-lede reveal">Live UP queue. AI Game Plans for every rep. Sold notifications to managers' phones the second deals close. Built mobile-first for the floor — not the back office.</p>
+
+    <div class="hero-cta-row reveal">
+      <a href="#book-demo" class="btn btn-primary btn-lg">Book a 20-min demo →</a>
+      <a href="https://app.deskview.ai/demo" class="btn btn-ghost btn-lg">See it live</a>
+    </div>
+
+    <div class="hero-mockup-wrap reveal">
+      <div class="mockup-mac">
+        <div class="mockup-mac-screen">
+          <picture>
+            <source srcset="/screenshots/dashboard-desktop.webp" type="image/webp" />
+            <img src="/screenshots/dashboard-desktop.png"
+                 alt="DeskView AI live dealership dashboard showing 332 units MTD, $1.08M total gross, real-time MTD trending chart, units and gross goal progress bars, and AI Daily Briefing card"
+                 class="screenshot-img"
+                 loading="eager"
+                 width="1440" height="900"
+                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
+          </picture>
+          <div class="screenshot-placeholder" style="display:none;">
+            DASHBOARD-DESKTOP.PNG · 1440×900<br>UPLOAD TO /SCREENSHOTS/
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — SOCIAL STRIP
+     ============================================================ -->
+<section class="social-strip">
+  <div class="container">
+    <p class="social-strip-label reveal">BUILT FOR STORES LIKE YOURS</p>
+    <div class="social-strip-row reveal">
+      <div class="social-strip-item">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        <span class="social-strip-text">Single-rooftop dealers</span>
+      </div>
+      <div class="social-strip-divider"></div>
+      <div class="social-strip-item">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        </span>
+        <span class="social-strip-text">Multi-store groups</span>
+      </div>
+      <div class="social-strip-divider"></div>
+      <div class="social-strip-item">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span class="social-strip-text">High-volume floors</span>
+      </div>
+      <div class="social-strip-divider"></div>
+      <div class="social-strip-item">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span class="social-strip-text">CSI-focused stores</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — 3 PILLARS
+     ============================================================ -->
+<section class="section-padded">
+  <div class="container">
+    <div class="pillars-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>WHAT IT DOES</div>
+      <h2 class="h2 reveal">Three things your DMS <span class="grad">can't.</span></h2>
+      <p class="lede reveal">Your DMS handles accounting, compliance, end-of-month reporting. DeskView AI handles the floor.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="pillar-tag">REAL-TIME</div>
+        <h3 class="pillar-title">Never miss an UP.</h3>
+        <p class="pillar-body">Live queue tracks every walk-in, test drive, and deal. Sold notifications fire instantly to managers' phones. Stale UPs auto-close at midnight so tomorrow starts clean.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8h6.1l-4.95 3.6 1.9 5.8L12 14.6 7.05 18.2l1.9-5.8L4 8.8h6.1z"/></svg>
+        </div>
+        <div class="pillar-tag">AI COACHING</div>
+        <h3 class="pillar-title">Coach in real time.</h3>
+        <p class="pillar-body">Every salesperson gets a Game Plan every morning. Managers get a daily briefing — who closed, who's cooling, what to push today. AI catches what tired humans miss.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="pillar-tag">MOBILE-FIRST</div>
+        <h3 class="pillar-title">Built for the floor.</h3>
+        <p class="pillar-body">Add it to your home screen — opens like a native app. Approve deals walking the lot. See your store from anywhere. No more "let me check the desk."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — WHAT CHANGES (RESULTS)
+     ============================================================ -->
+<section class="section-padded results-section">
+  <div class="container">
+    <div class="results-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>WHAT CHANGES</div>
+      <h2 class="h2 reveal">When you can actually <span class="grad">see your floor.</span></h2>
+    </div>
+
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="result-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+        <h3 class="result-card-headline">Fewer missed UPs</h3>
+        <p class="result-card-desc">Every walk-in tracked. Every assignment logged. No more "did anyone help that customer?"</p>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="result-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+        </div>
+        <h3 class="result-card-headline">Faster TOs</h3>
+        <p class="result-card-desc">Managers see who's free, who's working, who needs help. The right person walks over before the moment is gone.</p>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="result-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <h3 class="result-card-headline">Better follow-up</h3>
+        <p class="result-card-desc">Lost reasons captured in real time, not three days later. Reps know exactly who to call back and why.</p>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="result-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8h6.1l-4.95 3.6 1.9 5.8L12 14.6 7.05 18.2l1.9-5.8L4 8.8h6.1z"/></svg>
+        </div>
+        <h3 class="result-card-headline">More consistent closings</h3>
+        <p class="result-card-desc">AI catches F&amp;I gaps, slow closes, reps trending down. Coaching happens before the slump, not after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — AI THROUGHOUT (compressed)
+     ============================================================ -->
+<section class="section-padded ai-section">
+  <div class="container">
+    <div class="ai-header">
+      <div class="eyebrow eyebrow-ai reveal"><span class="eyebrow-dot"></span>AI THROUGHOUT</div>
+      <h2 class="h2 reveal">You don't need more reports.<br><span class="grad">You need to know what to do next.</span></h2>
+      <p class="lede reveal">Game Plans, daily briefings, risk detection — every screen runs on the latest Anthropic Claude models. Trained on dealership operations, not generic customer support scripts.</p>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-content reveal">
+        <div class="ai-tag">PERSONALIZED COACHING</div>
+        <h3>Every salesperson gets a <span class="grad">Game Plan.</span> Every morning.</h3>
+        <p>Open the app. See exactly where you stand. See what to focus on today. Which UPs to call back, which deals are at risk, what targets are within reach.</p>
+        <p>No charts to interpret. No dashboards to learn. Just the answer — written in plain language by AI that knows the last 30 days, the store's pace, and the day of the week.</p>
+      </div>
+      <div class="reveal">
+        <div class="ai-visual-phone">
+          <div class="ai-visual-phone-screen">
+            <picture>
+              <source srcset="/screenshots/salesperson-today.webp" type="image/webp" />
+              <img src="/screenshots/salesperson-today.png"
+                   alt="Salesperson Game Plan view on mobile showing AI-generated daily focus with personalized action items"
+                   class="screenshot-img"
+                   loading="lazy"
+                   width="390" height="844"
+                   onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
+            </picture>
+            <div class="screenshot-placeholder" style="display:none;">
+              SALESPERSON-TODAY.PNG
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-risk-block reveal">
+      <div class="ai-risk-header">
+        <h3>Plus a risk engine that catches <span class="grad">money on the table.</span></h3>
+        <p>Every closed deal runs through a 7-rule engine. Each flag includes a coaching action and dollar impact.</p>
+      </div>
+      <div class="risk-rules-grid">
+        <div class="risk-rule">
+          <span class="risk-rule-severity high">URGENT</span>
+          <h4 class="risk-rule-name">Rep below team average</h4>
+          <p class="risk-rule-desc">Average gross 30%+ under team baseline. Time for a ride-along or Saturday mentor session.</p>
+        </div>
+        <div class="risk-rule">
+          <span class="risk-rule-severity high">URGENT</span>
+          <h4 class="risk-rule-name">Desked 4+ times</h4>
+          <p class="risk-rule-desc">Customer wore down the deal. Review pencil strategy with this salesperson.</p>
+        </div>
+        <div class="risk-rule">
+          <span class="risk-rule-severity medium">OPPORTUNITY</span>
+          <h4 class="risk-rule-name">Low total gross</h4>
+          <p class="risk-rule-desc">Deal closed below team average. Was there room to hold more?</p>
+        </div>
+        <div class="risk-rule">
+          <span class="risk-rule-severity low">WATCH</span>
+          <h4 class="risk-rule-name">Rep trending down</h4>
+          <p class="risk-rule-desc">Three consecutive deals with declining gross. Catch it before it becomes a slump.</p>
+        </div>
+      </div>
+      <p class="risk-rules-more">+ THREE MORE RULES — REVEALED IN THE DEMO</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — DMS COMPARE + INTEGRATIONS (merged)
+     ============================================================ -->
+<section class="section-padded compare-section">
+  <div class="container">
+    <div class="compare-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>VS YOUR DMS</div>
+      <h2 class="h2 reveal">Your DMS records the day.<br><span class="grad">DeskView AI runs it.</span></h2>
+      <p class="lede reveal">We complement your DMS, not replace it. What we replace? The spreadsheets, group texts, and Monday morning meetings.</p>
+    </div>
+
+    <div class="compare-table reveal">
+      <div class="compare-row head">
+        <div></div>
+        <div>Your DMS</div>
+        <div>DeskView AI</div>
+      </div>
+      <div class="compare-row"><div data-label="Category">Data freshness</div><div data-label="DMS">Tomorrow morning</div><div data-label="DeskView AI">Live, by the second</div></div>
+      <div class="compare-row"><div data-label="Category">Built for</div><div data-label="DMS">Accounting + reporting</div><div data-label="DeskView AI">The sales floor</div></div>
+      <div class="compare-row"><div data-label="Category">Phone experience</div><div data-label="DMS">Web page on a phone</div><div data-label="DeskView AI">True app, home-screen install</div></div>
+      <div class="compare-row"><div data-label="Category">AI insights</div><div data-label="DMS">Add-on module, extra fee</div><div data-label="DeskView AI">Built in, every plan</div></div>
+      <div class="compare-row"><div data-label="Category">Setup</div><div data-label="DMS">Months, with consultants</div><div data-label="DeskView AI">Days. No consultants.</div></div>
+    </div>
+
+    <div class="integrations-strip reveal">
+      <p class="integrations-strip-label">INTEGRATES WITH YOUR STACK</p>
+      <div class="integrations-list">
+        <span class="integration-pill">Tekion</span>
+        <span class="integration-pill">Dealertrack</span>
+        <span class="integration-pill">Reynolds</span>
+        <span class="integration-pill">CDK Global</span>
+        <span class="integration-pill">VinSolutions</span>
+        <span class="integration-pill">eLead</span>
+        <span class="integration-pill live">Custom API · Available now</span>
+      </div>
+      <p class="integrations-note">Direct integrations rolling out for the major DMS + CRM platforms. <strong>No API access? Works fully manually too</strong> — every screen, every feature.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — FOUNDER + CTA (merged)
+     ============================================================ -->
+<section class="section-padded close-section" id="book-demo">
+  <div class="container">
+    <div class="eyebrow close-eyebrow reveal"><span class="eyebrow-dot"></span>BUILT BY OPERATORS</div>
+    <h2 class="h2 reveal">Stop guessing.<br><span class="grad">Start seeing.</span></h2>
+    <p class="close-quote reveal">DeskView AI was built by <strong>developers who've been in the auto industry for over 20 years.</strong> Every screen, every alert, every metric exists because someone needed it on the floor.</p>
+
+    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg close-cta-button reveal">Book a 20-min demo →</a>
+
+    <div class="cta-trust-row reveal">
+      <div class="cta-trust-item">
+        <span class="cta-trust-dot"></span>
+        <span>Currently running at successful stores</span>
+      </div>
+      <div class="cta-trust-item">
+        <span class="cta-trust-dot"></span>
+        <span>No annual contracts — month-to-month</span>
+      </div>
+      <div class="cta-trust-item">
+        <span class="cta-trust-dot"></span>
+        <span>Setup in days, not months</span>
+      </div>
+    </div>
+
+    <p class="close-fallback reveal">We answer <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> within one business day.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
+    <div class="footer-links">
+      <a href="https://app.deskview.ai/demo">See it live</a>
+      <a href="mailto:sales@deskview.ai">Sales</a>
+      <a href="mailto:support@deskview.ai">Support</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 40);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
