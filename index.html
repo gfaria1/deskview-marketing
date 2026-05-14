@@ -620,6 +620,8 @@ section { position: relative; z-index: 2; }
   position: relative;
   margin: 0 auto;
   max-width: 1000px;
+  perspective: 1800px;
+  perspective-origin: center 25%;
 }
 .hero-mockup-wrap::before {
   content: '';
@@ -630,73 +632,98 @@ section { position: relative; z-index: 2; }
   z-index: -1;
 }
 
+/* The laptop SCREEN (lid) — animates from closed to open */
 .mockup-mac {
   background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  padding: 16px 16px 44px;
+  border-radius: 14px 14px 6px 6px;
+  padding: 14px 14px 18px;
   position: relative;
   overflow: visible;
+  transform-origin: center bottom;
+  transform: rotateX(-92deg);
+  animation: lid-open 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
   box-shadow:
     0 80px 160px rgba(0, 0, 0, 0.7),
     0 40px 80px rgba(0, 194, 122, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
+@keyframes lid-open {
+  0% {
+    transform: rotateX(-92deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mockup-mac {
+    animation: none;
+    transform: rotateX(0deg);
+  }
+}
 /* Tiny camera dot at top */
 .mockup-mac::before {
   content: '';
   position: absolute;
-  top: 7px;
+  top: 6px;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   z-index: 3;
 }
-/* DeskView logo dot on the chin */
-.mockup-mac::after {
-  content: '';
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  background: var(--brand);
-  opacity: 0.5;
-  box-shadow: 0 0 12px rgba(0, 194, 122, 0.4);
-}
+/* No chin logo — clean MacBook look */
+.mockup-mac::after { display: none; }
+
 .mockup-mac-screen {
   position: relative;
   background: var(--bg-2);
-  border-radius: 8px;
+  border-radius: 6px 6px 3px 3px;
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
-/* iMac stand */
-.imac-stand {
-  width: 200px;
-  height: 56px;
-  margin: -2px auto 0;
-  background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
-  clip-path: polygon(22% 0%, 78% 0%, 100% 100%, 0% 100%);
+
+/* The laptop BASE (keyboard portion) — flat, doesn't animate */
+.laptop-base {
   position: relative;
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+  width: 108%;
+  max-width: 1080px;
+  height: 14px;
+  margin: -3px auto 0;
+  background: linear-gradient(180deg, #303339 0%, #1a1d23 35%, #0a0d14 100%);
+  border-radius: 2px 2px 14px 14px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-.imac-stand::after {
+/* Subtle trackpad notch hint */
+.laptop-base::before {
   content: '';
   position: absolute;
-  left: -60px;
-  right: -60px;
-  bottom: -4px;
-  height: 10px;
-  background: linear-gradient(180deg, #1a1d23 0%, #0a0d14 100%);
-  border-radius: 5px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  border-radius: 0 0 4px 4px;
+}
+/* Soft floor shadow under laptop base */
+.laptop-base::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 8%;
+  right: 8%;
+  height: 24px;
+  background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0, 0, 0, 0.5) 0%, transparent 80%);
+  filter: blur(8px);
+  pointer-events: none;
 }
 .screenshot-img {
   display: block;
@@ -1794,7 +1821,7 @@ section { position: relative; z-index: 2; }
           </div>
         </div>
       </div>
-      <div class="imac-stand" aria-hidden="true"></div>
+      <div class="laptop-base" aria-hidden="true"></div>
       <div class="carousel-captions-wrap">
         <span class="carousel-caption active" data-caption="0">DEALER PRINCIPAL · STORE-WIDE INTELLIGENCE</span>
         <span class="carousel-caption" data-caption="1">SALES MANAGER · DAILY FLOOR BRIEFING</span>
