@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0d14" />
+<title>Pricing — DeskView AI</title>
+<meta name="description" content="Simple per-rooftop monthly pricing for DeskView AI. One plan, all features included. No setup fees, no annual contracts. Get a quote tailored to your dealership in 15 minutes." />
+<meta name="keywords" content="DeskView AI pricing, dealership software pricing, car dealer software cost, automotive sales floor pricing" />
+<link rel="canonical" href="https://deskview.ai/pricing" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://deskview.ai/pricing" />
+<meta property="og:title" content="Pricing — DeskView AI" />
+<meta property="og:description" content="One plan. All the features. Custom pricing tailored to your dealership size." />
+<meta property="og:image" content="https://deskview.ai/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pricing — DeskView AI" />
+<meta name="twitter:description" content="One plan. All the features. Built for your dealership." />
+<meta name="twitter:image" content="https://deskview.ai/og-image.png" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLBSCSXLN8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FLBSCSXLN8');
+</script>
+
+<style>
+:root {
+  --bg: #0a0d14;
+  --bg-2: #060912;
+  --bg-deep: #04060c;
+  --surface: rgba(20, 24, 36, 0.55);
+  --surface-solid: #141826;
+  --surface-elevated: rgba(28, 33, 48, 0.6);
+  --line: rgba(255, 255, 255, 0.06);
+  --line-bright: rgba(255, 255, 255, 0.12);
+  --line-glow: rgba(255, 255, 255, 0.18);
+  --text: #ffffff;
+  --text-dim: rgba(220, 228, 240, 0.72);
+  --text-mute: rgba(170, 180, 200, 0.5);
+  --text-faint: rgba(140, 150, 170, 0.3);
+  --green: #00c27a;
+  --green-bright: #1ee98a;
+  --green-glow: rgba(30, 233, 138, 0.35);
+  --purple: #7c5cff;
+  --space: 'Space Grotesk', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--inter);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: var(--green-bright); text-decoration: none; transition: opacity .15s; }
+a:hover { opacity: .8; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px 0;
+  transition: all 0.25s ease;
+  background: rgba(10, 13, 20, 0);
+  backdrop-filter: blur(0);
+}
+.nav.scrolled {
+  background: rgba(10, 13, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--space);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.01em;
+}
+.logo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green-glow);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-family: var(--inter);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--green);
+  color: #00210f;
+}
+.btn-primary:hover {
+  background: var(--green-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--green-glow);
+  opacity: 1;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-bright);
+}
+.btn-secondary:hover {
+  border-color: var(--line-glow);
+  background: rgba(255, 255, 255, 0.03);
+  opacity: 1;
+}
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* ============================================================
+   EYEBROW + HEADINGS
+   ============================================================ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-bright);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green-glow);
+}
+
+.h1 {
+  font-family: var(--space);
+  font-size: clamp(40px, 5.6vw, 72px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+.h2 {
+  font-family: var(--space);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.h3 {
+  font-family: var(--space);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.grad {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.lede {
+  font-size: clamp(17px, 1.4vw, 19px);
+  color: var(--text-dim);
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 160px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 800px;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0, 194, 122, 0.12) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero-inner {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.hero-eyebrow { margin-bottom: 28px; }
+.hero h1 { margin-bottom: 24px; }
+.hero-subhead {
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: var(--text-dim);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.hero-trust-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-trust-line .dot {
+  color: var(--green);
+}
+
+/* ============================================================
+   PRICING CARD — "the simple plan"
+   ============================================================ */
+.plan-section {
+  padding: 60px 0 80px;
+}
+.plan-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(20, 24, 36, 0.7) 0%, rgba(10, 13, 20, 0.7) 100%);
+  border: 1px solid var(--line-bright);
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.plan-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--green) 50%, transparent 100%);
+}
+.plan-name {
+  font-family: var(--space);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 12px;
+}
+.plan-tagline {
+  font-family: var(--space);
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.plan-description {
+  color: var(--text-dim);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.plan-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+.plan-price-label {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+.plan-price-value {
+  font-family: var(--space);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+.plan-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.plan-cta .btn { flex: 1; min-width: 200px; }
+
+/* ============================================================
+   FEATURE GROUPS — "What's included"
+   ============================================================ */
+.features-section {
+  padding: 100px 0 80px;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 24, 36, 0.18) 100%);
+}
+.features-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+.features-header .eyebrow { margin-bottom: 20px; }
+.features-header .h2 { margin-bottom: 16px; }
+.features-header .lede { margin: 0 auto; }
+
+.feature-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+.feature-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px;
+  transition: all 0.25s ease;
+}
+.feature-group:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-2px);
+}
+.feature-group-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(0, 194, 122, 0.1);
+  border: 1px solid rgba(0, 194, 122, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-bright);
+  font-family: var(--space);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+.feature-group-title {
+  font-family: var(--space);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.feature-list li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 13px;
+  margin-top: 1px;
+}
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.howitworks-section {
+  padding: 100px 0;
+}
+.howitworks-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.howitworks-header .eyebrow { margin-bottom: 20px; }
+.howitworks-header .h2 { margin-bottom: 16px; }
+
+.howitworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.howitworks-card {
+  position: relative;
+  padding: 32px 28px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.howitworks-num {
+  font-family: var(--space);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-glow);
+  margin-bottom: 18px;
+}
+.howitworks-title {
+  font-family: var(--space);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.howitworks-body {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 24, 36, 0.18) 100%);
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.faq-header .eyebrow { margin-bottom: 20px; }
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  transition: all 0.2s ease;
+}
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-item summary {
+  cursor: pointer;
+  padding: 24px 8px 24px 0;
+  font-family: var(--space);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  transition: color 0.2s ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item summary:hover { color: var(--green-bright); }
+.faq-answer {
+  padding: 0 0 28px 0;
+  color: var(--text-dim);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   CLOSE / FINAL CTA
+   ============================================================ */
+.close-section {
+  padding: 120px 0 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.close-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 194, 122, 0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.close-section .container { position: relative; z-index: 1; }
+.close-eyebrow { margin-bottom: 24px; }
+.close-headline {
+  font-family: var(--space);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.close-sub {
+  font-size: clamp(17px, 1.4vw, 19px);
+  color: var(--text-dim);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.55;
+}
+.close-cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-inner > span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer-links a:hover { color: var(--green-bright); }
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  .hero { padding: 120px 0 40px; }
+  .plan-card { padding: 32px 24px; }
+  .feature-groups { grid-template-columns: 1fr; }
+  .howitworks-grid { grid-template-columns: 1fr; }
+  .nav-inner { padding: 0 18px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span>DeskView AI</span>
+      <span class="logo-dot"></span>
+    </a>
+    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary">Book a demo</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow eyebrow reveal">
+        <span class="eyebrow-dot"></span>
+        PRICING
+      </div>
+      <h1 class="h1 reveal">One plan.<br><span class="grad">All the features.</span></h1>
+      <p class="hero-subhead reveal">Per-rooftop monthly subscription, scaled to your dealership size. No setup fees. No annual contracts. Cancel anytime.</p>
+      <div class="hero-cta-row reveal">
+        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get a quote in 15 minutes</a>
+        <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">See it live first</a>
+      </div>
+      <div class="hero-trust-line reveal">
+        <span class="dot">●</span>
+        NO SETUP FEE · NO PER-SEAT CHARGES · CANCEL ANYTIME
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIMPLE PLAN CARD
+     ============================================================ -->
+<section class="plan-section">
+  <div class="container">
+    <div class="plan-card reveal">
+      <div class="plan-name">DeskView Complete</div>
+      <div class="plan-tagline">Everything you need for your sales floor. <span class="grad">In one plan.</span></div>
+      <p class="plan-description">No tiered upsells. No "Pro" plan that locks AI behind a paywall. Every dealership using DeskView gets the same complete platform — real-time dashboards, AI coaching, mobile app, unlimited salespeople — at one monthly price scaled to your store.</p>
+
+      <div class="plan-price-row">
+        <div>
+          <div class="plan-price-label">MONTHLY PRICE</div>
+          <div class="plan-price-value">Tailored to your store</div>
+        </div>
+      </div>
+
+      <div class="plan-cta">
+        <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get my quote</a>
+        <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">Try the demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT'S INCLUDED
+     ============================================================ -->
+<section class="features-section">
+  <div class="container">
+    <div class="features-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>WHAT'S INCLUDED</div>
+      <h2 class="h2 reveal">Every feature.<br><span class="grad">For every dealer.</span></h2>
+      <p class="lede reveal">No "Pro tier" gotchas. No feature locked behind enterprise sales. One price, one platform, everything turned on from day one.</p>
+    </div>
+
+    <div class="feature-groups">
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">⚡</div>
+        <div class="feature-group-title">Real-Time Floor Operations</div>
+        <ul class="feature-list">
+          <li>Live UP queue with rep rotation</li>
+          <li>Sold notifications across the floor</li>
+          <li>Floor activity feed</li>
+          <li>Demo notification push system</li>
+          <li>SMS alerts to salespeople</li>
+        </ul>
+      </div>
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">📊</div>
+        <div class="feature-group-title">Performance Dashboards</div>
+        <ul class="feature-list">
+          <li>Dealer Principal store-wide view</li>
+          <li>Sales Manager daily briefing</li>
+          <li>Individual salesperson scorecards</li>
+          <li>MTD pace projections with glow celebrations</li>
+          <li>Vehicle mix breakdown (NEW · USED · CPO)</li>
+          <li>Year-to-date trending and goals</li>
+        </ul>
+      </div>
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">✦</div>
+        <div class="feature-group-title">AI Coaching &amp; Insights</div>
+        <ul class="feature-list">
+          <li>Daily AI Briefing (auto-generated each morning)</li>
+          <li>Personalized Game Plans per rep</li>
+          <li>AI Risk Analysis flags at-risk salespeople</li>
+          <li>Ask DeskView AI in natural language</li>
+          <li>Pace coaching, goal recommendations, deal triage</li>
+        </ul>
+      </div>
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">📱</div>
+        <div class="feature-group-title">Mobile-First</div>
+        <ul class="feature-list">
+          <li>Progressive Web App (iOS &amp; Android)</li>
+          <li>Installs to home screen like a native app</li>
+          <li>Push notifications</li>
+          <li>Built for one-tap floor use</li>
+          <li>Works on any modern smartphone</li>
+        </ul>
+      </div>
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">👥</div>
+        <div class="feature-group-title">Team &amp; Roles</div>
+        <ul class="feature-list">
+          <li>Unlimited salespeople — no per-seat fees</li>
+          <li>Dealer Principal, GM, Sales Manager, Greeter roles</li>
+          <li>Custom monthly unit + gross goals per rep</li>
+          <li>One-tap salesperson invites with credentials</li>
+          <li>Role-based dashboards and permissions</li>
+        </ul>
+      </div>
+
+      <div class="feature-group reveal">
+        <div class="feature-group-icon">🚀</div>
+        <div class="feature-group-title">Setup &amp; Support</div>
+        <ul class="feature-list">
+          <li>Same-day go-live, no consultants</li>
+          <li>No DMS integration required</li>
+          <li>Email support included</li>
+          <li>Onboarding walkthrough for your team</li>
+          <li>Ongoing feature updates included</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+<section class="howitworks-section">
+  <div class="container">
+    <div class="howitworks-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>HOW PRICING WORKS</div>
+      <h2 class="h2 reveal">Simple. <span class="grad">Honest.</span></h2>
+    </div>
+
+    <div class="howitworks-grid">
+      <div class="howitworks-card reveal">
+        <div class="howitworks-num">01</div>
+        <div class="howitworks-title">Per-rooftop subscription</div>
+        <div class="howitworks-body">Pricing scales with your dealership size. Single-store dealerships pay one rate. Multi-rooftop groups get volume pricing across stores.</div>
+      </div>
+      <div class="howitworks-card reveal">
+        <div class="howitworks-num">02</div>
+        <div class="howitworks-title">Monthly. No contracts.</div>
+        <div class="howitworks-body">Pay month-to-month. Cancel anytime with no penalty. No 3-year lock-ins like the legacy vendors. Try it for 30 days — if it doesn't move the needle, you're not stuck.</div>
+      </div>
+      <div class="howitworks-card reveal">
+        <div class="howitworks-num">03</div>
+        <div class="howitworks-title">Quote in 15 minutes</div>
+        <div class="howitworks-body">Tell us your store size, location count, and rough salesperson headcount. We'll send a tailored quote the same day. No "we'll get back to you in a week" runaround.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING FAQ
+     ============================================================ -->
+<section class="faq-section">
+  <div class="container-narrow">
+    <div class="faq-header">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>PRICING FAQ</div>
+      <h2 class="h2 reveal">Questions <span class="grad">we get a lot.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Why don't you publish your exact price?</summary>
+        <div class="faq-answer">
+          Because every dealership is different. A single-store used-car lot with 6 salespeople has different needs than a 3-rooftop new-car group running 40 reps. We give you an exact quote in our first 15-minute call rather than a public number that's either too high for small stores or undervalues what bigger dealers get. <strong>Most quotes land mid-range for typical car software.</strong> If you're hoping for a "guess the price" exercise — we're not built for that. Tell us your size, we'll tell you what it costs.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Is there a setup or onboarding fee?</summary>
+        <div class="faq-answer">
+          <strong>No.</strong> Your monthly subscription includes setup, onboarding, team invites, and walkthroughs. No "implementation services" line item. No consultant hours. You give us your team list and goals — we get you live the same day.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you charge per salesperson?</summary>
+        <div class="faq-answer">
+          <strong>No per-seat fees.</strong> Add as many salespeople as you want. Whether you have 8 reps or 80, the price is the same. We hate per-seat pricing — it punishes growing stores and creates weird incentives to limit team access.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Can I cancel anytime?</summary>
+        <div class="faq-answer">
+          Yes. <strong>Month-to-month, no contracts.</strong> If DeskView AI doesn't earn its keep at your store, cancel before your next billing date. No cancellation fee, no "early termination" trap, no salvage clause. The product has to be worth it every month or it isn't worth it at all.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do you offer multi-rooftop discounts?</summary>
+        <div class="faq-answer">
+          Yes. Dealer groups running 2+ rooftops get volume pricing. Discount tiers depend on store count and combined volume — mention you have multiple locations on your quote request and we'll structure pricing across the group.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Do I need to integrate with my DMS?</summary>
+        <div class="faq-answer">
+          <strong>No.</strong> DeskView AI works standalone with your team logging their own deals. Direct DMS integrations are on the roadmap based on customer demand — but you can be fully live and getting value without one. We sit alongside your DMS, not on top of it.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What payment methods do you accept?</summary>
+        <div class="faq-answer">
+          Credit card via Stripe for monthly auto-billing. For dealer groups or enterprise arrangements, ACH and invoiced billing are available — just mention it on your quote request.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What if I want to try it first?</summary>
+        <div class="faq-answer">
+          Two options: explore the public demo at <a href="https://app.deskview.ai/demo">app.deskview.ai/demo</a> (no signup required) to see exactly what your team will see. Or schedule a <strong>30-day pilot</strong> at your store to evaluate with your real deals and team. Pilot terms are part of the quote conversation.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Is support included?</summary>
+        <div class="faq-answer">
+          Yes. Email support is included in every plan. Multi-rooftop groups get priority response. Our goal is to over-answer questions quickly — you shouldn't have to file tickets to get help running your floor.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSE
+     ============================================================ -->
+<section class="close-section">
+  <div class="container">
+    <div class="close-eyebrow eyebrow reveal"><span class="eyebrow-dot"></span>GET YOUR QUOTE</div>
+    <h2 class="close-headline reveal">See the product. <br><span class="grad">Then see the price.</span></h2>
+    <p class="close-sub reveal">15-minute call. Real pricing tailored to your store. No "let me circle back with the team" runaround.</p>
+    <div class="close-cta-row reveal">
+      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Email sales@deskview.ai</a>
+      <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">See the live demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="https://app.deskview.ai/demo">See it live</a>
+      <a href="mailto:sales@deskview.ai">Sales</a>
+      <a href="mailto:support@deskview.ai">Support</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('in'), i * 40);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
