@@ -400,19 +400,20 @@ a:hover { opacity: .8; }
   transform: translateY(-2px);
 }
 .feature-group-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(0, 194, 122, 0.1);
-  border: 1px solid rgba(0, 194, 122, 0.3);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 194, 122, 0.08);
+  border: 1px solid rgba(0, 194, 122, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--green-bright);
-  font-family: var(--space);
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 18px;
+  margin: 0 auto 20px;
+}
+.feature-group-icon svg {
+  width: 22px;
+  height: 22px;
 }
 .feature-group-title {
   font-family: var(--space);
@@ -691,7 +692,6 @@ a:hover { opacity: .8; }
       <p class="hero-subhead reveal">Per-rooftop monthly subscription, scaled to your dealership size. No setup fees. No annual contracts. Cancel anytime.</p>
       <div class="hero-cta-row reveal">
         <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get a quote in 15 minutes</a>
-        <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">See it live first</a>
       </div>
       <div class="hero-trust-line reveal">
         <span class="dot">●</span>
@@ -720,7 +720,6 @@ a:hover { opacity: .8; }
 
       <div class="plan-cta">
         <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Get my quote</a>
-        <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">Try the demo</a>
       </div>
     </div>
   </div>
@@ -740,7 +739,9 @@ a:hover { opacity: .8; }
     <div class="feature-groups">
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">⚡</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
         <div class="feature-group-title">Real-Time Floor Operations</div>
         <ul class="feature-list">
           <li>Live UP queue with rep rotation</li>
@@ -752,7 +753,9 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">📊</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+        </div>
         <div class="feature-group-title">Performance Dashboards</div>
         <ul class="feature-list">
           <li>Dealer Principal store-wide view</li>
@@ -765,7 +768,9 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">✦</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 14.5 8.5 21 11 14.5 13.5 12 20 9.5 13.5 3 11 9.5 8.5 12 2"/></svg>
+        </div>
         <div class="feature-group-title">AI Coaching &amp; Insights</div>
         <ul class="feature-list">
           <li>Daily AI Briefing (auto-generated each morning)</li>
@@ -777,7 +782,9 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">📱</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><circle cx="12" cy="18" r="0.6" fill="currentColor"/></svg>
+        </div>
         <div class="feature-group-title">Mobile-First</div>
         <ul class="feature-list">
           <li>Progressive Web App (iOS &amp; Android)</li>
@@ -789,7 +796,9 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">👥</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <div class="feature-group-title">Team &amp; Roles</div>
         <ul class="feature-list">
           <li>Unlimited salespeople — no per-seat fees</li>
@@ -801,7 +810,9 @@ a:hover { opacity: .8; }
       </div>
 
       <div class="feature-group reveal">
-        <div class="feature-group-icon">🚀</div>
+        <div class="feature-group-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        </div>
         <div class="feature-group-title">Setup &amp; Support</div>
         <ul class="feature-list">
           <li>Same-day go-live, no consultants</li>
@@ -909,7 +920,7 @@ a:hover { opacity: .8; }
       <details class="faq-item reveal">
         <summary>What if I want to try it first?</summary>
         <div class="faq-answer">
-          Two options: explore the public demo at <a href="https://app.deskview.ai/demo">app.deskview.ai/demo</a> (no signup required) to see exactly what your team will see. Or schedule a <strong>30-day pilot</strong> at your store to evaluate with your real deals and team. Pilot terms are part of the quote conversation.
+          Every evaluation starts with a <strong>20-minute personalized demo</strong> — we walk you through the product with data shaped like your dealership, answer specific questions about your floor, and show exactly how it would fit. If you're a good fit, we'll set up a <strong>30-day pilot</strong> at your store with your real deals and team. Pilot terms are part of the quote conversation.
         </div>
       </details>
 
@@ -934,7 +945,6 @@ a:hover { opacity: .8; }
     <p class="close-sub reveal">15-minute call. Real pricing tailored to your store. No "let me circle back with the team" runaround.</p>
     <div class="close-cta-row reveal">
       <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20pricing%20quote&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20a%20pricing%20quote%20for%20my%20dealership.%0A%0ADealership%20name%3A%20%0AStore%20location%20count%3A%20%0AApprox%20salespeople%3A%20%0AMonthly%20unit%20volume%3A%20%0AMy%20role%3A%20%0ABest%20way%20to%20reach%20me%3A%20%0A%0AThanks!" class="btn btn-primary btn-lg">Email sales@deskview.ai</a>
-      <a href="https://app.deskview.ai/demo" class="btn btn-secondary btn-lg">See the live demo</a>
     </div>
   </div>
 </section>
@@ -947,7 +957,6 @@ a:hover { opacity: .8; }
     <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
     <div class="footer-links">
       <a href="/">Home</a>
-      <a href="https://app.deskview.ai/demo">See it live</a>
       <a href="mailto:sales@deskview.ai">Sales</a>
       <a href="mailto:support@deskview.ai">Support</a>
       <a href="/privacy">Privacy</a>
