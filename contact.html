@@ -361,9 +361,21 @@ a:hover { opacity: .8; }
 
 <section class="contact-form-wrap">
   <div class="container-narrow">
-    <form class="contact-form" id="contact-form" method="POST" action="REPLACE_WITH_FORMSPREE_ENDPOINT" novalidate>
+    <form class="contact-form" id="contact-form" method="POST" action="https://api.web3forms.com/submit" novalidate>
+      <!-- Web3Forms access key (replace with real key from web3forms.com) -->
+      <input type="hidden" name="access_key" value="f6c1d0f3-414e-4b35-a0d1-dd87727bc8ad">
+
+      <!-- Set the subject line for emails -->
+      <input type="hidden" name="subject" value="New lead from deskview.ai contact form">
+
+      <!-- Set the from name -->
+      <input type="hidden" name="from_name" value="DeskView AI Website">
+
+      <!-- Redirect target after success (we handle in JS instead) -->
+      <input type="hidden" name="redirect" value="false">
+
       <!-- Honeypot for spam protection -->
-      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
 
       <div class="form-grid">
 
@@ -508,30 +520,40 @@ const successEl = document.getElementById('form-success');
 const submitBtn = form.querySelector('.form-submit');
 
 form.addEventListener('submit', async (e) => {
-  // If action hasn't been configured, prevent submit and warn in console
-  if (form.action.includes('REPLACE_WITH_FORMSPREE_ENDPOINT')) {
-    e.preventDefault();
-    console.warn('Contact form: configure Formspree endpoint before going live');
+  e.preventDefault();
+
+  // If access key hasn't been set, prevent submit and warn
+  const accessKey = form.querySelector('input[name="access_key"]').value;
+  if (accessKey === 'WEB3FORMS_ACCESS_KEY_HERE' || !accessKey) {
+    console.warn('Contact form: Web3Forms access key not configured');
+    alert('Form is not yet configured. Please email sales@deskview.ai directly.');
     return;
   }
 
-  e.preventDefault();
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending…';
 
   const formData = new FormData(form);
+  const jsonObject = {};
+  formData.forEach((value, key) => { jsonObject[key] = value; });
+
   try {
     const response = await fetch(form.action, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(jsonObject)
     });
-    if (response.ok) {
+    const result = await response.json();
+
+    if (result.success) {
       // Fire GA4 conversion event
       if (typeof gtag === 'function') {
         gtag('event', 'contact_form_submit', {
           event_category: 'cta',
-          event_label: formData.get('interest') || 'Unknown',
+          event_label: jsonObject.interest || 'Unknown',
           page_path: window.location.pathname
         });
       }
@@ -539,9 +561,10 @@ form.addEventListener('submit', async (e) => {
       successEl.classList.add('visible');
       window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
     } else {
-      throw new Error('Server returned ' + response.status);
+      throw new Error(result.message || 'Submission failed');
     }
   } catch (err) {
+    console.error('Form submission error:', err);
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send message';
     alert('Something went wrong sending your message. Please email sales@deskview.ai directly and we\'ll respond ASAP.');
