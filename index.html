@@ -199,6 +199,14 @@
             "@type": "Answer",
             "text": "Yes. We use industry-standard encryption (TLS 1.3 in transit, encryption at rest), authentication on every request, and row-level security so each dealership only accesses its own data. We don't sell your data, share it with advertisers, or train third-party AI models on your dealership data. Full details in our Privacy Policy."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the Founding Dealer Program?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're partnering with a limited cohort of dealerships to refine DeskView AI alongside the floor managers and salespeople who actually use it. Founding dealers get lifetime pricing lock, direct access to the founder, and roadmap input including which DMS integrations we build first. Cohort is intentionally small."
+          }
         }
       ]
     }
@@ -449,6 +457,27 @@ section { position: relative; z-index: 2; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-link {
+  font-family: var(--inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: var(--text);
+}
+@media (max-width: 540px) {
+  .nav-right { gap: 14px; }
+  .nav-link { font-size: 13px; }
 }
 
 .logo {
@@ -879,10 +908,19 @@ section { position: relative; z-index: 2; }
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.18em;
-  color: var(--text-mute);
+  color: var(--green-bright);
   text-transform: uppercase;
-  font-weight: 500;
-  margin: 0 0 24px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+.social-strip-sublabel {
+  text-align: center;
+  font-family: var(--inter);
+  font-size: 13px;
+  color: var(--text-mute);
+  margin: 0 auto 28px;
+  max-width: 580px;
+  line-height: 1.55;
 }
 .social-strip-row {
   display: flex;
@@ -1325,9 +1363,8 @@ section { position: relative; z-index: 2; }
   }
 }
 
-/* Integrations — text strip below compare */
-.integrations-strip {
-  text-align: center;
+/* DMS Integrations Roadmap — substantial card grid */
+.dms-roadmap {
   margin-top: 56px;
   padding-top: 48px;
   border-top: 1px solid var(--line);
@@ -1335,47 +1372,95 @@ section { position: relative; z-index: 2; }
   margin-left: auto;
   margin-right: auto;
 }
-.integrations-strip-label {
+.dms-roadmap-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.dms-roadmap-eyebrow {
+  display: inline-block;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--text-mute);
+  letter-spacing: 0.2em;
+  color: var(--green-bright);
   text-transform: uppercase;
   font-weight: 600;
-  margin: 0 0 20px;
+  margin-bottom: 16px;
 }
-.integrations-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 14px;
-  margin-bottom: 20px;
+.dms-roadmap-title {
+  font-family: var(--display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  margin: 0 0 14px;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.2;
 }
-.integration-pill {
+.dms-roadmap-sub {
+  color: var(--text-dim);
+  font-size: 15px;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.dms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.dms-card {
   background: var(--surface);
   border: 1px solid var(--line);
-  color: var(--text-dim);
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-family: var(--display);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: all 0.25s ease;
 }
-.integration-pill.live {
-  color: var(--green-bright);
+.dms-card:hover {
   border-color: var(--line-bright);
-  background: rgba(0, 194, 122, 0.06);
+  background: var(--surface-elevated);
+  transform: translateY(-2px);
 }
-.integrations-note {
-  font-size: 14px;
+.dms-name {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.dms-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+}
+.dms-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green-glow);
+}
+.dms-note {
+  text-align: center;
   color: var(--text-dim);
+  font-size: 14px;
   line-height: 1.55;
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
 }
-.integrations-note strong { color: white; font-weight: 600; }
+.dms-note a { color: var(--green-bright); font-weight: 500; }
 
 /* ============================================================
    FAQ SECTION
@@ -1612,7 +1697,10 @@ section { position: relative; z-index: 2; }
       <span>DeskView AI</span>
       <span class="logo-dot"></span>
     </a>
-    <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary">Book a demo</a>
+    <div class="nav-right">
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="mailto:sales@deskview.ai?subject=DeskView%20AI%20demo%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20see%20DeskView%20AI%20in%20action.%0A%0ADealership%3A%20%0AMy%20role%3A%20%0ABest%20time%20to%20call%3A%20%0A%0AThanks!" class="btn btn-primary">Book a demo</a>
+    </div>
   </div>
 </nav>
 
@@ -1623,7 +1711,7 @@ section { position: relative; z-index: 2; }
   <div class="container">
     <div class="hero-eyebrow eyebrow reveal">
       <span class="eyebrow-dot"></span>
-      REAL-TIME DEALERSHIP INTELLIGENCE
+      THE AI-COACHED SALES FLOOR
     </div>
     <h1 class="h1 reveal">Your sales floor, <span class="grad">live in your pocket.</span></h1>
     <p class="hero-slogan reveal"><span class="grad">Real-time insight.</span> Real results.</p>
@@ -1729,7 +1817,8 @@ section { position: relative; z-index: 2; }
      ============================================================ -->
 <section class="social-strip">
   <div class="container">
-    <p class="social-strip-label reveal">BUILT FOR STORES LIKE YOURS</p>
+    <p class="social-strip-label reveal">IN ACTIVE PILOT · FOUNDING DEALER PROGRAM OPEN</p>
+    <p class="social-strip-sublabel reveal">Built alongside floor managers who actually use it. Limited cohort — lifetime pricing lock for founding dealers.</p>
     <div class="social-strip-row reveal">
       <div class="social-strip-item">
         <span class="social-strip-icon">
@@ -1941,18 +2030,41 @@ section { position: relative; z-index: 2; }
       <div class="compare-row"><div data-label="Category">Setup</div><div data-label="DMS">Months, with consultants</div><div data-label="DeskView AI">Days. No consultants.</div></div>
     </div>
 
-    <div class="integrations-strip reveal">
-      <p class="integrations-strip-label">INTEGRATES WITH YOUR STACK</p>
-      <div class="integrations-list">
-        <span class="integration-pill">Tekion</span>
-        <span class="integration-pill">Dealertrack</span>
-        <span class="integration-pill">Reynolds</span>
-        <span class="integration-pill">CDK Global</span>
-        <span class="integration-pill">VinSolutions</span>
-        <span class="integration-pill">eLead</span>
-        <span class="integration-pill live">Custom API · Available now</span>
+    <div class="dms-roadmap reveal">
+      <div class="dms-roadmap-header">
+        <span class="dms-roadmap-eyebrow">DMS INTEGRATIONS ROADMAP</span>
+        <h3 class="dms-roadmap-title">Built to work <span class="grad">with your stack.</span></h3>
+        <p class="dms-roadmap-sub">Standalone today — your team logs deals to get full floor intelligence. Direct DMS integrations on the roadmap, prioritized by what founding dealers actually use.</p>
       </div>
-      <p class="integrations-note">Direct integrations rolling out for the major DMS + CRM platforms. <strong>No API access? Works fully manually too</strong> — every screen, every feature.</p>
+
+      <div class="dms-grid">
+        <div class="dms-card">
+          <div class="dms-name">CDK Global</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+        <div class="dms-card">
+          <div class="dms-name">Reynolds &amp; Reynolds</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+        <div class="dms-card">
+          <div class="dms-name">Dealertrack</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+        <div class="dms-card">
+          <div class="dms-name">Tekion</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+        <div class="dms-card">
+          <div class="dms-name">DealerBuilt</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+        <div class="dms-card">
+          <div class="dms-name">PBS Systems</div>
+          <div class="dms-status">ON ROADMAP</div>
+        </div>
+      </div>
+
+      <p class="dms-note">Your DMS isn't here? <a href="mailto:sales@deskview.ai?subject=DMS%20integration%20priority%20request&amp;body=Hi%20DeskView%20team%2C%0A%0AOur%20dealership%20uses%20%5BDMS%20NAME%5D.%20I'd%20like%20to%20see%20this%20on%20the%20integration%20roadmap.%0A%0ADealership%3A%20%0AStores%3A%20%0A%0AThanks!">Tell us</a> — founding dealers vote on what we build first.</p>
     </div>
   </div>
 </section>
@@ -1992,7 +2104,7 @@ section { position: relative; z-index: 2; }
       <details class="faq-item reveal">
         <summary>What does pricing look like?</summary>
         <div class="faq-answer">
-          Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. Email <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> for an exact quote for your dealership.
+          Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. See the full breakdown on the <a href="/pricing">pricing page</a> or email <a href="mailto:sales@deskview.ai">sales@deskview.ai</a> for a quote tailored to your dealership.
         </div>
       </details>
 
@@ -2000,6 +2112,13 @@ section { position: relative; z-index: 2; }
         <summary>Can I try it before committing?</summary>
         <div class="faq-answer">
           Yes. You can preview the live demo right now at <a href="https://app.deskview.ai/demo">app.deskview.ai/demo</a> — no signup required. For a real pilot at your store, we offer a <strong>30-day evaluation period</strong>. Month-to-month means you're never locked in.
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>What's the Founding Dealer Program?</summary>
+        <div class="faq-answer">
+          We're partnering with a limited cohort of dealerships to refine DeskView AI alongside the floor managers and salespeople who actually use it. Founding dealers get <strong>lifetime pricing lock</strong> (their rate never goes up), <strong>direct access to the founder</strong> (no support ticket queue), and <strong>roadmap input</strong> — including which DMS integrations we build first. Cohort is intentionally small. <a href="mailto:sales@deskview.ai?subject=Founding%20Dealer%20Program%20interest&amp;body=Hi%20DeskView%20team%2C%0A%0AI'd%20like%20to%20learn%20more%20about%20the%20Founding%20Dealer%20Program.%0A%0ADealership%3A%20%0AStores%3A%20%0AMy%20role%3A%20%0A%0AThanks!">Get in touch</a> to discuss whether your store is a fit.
         </div>
       </details>
 
@@ -2064,6 +2183,7 @@ section { position: relative; z-index: 2; }
   <div class="footer-inner">
     <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
     <div class="footer-links">
+      <a href="/pricing">Pricing</a>
       <a href="https://app.deskview.ai/demo">See it live</a>
       <a href="mailto:sales@deskview.ai">Sales</a>
       <a href="mailto:support@deskview.ai">Support</a>
