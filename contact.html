@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0d14" />
+<title>Contact — DeskView AI · Get in touch</title>
+<meta name="description" content="Get in touch with DeskView AI — request a personalized demo, get pricing tailored to your dealership, or ask about the Founding Dealer Program." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://deskview.ai/contact" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLBSCSXLN8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FLBSCSXLN8');
+</script>
+
+<style>
+/* Accessibility — skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: 12px 18px;
+  background: #1ee98a;
+  color: #00210f;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: -4px;
+}
+
+:root {
+  --bg: #0a0d14;
+  --bg-2: #060912;
+  --surface: rgba(20, 24, 36, 0.55);
+  --surface-solid: #141826;
+  --surface-elevated: rgba(28, 33, 48, 0.6);
+  --line: rgba(255, 255, 255, 0.06);
+  --line-bright: rgba(255, 255, 255, 0.12);
+  --line-glow: rgba(255, 255, 255, 0.18);
+  --text: #ffffff;
+  --text-dim: rgba(220, 228, 240, 0.72);
+  --text-mute: rgba(170, 180, 200, 0.5);
+  --text-faint: rgba(140, 150, 170, 0.3);
+  --green: #00c27a;
+  --green-bright: #1ee98a;
+  --green-glow: rgba(30, 233, 138, 0.35);
+  --space: 'Space Grotesk', sans-serif;
+  --inter: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--inter);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--green-bright); text-decoration: none; transition: opacity .15s; }
+a:hover { opacity: .8; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container-narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 18px 0;
+  transition: all 0.25s ease;
+  background: rgba(10, 13, 20, 0);
+  backdrop-filter: blur(0);
+}
+.nav.scrolled {
+  background: rgba(10, 13, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--space); font-size: 18px; font-weight: 700;
+  color: white; letter-spacing: -0.01em;
+}
+.logo-dot {
+  width: 7px; height: 7px; border-radius: 999px;
+  background: var(--green); box-shadow: 0 0 10px var(--green-glow);
+}
+.nav-link {
+  font-family: var(--inter); font-size: 14px; font-weight: 500;
+  color: var(--text-dim); transition: color 0.2s ease;
+}
+.nav-link:hover { color: var(--text); opacity: 1; }
+
+/* Eyebrow + Headings */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 12px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-bright);
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--text-dim); letter-spacing: 0.18em; text-transform: uppercase;
+}
+.eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 999px;
+  background: var(--green); box-shadow: 0 0 8px var(--green-glow);
+}
+.h1 {
+  font-family: var(--space); font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+}
+.grad {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-bright) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero */
+.contact-hero {
+  padding: 140px 0 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%; transform: translateX(-50%);
+  width: 1000px; height: 600px;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0, 194, 122, 0.12) 0%, transparent 70%);
+  filter: blur(60px); pointer-events: none; z-index: 0;
+}
+.contact-hero .container-narrow { position: relative; z-index: 1; }
+.contact-hero .eyebrow { margin-bottom: 24px; }
+.contact-hero h1 { margin-bottom: 18px; }
+.contact-hero .lede {
+  font-size: clamp(16px, 1.4vw, 18px);
+  color: var(--text-dim); line-height: 1.55;
+  max-width: 580px; margin: 0 auto;
+}
+
+/* Form */
+.contact-form-wrap {
+  padding: 30px 0 100px;
+}
+.contact-form {
+  background: linear-gradient(180deg, rgba(20, 24, 36, 0.7) 0%, rgba(10, 13, 20, 0.7) 100%);
+  border: 1px solid var(--line-bright);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--green) 50%, transparent 100%);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.form-field { display: flex; flex-direction: column; }
+.form-field.full { grid-column: 1 / -1; }
+
+.form-label {
+  font-family: var(--inter); font-size: 13px; font-weight: 500;
+  color: var(--text); margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.form-label .required { color: var(--green-bright); margin-left: 2px; }
+.form-label .optional {
+  color: var(--text-faint); font-weight: 400; font-size: 12px;
+  margin-left: 6px; letter-spacing: 0.05em;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  font-family: var(--inter); font-size: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line-bright);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 10px;
+  width: 100%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--green-bright);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 194, 122, 0.12);
+}
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-faint); }
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath fill='none' stroke='%231ee98a' stroke-width='2' stroke-linecap='round' d='M1 1.5l5 5 5-5'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 14px) center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.form-select option { background: var(--surface-solid); color: var(--text); }
+
+.form-textarea { min-height: 96px; resize: vertical; font-family: var(--inter); }
+
+.form-submit-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; margin-top: 32px; flex-wrap: wrap;
+}
+.form-privacy {
+  font-size: 12px; color: var(--text-mute);
+  max-width: 400px; line-height: 1.5;
+}
+.form-privacy a { color: var(--text-dim); text-decoration: underline; }
+.form-submit {
+  background: var(--green); color: #00210f;
+  font-family: var(--inter); font-weight: 600; font-size: 15px;
+  padding: 14px 32px; border-radius: 10px; border: none;
+  cursor: pointer; transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+.form-submit:hover {
+  background: var(--green-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--green-glow);
+}
+.form-submit:disabled {
+  opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none;
+}
+
+/* Success state */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 60px 24px;
+}
+.form-success.visible { display: block; }
+.form-success-icon {
+  width: 56px; height: 56px; margin: 0 auto 24px;
+  border-radius: 999px;
+  background: rgba(0, 194, 122, 0.12);
+  border: 1px solid rgba(0, 194, 122, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green-bright);
+}
+.form-success-headline {
+  font-family: var(--space); font-size: 28px; font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.015em;
+}
+.form-success-message {
+  font-size: 16px; color: var(--text-dim); line-height: 1.6;
+  max-width: 480px; margin: 0 auto;
+}
+
+/* Trust row */
+.contact-trust-row {
+  margin-top: 36px; padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex; gap: 28px; justify-content: center; align-items: center;
+  flex-wrap: wrap;
+}
+.contact-trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.contact-trust-item::before {
+  content: '✓'; color: var(--green); font-weight: 700; font-size: 13px;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-inner > span {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.footer-links { display: flex; gap: 24px; align-items: center; }
+.footer-links a {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-mute); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.footer-links a:hover { color: var(--green-bright); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .contact-form { padding: 28px 22px; }
+  .form-submit-row { flex-direction: column-reverse; align-items: stretch; }
+  .form-submit { width: 100%; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span>DeskView AI</span>
+      <span class="logo-dot"></span>
+    </a>
+    <a href="/pricing" class="nav-link">Pricing</a>
+  </div>
+</nav>
+
+<section class="contact-hero" id="main">
+  <div class="container-narrow">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>GET IN TOUCH</div>
+    <h1 class="h1">Tell us about your <span class="grad">dealership.</span></h1>
+    <p class="lede" id="contact-lede">Share a few details and we'll respond within one business day with next steps — typically a 20-minute personalized demo where we show DeskView AI live and answer your specific questions.</p>
+  </div>
+</section>
+
+<section class="contact-form-wrap">
+  <div class="container-narrow">
+    <form class="contact-form" id="contact-form" method="POST" action="REPLACE_WITH_FORMSPREE_ENDPOINT" novalidate>
+      <!-- Honeypot for spam protection -->
+      <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+
+      <div class="form-grid">
+
+        <div class="form-field">
+          <label class="form-label" for="firstName">First name<span class="required">*</span></label>
+          <input class="form-input" type="text" id="firstName" name="firstName" required autocomplete="given-name" placeholder="George" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="lastName">Last name<span class="required">*</span></label>
+          <input class="form-input" type="text" id="lastName" name="lastName" required autocomplete="family-name" placeholder="Faria" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="email">Work email<span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" required autocomplete="email" placeholder="you@yourdealership.com" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone<span class="optional">OPTIONAL</span></label>
+          <input class="form-input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(407) 555-1234" />
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label" for="dealership">Dealership name<span class="required">*</span></label>
+          <input class="form-input" type="text" id="dealership" name="dealership" required autocomplete="organization" placeholder="ABC Motors of Orlando" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="role">Your role<span class="required">*</span></label>
+          <select class="form-select" id="role" name="role" required>
+            <option value="">Select your role…</option>
+            <option value="Dealer Principal">Dealer Principal / Owner</option>
+            <option value="General Manager">General Manager</option>
+            <option value="Sales Manager">Sales Manager</option>
+            <option value="Sales Director">Sales Director</option>
+            <option value="Other Manager">Other Manager</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="rooftops">Number of rooftops<span class="required">*</span></label>
+          <select class="form-select" id="rooftops" name="rooftops" required>
+            <option value="">Select…</option>
+            <option value="1">1 store</option>
+            <option value="2-3">2–3 stores</option>
+            <option value="4-9">4–9 stores</option>
+            <option value="10+">10+ stores</option>
+          </select>
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label" for="interest">What are you most interested in?<span class="required">*</span></label>
+          <select class="form-select" id="interest" name="interest" required>
+            <option value="">Select…</option>
+            <option value="Demo">Personalized demo</option>
+            <option value="Pricing">Pricing quote</option>
+            <option value="Founding Dealer Program">Founding Dealer Program</option>
+            <option value="DMS Integration">DMS integration timeline</option>
+            <option value="Multi-Rooftop">Multi-rooftop / dealer group inquiry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field full">
+          <label class="form-label" for="message">Anything we should know?<span class="optional">OPTIONAL</span></label>
+          <textarea class="form-textarea" id="message" name="message" rows="4" placeholder="Current pain points, what you're hoping DeskView solves, best time to reach you, etc."></textarea>
+        </div>
+
+      </div>
+
+      <div class="form-submit-row">
+        <p class="form-privacy">
+          We respond within one business day. Your information stays private — we never sell or share it. See our <a href="/privacy">Privacy Policy</a>.
+        </p>
+        <button type="submit" class="form-submit" data-track="contact_form_submit">Send message</button>
+      </div>
+
+      <div class="contact-trust-row">
+        <div class="contact-trust-item">One business-day response</div>
+        <div class="contact-trust-item">No spam, ever</div>
+        <div class="contact-trust-item">Founding dealer pricing</div>
+      </div>
+    </form>
+
+    <!-- Success state (shown after successful submit) -->
+    <div class="form-success" id="form-success">
+      <div class="form-success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2 class="form-success-headline">Got it. <span class="grad">Talk soon.</span></h2>
+      <p class="form-success-message">We received your message and will respond within one business day. Check your inbox for a confirmation, and keep an eye on your spam folder just in case.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+
+// Pre-fill interest dropdown + customize lede based on URL ?type= param
+(function preFillFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+  if (!type) return;
+  const interestField = document.getElementById('interest');
+  const ledeEl = document.getElementById('contact-lede');
+  const mapping = {
+    'demo': { value: 'Demo', lede: "Request a personalized 20-minute demo. Share a few details and we'll get back within one business day to schedule." },
+    'pricing': { value: 'Pricing', lede: "Get a pricing quote tailored to your dealership. Share a few details and we'll respond within one business day with numbers and next steps." },
+    'founding': { value: 'Founding Dealer Program', lede: "Interested in the Founding Dealer Program? Share a few details and we'll be in touch to discuss founding-dealer pricing, direct founder access, and roadmap input." },
+    'dms': { value: 'DMS Integration', lede: "Tell us about your DMS and we'll prioritize that integration on the roadmap. Founding dealers help shape what we build first." },
+    'multirooftop': { value: 'Multi-Rooftop', lede: "Running a dealer group? Share a few details and we'll be in touch about multi-rooftop visibility and group pricing." }
+  };
+  const match = mapping[type.toLowerCase()];
+  if (match) {
+    if (interestField) interestField.value = match.value;
+    if (ledeEl) ledeEl.textContent = match.lede;
+  }
+})();
+
+// Form submission with progressive enhancement
+const form = document.getElementById('contact-form');
+const successEl = document.getElementById('form-success');
+const submitBtn = form.querySelector('.form-submit');
+
+form.addEventListener('submit', async (e) => {
+  // If action hasn't been configured, prevent submit and warn in console
+  if (form.action.includes('REPLACE_WITH_FORMSPREE_ENDPOINT')) {
+    e.preventDefault();
+    console.warn('Contact form: configure Formspree endpoint before going live');
+    return;
+  }
+
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  const formData = new FormData(form);
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      // Fire GA4 conversion event
+      if (typeof gtag === 'function') {
+        gtag('event', 'contact_form_submit', {
+          event_category: 'cta',
+          event_label: formData.get('interest') || 'Unknown',
+          page_path: window.location.pathname
+        });
+      }
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+      window.scrollTo({ top: form.offsetTop - 100, behavior: 'smooth' });
+    } else {
+      throw new Error('Server returned ' + response.status);
+    }
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send message';
+    alert('Something went wrong sending your message. Please email sales@deskview.ai directly and we\'ll respond ASAP.');
+  }
+});
+</script>
+
+</body>
+</html>
