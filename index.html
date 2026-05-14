@@ -603,41 +603,73 @@ section { position: relative; z-index: 2; }
 }
 
 .mockup-mac {
-  background: linear-gradient(135deg, #1a2033 0%, #0a0d14 100%);
-  border: 1px solid var(--line-bright);
-  border-radius: 14px;
-  aspect-ratio: 16 / 9;
+  background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 16px 16px 44px;
   position: relative;
-  overflow: hidden;
-  transform: rotateX(8deg);
+  overflow: visible;
+  transform: rotateX(4deg);
   box-shadow:
     0 80px 160px rgba(0, 0, 0, 0.7),
-    0 40px 80px rgba(0, 194, 122, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 40px 80px rgba(0, 194, 122, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
+/* Tiny camera dot at top */
 .mockup-mac::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 36px;
-  background: linear-gradient(180deg, rgba(15, 22, 18, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
-  border-bottom: 1px solid var(--line);
-  z-index: 2;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  z-index: 3;
 }
+/* DeskView logo dot on the chin */
 .mockup-mac::after {
   content: '';
   position: absolute;
-  top: 14px; left: 16px;
-  width: 8px; height: 8px;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
   border-radius: 999px;
-  background: #ff5f57;
-  box-shadow: 16px 0 0 #febc2e, 32px 0 0 #28c840;
-  z-index: 3;
+  background: var(--brand);
+  opacity: 0.5;
+  box-shadow: 0 0 12px rgba(0, 194, 122, 0.4);
 }
 .mockup-mac-screen {
-  position: absolute;
-  top: 36px; left: 0; right: 0; bottom: 0;
+  position: relative;
+  background: var(--bg-2);
+  border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+/* iMac stand */
+.imac-stand {
+  width: 200px;
+  height: 56px;
+  margin: -2px auto 0;
+  background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
+  clip-path: polygon(22% 0%, 78% 0%, 100% 100%, 0% 100%);
+  position: relative;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+.imac-stand::after {
+  content: '';
+  position: absolute;
+  left: -60px;
+  right: -60px;
+  bottom: -4px;
+  height: 10px;
+  background: linear-gradient(180deg, #1a1d23 0%, #0a0d14 100%);
+  border-radius: 5px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 .screenshot-img {
   display: block;
@@ -738,6 +770,103 @@ section { position: relative; z-index: 2; }
   position: relative;
   height: 18px;
   margin-top: 14px;
+}
+
+/* ============================================================
+   AI CHAT SLIDES — rendered HTML, not screenshots
+   ============================================================ */
+.ai-chat-slide {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0a0d14 0%, #11141f 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 4% 6%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 3%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 4%;
+  flex-shrink: 0;
+}
+.ai-chat-spark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2) 0%, rgba(0, 194, 122, 0.15) 100%);
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bfa;
+  font-size: 18px;
+}
+.ai-chat-title {
+  color: var(--text);
+  font-weight: 600;
+  font-size: clamp(13px, 1.4vw, 17px);
+  letter-spacing: -0.01em;
+}
+.ai-chat-sub {
+  color: var(--text-faint);
+  font-size: clamp(10px, 1vw, 12px);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ai-chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.ai-chat-bubble {
+  font-size: clamp(11px, 1.15vw, 15px);
+  line-height: 1.55;
+  padding: 14px 18px;
+  border-radius: 14px;
+  max-width: 78%;
+}
+.ai-chat-bubble.user {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.9) 0%, rgba(99, 70, 240, 0.9) 100%);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.25);
+}
+.ai-chat-bubble.assistant {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  max-width: 90%;
+}
+.ai-chat-bubble.assistant strong {
+  color: #fff;
+  font-weight: 600;
+}
+.ai-chat-bubble.assistant .accent {
+  color: var(--brand);
+  font-weight: 600;
+}
+.ai-chat-bubble.assistant p {
+  margin: 0;
+}
+.ai-chat-bubble.assistant p + p {
+  margin-top: 10px;
+}
+.ai-chat-bubble.assistant em {
+  font-style: normal;
+  color: #fda4af;
+  font-weight: 500;
 }
 
 /* ============================================================
@@ -1517,28 +1646,81 @@ section { position: relative; z-index: 2; }
       <div class="mockup-mac">
         <div class="mockup-mac-screen">
           <div class="carousel" id="hero-carousel">
+            <!-- Slide 1: Dealer Principal Dashboard -->
             <div class="carousel-slide active" data-slide="0">
               <img src="/screenshots/dashboard-desktop.webp"
-                   alt="DeskView AI Dealer Principal dashboard: month-to-date 75 units and $280,150 gross with real-time MTD trending chart, vehicle mix breakdown (NEW 43, USED 28, CPO 4), units and gross goal progress vs $1.4M annual target, pace tracking, live UP queue (16 working), and built-in Ask DeskView AI assistant"
+                   alt="DeskView AI Dealer Principal dashboard: 75 units and $280,150 MTD gross, real-time trending chart, vehicle mix breakdown, pace tracking, and built-in AI assistant"
+                   class="screenshot-img"
                    loading="eager"
                    width="2005" height="1128" />
             </div>
+
+            <!-- Slide 2: Sales Manager Dashboard -->
             <div class="carousel-slide" data-slide="1">
               <img src="/screenshots/manager-dashboard.webp"
-                   alt="DeskView AI Sales Manager daily dashboard: today's pace (1 unit, $3,850 gross), Wednesday recap (5 units, $17.3k), hourly sales chart, AI Daily Briefing with rep-by-rep coaching insights, live UP queue, and one-tap Log Deal button for the floor"
+                   alt="DeskView AI Sales Manager daily dashboard: today's pace, Wednesday recap, hourly sales chart, AI daily briefing, and live UP queue"
+                   class="screenshot-img"
                    loading="lazy"
                    width="2208" height="1242" />
+            </div>
+
+            <!-- Slide 3: AI Chat - Team Performance -->
+            <div class="carousel-slide" data-slide="2">
+              <div class="ai-chat-slide" aria-label="AI conversation example: How is the team doing this month">
+                <div class="ai-chat-header">
+                  <div class="ai-chat-spark">✦</div>
+                  <div>
+                    <div class="ai-chat-title">Ask DeskView AI</div>
+                    <div class="ai-chat-sub">Real-time team intelligence</div>
+                  </div>
+                </div>
+                <div class="ai-chat-body">
+                  <div class="ai-chat-bubble user">How's the team doing this month?</div>
+                  <div class="ai-chat-bubble assistant">
+                    <p><strong>Solid start, but we need momentum.</strong></p>
+                    <p>MTD you're at <strong>75 units</strong> with <strong>$280k gross</strong> — only 21% to goal with half the month gone. Average gross is healthy at $3,735, and your new/used mix looks balanced (43/28/4).</p>
+                    <p><strong>Top 5 are carrying the load:</strong> Marcus leads with 16 units/$62k, Sarah's at 13/$50k, David 11/$42k. Jessica and Brandon both at 9 units round out your leaders.</p>
+                    <p><em>The concern:</em> Only 1 unit today so far. Need to push urgency — you've got $10k+ in recoverable gross sitting in 3 at-risk deals.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: AI Risk Analysis -->
+            <div class="carousel-slide" data-slide="3">
+              <div class="ai-chat-slide" aria-label="AI conversation example: Who is most at risk of missing goal">
+                <div class="ai-chat-header">
+                  <div class="ai-chat-spark">✦</div>
+                  <div>
+                    <div class="ai-chat-title">Ask DeskView AI</div>
+                    <div class="ai-chat-sub">Proactive risk detection</div>
+                  </div>
+                </div>
+                <div class="ai-chat-body">
+                  <div class="ai-chat-bubble user">Who's most at risk of missing goal?</div>
+                  <div class="ai-chat-bubble assistant">
+                    <p>Based on MTD performance, <strong>Brandon Kim and Jessica Williams</strong> are most at risk — both at 9 units with 16 days left in the month.</p>
+                    <p>If they maintain current pace, they'll finish around <strong>18 units</strong>. Their monthly goal is 14, so they should land it — but barely. <em>One slow week and they miss.</em></p>
+                    <p>Marcus and Sarah are tracking strong. Worth checking if Brandon or Jessica need floor help, or have deals stuck in F&I you can unblock.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="imac-stand" aria-hidden="true"></div>
       <div class="carousel-captions-wrap">
         <span class="carousel-caption active" data-caption="0">DEALER PRINCIPAL · STORE-WIDE INTELLIGENCE</span>
         <span class="carousel-caption" data-caption="1">SALES MANAGER · DAILY FLOOR BRIEFING</span>
+        <span class="carousel-caption" data-caption="2">ASK AI · INSTANT TEAM INSIGHTS</span>
+        <span class="carousel-caption" data-caption="3">AI COACHING · PROACTIVE RISK ALERTS</span>
       </div>
       <div class="carousel-controls" role="tablist" aria-label="Product views">
         <button class="carousel-dot active" data-target="0" role="tab" aria-label="Dealer Principal dashboard" aria-selected="true"></button>
         <button class="carousel-dot" data-target="1" role="tab" aria-label="Sales Manager dashboard" aria-selected="false"></button>
+        <button class="carousel-dot" data-target="2" role="tab" aria-label="AI team insights" aria-selected="false"></button>
+        <button class="carousel-dot" data-target="3" role="tab" aria-label="AI risk analysis" aria-selected="false"></button>
       </div>
     </div>
   </div>
