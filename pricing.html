@@ -310,26 +310,13 @@ section { position: relative; z-index: 2; }
   flex-direction: column;
 }
 .plan-card:hover {
-  border-color: var(--line-bright);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-}
-.plan-card.featured {
-  border-color: var(--green-line);
-  background: linear-gradient(180deg, rgba(0, 194, 122, 0.04) 0%, var(--surface) 100%);
-  box-shadow: 0 0 0 1px var(--green-line), 0 0 40px -10px var(--green-glow);
-}
-.plan-card.featured:hover {
   border-color: var(--green);
-  box-shadow: 0 0 0 1px var(--green), 0 0 50px -10px var(--green-glow), 0 12px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 30px -8px var(--green-glow);
 }
 .plan-card.solo {
   border-color: var(--purple-line);
   background: linear-gradient(180deg, rgba(124, 92, 255, 0.04) 0%, var(--surface) 100%);
-}
-.plan-card.solo:hover {
-  border-color: var(--purple);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 30px -8px var(--purple-glow);
 }
 
 /* Featured badge */
