@@ -7,7 +7,7 @@
 
 <!-- Primary SEO -->
 <title>Pricing — DeskView AI</title>
-<meta name="description" content="DeskView AI pricing. Personal plan for individual salespeople ($19/mo). Custom plans for dealerships, sales managers, and greeter stations." />
+<meta name="description" content="DeskView AI pricing. Personal plan for individual salespeople ($19/mo). Custom plans for dealerships, sales managers, and NextUp digital greeter stations." />
 <meta name="keywords" content="dealership software pricing, car sales app pricing, dealer principal software cost, sales coaching subscription, dealership AI pricing" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://deskview.ai/pricing" />
@@ -564,12 +564,7 @@ section { position: relative; z-index: 2; }
   text-transform: uppercase;
 }
 
-@media (max-width: 720px) {
-  .compare-table-wrap { display: none; }
-  .compare-mobile { display: block; }
-}
-
-/* Mobile-only stacked comparison */
+/* Mobile-only stacked comparison — base hidden, shown via media query below */
 .compare-mobile {
   display: none;
   max-width: 520px;
@@ -641,6 +636,12 @@ section { position: relative; z-index: 2; }
   opacity: 0.75;
   letter-spacing: 0.04em;
   font-weight: 400;
+}
+
+/* Mobile: hide the desktop table, show the stacked compare */
+@media (max-width: 720px) {
+  .compare-table-wrap { display: none; }
+  .compare-mobile { display: block; }
 }
 
 /* ============================================================
@@ -976,7 +977,7 @@ section { position: relative; z-index: 2; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Daily Briefing, store-wide</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler for every rep</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk + opportunity engine</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live UP queue + sold notifications</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>NextUp queue + sold notifications</li>
 
           <li class="plan-features-group-label">Premium support</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Multi-rooftop (Q3 2026)</li>
@@ -1064,7 +1065,7 @@ section { position: relative; z-index: 2; }
 
         <ul class="plan-features">
           <li class="plan-features-group-label">Floor operations</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live UP queue (rotation, on-deck, working)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live UP rotation (on-deck, working, sold)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Greeter mode (tablet-optimized)</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Per-rep tracking + assignment</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live floor activity feed</li>
@@ -1132,14 +1133,7 @@ section { position: relative; z-index: 2; }
             <td><span class="dash">—</span></td>
           </tr>
           <tr>
-            <td class="feature-name">Live UP queue</td>
-            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
-            <td><span class="dash">—</span></td>
-            <td><span class="dash">—</span></td>
-            <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
-          </tr>
-          <tr>
-            <td class="feature-name">Greeter station mode</td>
+            <td class="feature-name">NextUp <small style="color: var(--text-mute); font-weight: 400;">(live rotation + greeter mode)</small></td>
             <td><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span></td>
             <td><span class="dash">—</span></td>
             <td><span class="dash">—</span></td>
@@ -1244,16 +1238,7 @@ section { position: relative; z-index: 2; }
         </div>
       </div>
       <div class="compare-row">
-        <h4 class="compare-row-title">Live UP queue</h4>
-        <div class="compare-row-plans">
-          <span class="cp on">Store</span>
-          <span class="cp off">DP/GM</span>
-          <span class="cp off">Sales</span>
-          <span class="cp on">NextUp</span>
-        </div>
-      </div>
-      <div class="compare-row">
-        <h4 class="compare-row-title">Greeter station mode</h4>
+        <h4 class="compare-row-title">NextUp <span style="color: var(--text-mute); font-weight: 400; font-size: 12px;">(live rotation + greeter mode)</span></h4>
         <div class="compare-row-plans">
           <span class="cp on">Store</span>
           <span class="cp off">DP/GM</span>
