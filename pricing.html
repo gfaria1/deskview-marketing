@@ -879,18 +879,16 @@ section { position: relative; z-index: 2; }
   <div class="container">
     <div class="plans-grid">
 
-      <!-- 1. STORE (featured) -->
-      <div class="plan-card featured reveal">
-        <span class="plan-badge">Most Complete</span>
-
+      <!-- 1. STORE -->
+      <div class="plan-card reveal">
         <h3 class="plan-name">Store</h3>
         <p class="plan-tagline">Everything. Every role. One platform.</p>
 
         <p class="plan-price-custom">Custom</p>
         <p class="plan-price-custom-note">Flat per-store. No per-user fees.</p>
 
-        <a href="/contact?type=demo" class="plan-cta primary" data-track="quote_store">
-          Talk to sales →
+        <a href="/contact?type=demo" class="plan-cta secondary" data-track="quote_store">
+          Contact sales →
         </a>
 
         <ul class="plan-features">
@@ -900,9 +898,9 @@ section { position: relative; z-index: 2; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited salesperson seats</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>NextUp stations included</li>
 
-          <li class="plan-features-group-label">AI everywhere</li>
+          <li class="plan-features-group-label">AI features</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Daily Briefing, store-wide</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white;">AI Objection Handler</strong> for every rep</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler for every rep</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Risk + opportunity engine</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live UP queue + sold notifications</li>
 
@@ -960,7 +958,7 @@ section { position: relative; z-index: 2; }
 
         <ul class="plan-features">
           <li class="plan-features-group-label">On the floor</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><strong style="color:white;">AI Objection Handler</strong> — live deal-saving coaching</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler — live deal-saving coaching</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Ask DeskView AI — about your performance</li>
 
           <li class="plan-features-group-label">Your AI coach</li>
@@ -981,7 +979,7 @@ section { position: relative; z-index: 2; }
       <!-- 4. NEXTUP (formerly Greeter Station) -->
       <div class="plan-card reveal">
         <h3 class="plan-name">NextUp</h3>
-        <p class="plan-tagline">Run your floor like clockwork.</p>
+        <p class="plan-tagline">Digital greeter station. Run your floor like clockwork.</p>
 
         <p class="plan-price-custom">Custom</p>
         <p class="plan-price-custom-note">Per-station pricing.</p>
@@ -1024,7 +1022,7 @@ section { position: relative; z-index: 2; }
         <thead>
           <tr>
             <th></th>
-            <th class="col-featured">Store</th>
+            <th>Store</th>
             <th>DP / GM</th>
             <th>Salesperson</th>
             <th>NextUp</th>
@@ -1236,7 +1234,11 @@ section { position: relative; z-index: 2; }
       <h3 id="waitlistTitle">Be the first to know.</h3>
       <p>Drop your email and you'll be the first to know when DeskView AI opens the standalone Salesperson plan.</p>
 
-      <form id="waitlistForm" action="/api/waitlist" method="POST">
+      <!-- FormSubmit endpoint — replace YOUR_EMAIL@deskview.ai with your real address.
+           After your first test submission, FormSubmit will email you a confirmation link.
+           Click it to activate. They'll also send you a random-string alias URL you can
+           swap in for the raw email (better spam protection). -->
+      <form id="waitlistForm" action="https://formsubmit.co/ajax/YOUR_EMAIL@deskview.ai" method="POST">
         <input type="hidden" name="plan" value="salesperson" />
         <input type="hidden" name="source" value="pricing_page" />
         <div class="form-field">
@@ -1306,15 +1308,20 @@ form.addEventListener('submit', async (e) => {
   try {
     const res = await fetch(form.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify({
         email,
         plan: data.get('plan'),
         source: data.get('source'),
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        _subject: '🎉 New Salesperson waitlist signup',
+        _captcha: 'false'
       })
     });
-    // Even if the endpoint isn't built yet, we show success — replace with proper handling once /api/waitlist exists
+    // FormSubmit returns { success: 'true' } on a successful AJAX submission
   } catch (err) {
     // Silently degrade — user still sees success
   }
