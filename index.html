@@ -807,27 +807,35 @@ section { position: relative; z-index: 2; }
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-top: 28px;
-  flex-wrap: wrap;
+  margin: 40px auto 0;
+  padding: 10px 18px;
+  background: rgba(20, 24, 36, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  width: fit-content;
+  position: relative;
+  z-index: 5;
 }
 .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.35);
   border: none;
   padding: 0;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.6);
   transform: scale(1.2);
 }
 .carousel-dot.active {
-  background: var(--brand);
-  width: 28px;
-  box-shadow: 0 0 14px rgba(0, 194, 122, 0.6);
+  background: var(--green-bright);
+  width: 22px;
+  box-shadow: 0 0 12px rgba(0, 194, 122, 0.6);
 }
 .carousel-caption {
   position: absolute;
@@ -838,7 +846,7 @@ section { position: relative; z-index: 2; }
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: rgba(255, 255, 255, 0.78);
   opacity: 0;
   transition: opacity 0.4s ease;
   white-space: nowrap;
@@ -850,7 +858,8 @@ section { position: relative; z-index: 2; }
 .carousel-captions-wrap {
   position: relative;
   height: 18px;
-  margin-top: 14px;
+  margin-top: 32px;
+  z-index: 5;
 }
 
 /* ============================================================
@@ -1230,7 +1239,7 @@ section { position: relative; z-index: 2; }
 .ai-visual-phone {
   width: 280px;
   margin: 0 auto;
-  aspect-ratio: 390 / 681;
+  aspect-ratio: 1284 / 2778;
   background: #000;
   border: 2px solid var(--line-bright);
   border-radius: 36px;
@@ -1246,6 +1255,63 @@ section { position: relative; z-index: 2; }
   overflow: hidden;
   position: relative;
 }
+
+/* Phone carousel — multi-slide inside the iPhone */
+.phone-carousel { position: absolute; inset: 0; }
+.phone-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.phone-slide.active { opacity: 1; pointer-events: auto; }
+.phone-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.phone-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.phone-dot {
+  width: 7px; height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.phone-dot:hover { background: rgba(255, 255, 255, 0.5); }
+.phone-dot.active {
+  background: var(--purple);
+  width: 22px;
+  box-shadow: 0 0 10px rgba(124, 92, 255, 0.5);
+}
+.phone-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  height: 14px;
+  position: relative;
+}
+.phone-caption span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+}
+.phone-caption span.active { opacity: 1; }
 
 .ai-risk-block {
   margin-top: 56px;
@@ -2097,16 +2163,36 @@ section { position: relative; z-index: 2; }
       <div class="reveal">
         <div class="ai-visual-phone">
           <div class="ai-visual-phone-screen">
-            <img src="/screenshots/salesperson-today.webp"
-                 alt="DeskView AI running on iPhone — real-time month-to-date performance with unit and gross progress bars showing over-goal celebration glow, on-pace projections, and built-in AI assistant. Installs as a Progressive Web App (PWA) so it lives on the home screen like a native app."
-                 class="screenshot-img"
-                 loading="lazy"
-                 width="390" height="681"
-                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
-            <div class="screenshot-placeholder" style="display:none;">
-              SALESPERSON-TODAY.PNG
+            <div class="phone-carousel" id="phoneCarousel">
+              <div class="phone-slide active">
+                <img src="/screenshots/salesperson-today-gameplan.webp"
+                     alt="DeskView AI on iPhone — salesperson Today view with personalized AI Game Plan: $13,700 gross today, 3 units, #1 of 30, 15-day streak, 96.4 CSI"
+                     loading="lazy" />
+              </div>
+              <div class="phone-slide">
+                <img src="/screenshots/salesperson-performance.webp"
+                     alt="Salesperson MTD performance — 31 units against 14-unit goal (221% of goal), $127,750 gross"
+                     loading="lazy" />
+              </div>
+              <div class="phone-slide">
+                <img src="/screenshots/csi-score.webp"
+                     alt="CSI customer satisfaction score 96.4% (above 92% goal)"
+                     loading="lazy" />
+              </div>
             </div>
           </div>
+        </div>
+
+        <!-- Dots beneath the phone, inside the column -->
+        <div class="phone-dots" role="tablist" aria-label="Salesperson screens">
+          <button class="phone-dot active" data-target="0" aria-label="Today"></button>
+          <button class="phone-dot" data-target="1" aria-label="Performance"></button>
+          <button class="phone-dot" data-target="2" aria-label="CSI"></button>
+        </div>
+        <div class="phone-caption">
+          <span class="active" data-cap="0">TODAY · GAME PLAN</span>
+          <span data-cap="1">MTD · PERFORMANCE</span>
+          <span data-cap="2">CSI · CUSTOMER SCORE</span>
         </div>
       </div>
     </div>
@@ -2485,8 +2571,60 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
 // ============================================================
-// CONVERSION TRACKING — measure CTA clicks for funnel analysis
+// PHONE CAROUSEL — multi-slide salesperson screens (AI section)
 // ============================================================
+(() => {
+  const carousel = document.getElementById('phoneCarousel');
+  if (!carousel) return;
+
+  const slides = [...carousel.querySelectorAll('.phone-slide')];
+  const dots = [...document.querySelectorAll('.phone-dot')];
+  const captions = [...document.querySelectorAll('.phone-caption span')];
+  if (slides.length < 2) return;
+
+  let current = 0;
+  let timer = null;
+  const ROTATION_MS = 4500;
+
+  function goTo(n) {
+    n = ((n % slides.length) + slides.length) % slides.length;
+    if (n === current) return;
+    slides[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
+    captions[current]?.classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current]?.classList.add('active');
+    captions[current]?.classList.add('active');
+  }
+
+  function startAuto() { stopAuto(); timer = setInterval(() => goTo(current + 1), ROTATION_MS); }
+  function stopAuto() { if (timer) clearInterval(timer); timer = null; }
+
+  dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); startAuto(); }));
+
+  // Pause on hover (desktop) or while scrolled off-screen
+  const phone = carousel.closest('.ai-visual-phone');
+  phone?.addEventListener('mouseenter', stopAuto);
+  phone?.addEventListener('mouseleave', startAuto);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto(); else startAuto();
+  });
+
+  // Swipe support on the phone screen
+  let touchX = null;
+  carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    touchX = null;
+    startAuto();
+  }, { passive: true });
+
+  startAuto();
+})();
 document.addEventListener('click', (e) => {
   const trackable = e.target.closest('[data-track]');
   if (!trackable) return;
