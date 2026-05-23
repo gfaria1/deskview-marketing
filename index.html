@@ -505,9 +505,18 @@ section { position: relative; z-index: 2; }
 .nav-link:hover {
   color: var(--text);
 }
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+  .nav-inner { padding: 13px 18px; gap: 12px; }
+  .logo { font-size: 17px; white-space: nowrap; flex-shrink: 0; }
+  .logo-dot { width: 7px; height: 7px; box-shadow: 0 0 7px var(--green-glow); margin-bottom: 1px; }
   .nav-right { gap: 14px; }
   .nav-link { font-size: 13px; }
+  .nav .btn-primary { padding: 9px 15px; font-size: 13px; white-space: nowrap; border-radius: 11px; }
+}
+@media (max-width: 400px) {
+  .nav-right { gap: 11px; }
+  .nav-link { font-size: 12.5px; }
+  .nav .btn-primary { padding: 8px 13px; font-size: 12.5px; }
 }
 
 .logo {
@@ -853,6 +862,21 @@ section { position: relative; z-index: 2; }
   margin-top: 32px;
   z-index: 5;
 }
+
+/* ============================================================
+   HERO PHONE — modern iPhone frame (store view), tilt + glow
+   ============================================================ */
+.dv-phone-stage{perspective:1400px;perspective-origin:50% 28%;margin:8px auto 0;display:flex;justify-content:center;position:relative;}
+.dv-phone-glow{position:absolute;width:320px;height:320px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.28;top:6%;z-index:0;animation:dv-glow 6s ease-in-out infinite;}
+@keyframes dv-glow{0%,100%{opacity:0.2;transform:scale(0.94);}50%{opacity:0.36;transform:scale(1.06);}}
+.dv-phone{position:relative;z-index:1;width:300px;padding:8px;border-radius:50px;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 40px 90px rgba(0,0,0,0.6),0 1px 2px rgba(255,255,255,0.10),inset 0 0 0 1px rgba(255,255,255,0.12),inset 0 0 0 5px #050609;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) translateY(var(--py,0px));will-change:transform;}
+.dv-phone-sheen{position:absolute;inset:0;border-radius:50px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
+.dv-island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#000;border-radius:13px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
+.dv-carousel{display:grid;width:100%;align-items:start;}
+.dv-carousel .carousel-slide{position:relative;grid-area:1/1;inset:auto;opacity:0;pointer-events:none;transition:opacity .9s ease;}
+.dv-carousel .carousel-slide.active{opacity:1;pointer-events:auto;}
+.dv-carousel .carousel-slide img{width:100%;height:auto;display:block;object-fit:fill;}
+@media(prefers-reduced-motion:reduce){.dv-phone{transform:none!important;}.dv-phone-glow{animation:none;}.dv-phone-sheen{display:none;}}
 
 /* ============================================================
    AI CHAT SLIDES — rendered HTML, not screenshots
@@ -1925,84 +1949,36 @@ section { position: relative; z-index: 2; }
     </div>
 
     <div class="hero-mockup-wrap reveal">
-      <div class="mockup-mac">
-        <div class="mockup-mac-screen">
-          <div class="carousel" id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="DeskView AI product showcase">
-            <!-- Slide 1: Dealer Principal Dashboard -->
-            <div class="carousel-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 4: Dealer Principal dashboard">
-              <img src="/screenshots/dashboard-desktop.webp"
-                   alt="DeskView AI Dealer Principal dashboard: 75 units and $280,150 MTD gross, real-time trending chart, vehicle mix breakdown, pace tracking, and built-in AI assistant"
-                   class="screenshot-img"
-                   loading="eager"
-                   width="2033" height="1128" />
-            </div>
-
-            <!-- Slide 2: Sales Manager Dashboard -->
-            <div class="carousel-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 4: Sales Manager dashboard">
-              <img src="/screenshots/manager-dashboard.webp"
-                   alt="DeskView AI Sales Manager daily dashboard: today's pace, Wednesday recap, hourly sales chart, AI daily briefing, and live UP queue"
-                   class="screenshot-img"
-                   loading="lazy"
-                   width="2269" height="1242" />
-            </div>
-
-            <!-- Slide 3: AI Chat - Team Performance -->
-            <div class="carousel-slide" data-slide="2" role="group" aria-roledescription="slide" aria-label="Slide 3 of 4: AI conversation about team performance">
-              <div class="ai-chat-slide" aria-label="AI conversation example: How is the team doing this month">
-                <div class="ai-chat-header">
-                  <div class="ai-chat-spark">✦</div>
-                  <div>
-                    <div class="ai-chat-title">Ask DeskView AI</div>
-                    <div class="ai-chat-sub">Real-time team intelligence</div>
-                  </div>
-                </div>
-                <div class="ai-chat-body">
-                  <div class="ai-chat-bubble user">How's the team doing this month?</div>
-                  <div class="ai-chat-bubble assistant">
-                    <p><strong>Solid start, but we need momentum.</strong></p>
-                    <p>MTD you're at <strong>75 units</strong> with <strong>$280k gross</strong> — only 21% to goal with half the month gone. Average gross is healthy at $3,735, and your new/used mix looks balanced (43/28/4).</p>
-                    <p><strong>Top 5 are carrying the load:</strong> Marcus leads with 16 units/$62k, Sarah's at 13/$50k, David 11/$42k. Jessica and Brandon both at 9 units round out your leaders.</p>
-                    <p><em>The concern:</em> Only 1 unit today so far. Need to push urgency — you've got $10k+ in recoverable gross sitting in 3 at-risk deals.</p>
-                  </div>
-                </div>
+      <div class="dv-phone-stage">
+        <div class="dv-phone-glow"></div>
+        <div class="dv-phone">
+          <div class="dv-phone-sheen"></div>
+          <div class="dv-island"></div>
+          <div class="device-screen" style="width:100%; border-radius:42px; overflow:hidden; background:#05060a; position:relative;">
+            <div class="dv-carousel" id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="DeskView AI store product showcase">
+              <!-- Slide 1: Dealer Principal mobile home -->
+              <div class="carousel-slide active" data-slide="0" role="group" aria-roledescription="slide" aria-label="Slide 1 of 2: Dealer Principal store dashboard">
+                <img src="/screenshots/dp-home-mobile.webp"
+                     alt="DeskView AI Dealer Principal store view: 55 units and $208,600 total gross this week, new/used/CPO mix, weekly trend, and built-in AI assistant"
+                     loading="eager" width="820" height="1774" />
               </div>
-            </div>
-
-            <!-- Slide 4: AI Risk Analysis -->
-            <div class="carousel-slide" data-slide="3" role="group" aria-roledescription="slide" aria-label="Slide 4 of 4: AI conversation about at-risk salespeople">
-              <div class="ai-chat-slide" aria-label="AI conversation example: Who is most at risk of missing goal">
-                <div class="ai-chat-header">
-                  <div class="ai-chat-spark">✦</div>
-                  <div>
-                    <div class="ai-chat-title">Ask DeskView AI</div>
-                    <div class="ai-chat-sub">Proactive risk detection</div>
-                  </div>
-                </div>
-                <div class="ai-chat-body">
-                  <div class="ai-chat-bubble user">Who's most at risk of missing goal?</div>
-                  <div class="ai-chat-bubble assistant">
-                    <p>Based on MTD performance, <strong>Brandon Kim and Jessica Williams</strong> are most at risk — both at 9 units with 16 days left in the month.</p>
-                    <p>If they maintain current pace, they'll finish around <strong>18 units</strong>. Their monthly goal is 14, so they should land it — but barely. <em>One slow week and they miss.</em></p>
-                    <p>Marcus and Sarah are tracking strong. Worth checking if Brandon or Jessica need floor help, or have deals stuck in F&I you can unblock.</p>
-                  </div>
-                </div>
+              <!-- Slide 2: Dealer Principal mobile deals -->
+              <div class="carousel-slide" data-slide="1" role="group" aria-roledescription="slide" aria-label="Slide 2 of 2: live deal log">
+                <img src="/screenshots/dp-deals-mobile.webp"
+                     alt="DeskView AI live deal log: 15 units and $59.0k gross today, deals by rep and source with front and back gross"
+                     loading="lazy" width="820" height="1774" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="laptop-base" aria-hidden="true"></div>
       <div class="carousel-captions-wrap">
-        <span class="carousel-caption active" data-caption="0">DEALER PRINCIPAL · STORE-WIDE INTELLIGENCE</span>
-        <span class="carousel-caption" data-caption="1">SALES MANAGER · DAILY FLOOR BRIEFING</span>
-        <span class="carousel-caption" data-caption="2">ASK AI · INSTANT TEAM INSIGHTS</span>
-        <span class="carousel-caption" data-caption="3">AI COACHING · PROACTIVE RISK ALERTS</span>
+        <span class="carousel-caption active" data-caption="0">DEALER PRINCIPAL · STORE-WIDE PACE</span>
+        <span class="carousel-caption" data-caption="1">DEALS · LIVE DEAL LOG</span>
       </div>
       <div class="carousel-controls" role="tablist" aria-label="Product views">
         <button class="carousel-dot active" data-target="0" role="tab" aria-label="Dealer Principal dashboard" aria-selected="true"></button>
-        <button class="carousel-dot" data-target="1" role="tab" aria-label="Sales Manager dashboard" aria-selected="false"></button>
-        <button class="carousel-dot" data-target="2" role="tab" aria-label="AI team insights" aria-selected="false"></button>
-        <button class="carousel-dot" data-target="3" role="tab" aria-label="AI risk analysis" aria-selected="false"></button>
+        <button class="carousel-dot" data-target="1" role="tab" aria-label="Live deal log" aria-selected="false"></button>
       </div>
     </div>
   </div>
@@ -2551,6 +2527,45 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }, { passive: true });
 
   startAuto();
+})();
+
+// ============================================================
+// HERO PHONE — 3D tilt (cursor + scroll) + sheen
+// ============================================================
+(() => {
+  const phone = document.querySelector('.dv-phone');
+  if (!phone) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sheen = phone.querySelector('.dv-phone-sheen');
+  let trx = 0, trz = 0, mx = 0, scroll = 0;
+  let rx = 0, rz = 0, py = 0, t = 0;
+  function onMouse(e){
+    const r = phone.getBoundingClientRect();
+    mx = (e.clientX - (r.left + r.width/2)) / (window.innerWidth/2);
+    const my = (e.clientY - (r.top + r.height/2)) / (window.innerHeight/2);
+    trx = Math.max(-1, Math.min(1, -my)) * 6;
+    trz = Math.max(-1, Math.min(1, mx)) * 6;
+  }
+  function onScroll(){
+    const r = phone.getBoundingClientRect();
+    scroll = Math.max(-1, Math.min(1, (window.innerHeight/2 - (r.top + r.height/2)) / window.innerHeight));
+  }
+  function loop(){
+    t += 0.016;
+    const float = Math.sin(t * 0.8) * 1.2;
+    rx += ((trx + scroll * 4 + float) - rx) * 0.08;
+    rz += (trz - rz) * 0.08;
+    py += ((-scroll * 6) - py) * 0.08;
+    phone.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+    phone.style.setProperty('--rz', rz.toFixed(2) + 'deg');
+    phone.style.setProperty('--py', py.toFixed(2) + 'px');
+    if (sheen) sheen.style.transform = 'translateX(' + (mx * 14).toFixed(1) + 'px)';
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('mousemove', onMouse, {passive:true});
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  requestAnimationFrame(loop);
 })();
 
 // ============================================================
