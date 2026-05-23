@@ -2644,8 +2644,9 @@ section { position: relative; z-index: 2; }
 .sp-phone-stage{perspective:1400px;perspective-origin:50% 28%;margin-top:56px;display:flex;justify-content:center;position:relative;}
 .sp-phone-glow{position:absolute;width:340px;height:340px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.3;top:5%;z-index:0;animation:sp-glow 6s ease-in-out infinite;}
 @keyframes sp-glow{0%,100%{opacity:0.22;transform:scale(0.94);}50%{opacity:0.4;transform:scale(1.06);}}
-.sp-phone{position:relative;z-index:1;width:300px;padding:14px;border-radius:46px;background:linear-gradient(160deg,#222838,#0a0d14);border:1px solid var(--line-bright);box-shadow:0 40px 90px rgba(0,0,0,0.55),0 0 0 1px rgba(255,255,255,0.04),inset 0 0 0 2px rgba(0,0,0,0.4);transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) translateY(var(--py,0px));will-change:transform;}
-.sp-phone-sheen{position:absolute;inset:0;border-radius:46px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
+.sp-phone{position:relative;z-index:1;width:300px;padding:8px;border-radius:50px;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 40px 90px rgba(0,0,0,0.6),0 1px 2px rgba(255,255,255,0.10),inset 0 0 0 1px rgba(255,255,255,0.12),inset 0 0 0 5px #050609;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) translateY(var(--py,0px));will-change:transform;}
+.sp-island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#000;border-radius:13px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
+.sp-phone-sheen{position:absolute;inset:0;border-radius:50px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
 @media(prefers-reduced-motion:reduce){.sp-phone{transform:none!important;}.sp-phone-glow{animation:none;}.sp-phone-sheen{display:none;}}
 
 /* hero carousel (inside the phone) - grid stack, image defines height */
@@ -2654,8 +2655,8 @@ section { position: relative; z-index: 2; }
 .sp-carousel img.active{opacity:1;}
 
 /* static device frame for section/showcase shots - frame wraps image */
-.sp-shot{width:100%;max-width:260px;margin:0 auto;padding:11px;border-radius:40px;background:linear-gradient(160deg,#222838,#0a0d14);border:1px solid var(--line-bright);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 2px rgba(0,0,0,0.4);}
-.sp-shot-screen{width:100%;border-radius:30px;overflow:hidden;background:var(--surface-solid);border:1px solid var(--line);}
+.sp-shot{width:100%;max-width:250px;margin:0 auto;padding:7px;border-radius:42px;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.10),inset 0 0 0 4px #050609;}
+.sp-shot-screen{width:100%;border-radius:35px;overflow:hidden;background:#05060a;}
 .sp-shot-screen img{width:100%;height:auto;display:block;}
 
 /* showcase grid */
@@ -2751,7 +2752,8 @@ section { position: relative; z-index: 2; }
       <div class="sp-phone-glow"></div>
       <div class="sp-phone">
         <div class="sp-phone-sheen"></div>
-        <div class="device-screen" style="width:100%; border-radius:34px; overflow:hidden; background:var(--surface-solid); border:1px solid var(--line); position:relative;">
+        <div class="sp-island"></div>
+        <div class="device-screen" style="width:100%; border-radius:42px; overflow:hidden; background:#05060a; position:relative;">
           <div class="sp-carousel">
             <img src="/screenshots/sp-gameplan.webp" class="active" alt="DeskView AI Game Plan &mdash; your daily focus">
             <img src="/screenshots/sp-pace.webp" alt="DeskView AI Pace &mdash; units, gross, and averages">
