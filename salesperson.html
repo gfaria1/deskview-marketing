@@ -2645,7 +2645,8 @@ section { position: relative; z-index: 2; }
 .sp-phone-glow{position:absolute;width:340px;height:340px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.3;top:5%;z-index:0;animation:sp-glow 6s ease-in-out infinite;}
 @keyframes sp-glow{0%,100%{opacity:0.22;transform:scale(0.94);}50%{opacity:0.4;transform:scale(1.06);}}
 .sp-phone{position:relative;z-index:1;width:300px;aspect-ratio:1284/2778;padding:14px;border-radius:46px;background:linear-gradient(160deg,#222838,#0a0d14);border:1px solid var(--line-bright);box-shadow:0 40px 90px rgba(0,0,0,0.55),0 0 0 1px rgba(255,255,255,0.04),inset 0 0 0 2px rgba(0,0,0,0.4);transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) translateY(var(--py,0px));will-change:transform;}
-@media(prefers-reduced-motion:reduce){.sp-phone{transform:none!important;}.sp-phone-glow{animation:none;}}
+.sp-phone-sheen{position:absolute;inset:0;border-radius:46px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
+@media(prefers-reduced-motion:reduce){.sp-phone{transform:none!important;}.sp-phone-glow{animation:none;}.sp-phone-sheen{display:none;}}
 
 /* problem / agitation */
 .sp-problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:780px;margin:0 auto;}
@@ -2712,7 +2713,7 @@ section { position: relative; z-index: 2; }
   <div class="container">
     <div class="hero-eyebrow eyebrow reveal"><span class="eyebrow-dot"></span>FOR SALESPEOPLE</div>
     <h1 class="h1 reveal">Your personal AI sales coach.<br><span class="grad">In your pocket.</span></h1>
-    <p class="hero-slogan reveal"><span class="grad">Sell more.</span> Hit your number. Every day.</p>
+    <p class="hero-slogan reveal"><span class="grad">Sell more.</span> Hit your number. Every day. Every month.</p>
     <p class="lede hero-lede reveal">DeskView AI is built for one person &mdash; you. It knows your numbers, your pace, and your goals, and every morning it tells you exactly what to do to sell more. Live objection coaching on the floor, smart follow-ups for your leads, your schedule, your CSI, your deals. No manager required.</p>
 
     <div class="reveal" style="display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px;">
@@ -2721,6 +2722,7 @@ section { position: relative; z-index: 2; }
     </div>
 
     <div class="sp-credstrip reveal">
+      <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Latest auto-focused AI</span>
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>10+ AI tools, one app</span>
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Coaching in seconds</span>
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Private by default</span>
@@ -2731,6 +2733,7 @@ section { position: relative; z-index: 2; }
     <div class="sp-phone-stage">
       <div class="sp-phone-glow"></div>
       <div class="sp-phone">
+        <div class="sp-phone-sheen"></div>
         <div class="device-screen" style="width:100%; height:100%; border-radius:34px; overflow:hidden; background:var(--surface-solid); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;">
           <div style="width:46px; height:46px; border-radius:13px; background:var(--gradient-button); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:700; color:#04130c; font-size:20px;">D</div>
           <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-mute);">App screenshot here</div>
@@ -2755,7 +2758,37 @@ section { position: relative; z-index: 2; }
       <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>You're guessing who to call next &mdash; and what to say when they push back.</p></div>
       <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>The rep who knows his numbers and follows up every time outsells you.</p></div>
     </div>
-    <p class="sp-bridge reveal">DeskView fixes all four. <span class="grad">Here's how.</span></p>
+    <p class="sp-bridge reveal">DeskView fixes all four, and more. <span class="grad">Here's how.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================ MESSAGING (flagship / #1) ============================================================ -->
+<section class="section-padded" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head" style="text-align:center; max-width:740px; margin:0 auto 56px;">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>THE FEATURE REPS LOVE MOST</div>
+      <h2 class="h2 reveal">Text every customer. <span class="grad">Keep your cell private.</span></h2>
+      <p class="lede reveal">Every lead comes with a number you can message right inside DeskView &mdash; on your own private line, never your personal cell. AI drafts the follow-up, and every conversation is logged automatically.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-content reveal">
+        <div class="ai-tag">YOUR PRIVATE LINE</div>
+        <h3>Stop handing out <span class="grad">your personal number.</span></h3>
+        <p>Customers text and call you through DeskView, not your cell. When you leave a store or take a day off, your number doesn't follow you home &mdash; and your customer list stays yours.</p>
+        <p>Need the words? <strong>AI writes the follow-up</strong> for you, you tap send, and the whole thread is saved &mdash; with customer consent built in.</p>
+      </div>
+      <div class="reveal">
+        <div class="ai-chat-slide">
+          <div class="ai-chat-header"><div class="ai-chat-spark">&#10022;</div><div><div class="ai-chat-title">Messages</div><div class="ai-chat-sub">Your private line &middot; AI follow-ups</div></div></div>
+          <div class="ai-chat-body">
+            <div class="ai-chat-bubble assistant">Hi! Is the 2024 RAV4 still on the lot?</div>
+            <div class="ai-chat-bubble user">Hey Maria! Yes it is &mdash; want me to hold it for a test drive this evening?</div>
+            <div class="ai-chat-bubble assistant">That would be great. 6pm?</div>
+            <div class="ai-chat-bubble user">Done &mdash; you're booked for 6. See you then!</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2826,8 +2859,8 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">Three steps. <span class="grad">No IT, no manager, no contract.</span></h2>
     </div>
     <div class="sp-steps">
-      <div class="sp-step reveal"><div class="sp-step-n">1</div><h4>Sign up in two minutes</h4><p>Create your account and pick your plan. It's built for you, the individual rep &mdash; no approval needed.</p></div>
-      <div class="sp-step reveal"><div class="sp-step-n">2</div><h4>Add your world</h4><p>Log your deals in seconds, drop in your leads, and snap a photo of your posted schedule. DeskView reads it all.</p></div>
+      <div class="sp-step reveal"><div class="sp-step-n">1</div><h4>Sign up in two minutes</h4><p>Create your account and you're in &mdash; built for you, the individual rep. No manager, no approval needed.</p></div>
+      <div class="sp-step reveal"><div class="sp-step-n">2</div><h4>Bring in your day</h4><p>Log your deals in seconds, drop in your leads, and snap a photo of your posted schedule. DeskView reads it all.</p></div>
       <div class="sp-step reveal"><div class="sp-step-n">3</div><h4>Win every morning</h4><p>Open the app to your Game Plan and live AI coaching, built around your real numbers &mdash; every single day.</p></div>
     </div>
   </div>
@@ -2842,12 +2875,12 @@ section { position: relative; z-index: 2; }
     </div>
     <div class="sp-feature-grid">
       <div class="sp-tile reveal"><div class="sp-tile-k">Leads</div><h4>Smart lead management</h4><p>Your leads scored by AI for how hot they are &mdash; plus ready-to-send follow-up texts and emails written for each one.</p></div>
-      <div class="sp-tile reveal"><div class="sp-tile-k">Schedule</div><h4>AI work-schedule scan</h4><p>Snap a photo of the posted schedule &mdash; DeskView reads it and builds your calendar automatically.</p></div>
       <div class="sp-tile reveal"><div class="sp-tile-k">Pace</div><h4>Pace to goal, live</h4><p>Month-to-date units and gross against your goal, your rank, and your streak &mdash; always current.</p></div>
       <div class="sp-tile reveal"><div class="sp-tile-k">CSI</div><h4>CSI tracking + follow-ups</h4><p>Track your customer satisfaction score and send AI-drafted follow-ups that keep it high.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Deals</div><h4>Deal log &amp; history</h4><p>Every deal you've closed in your pocket &mdash; gross, commission, lender, the works.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Schedule</div><h4>AI work-schedule scan</h4><p>Snap a photo of the posted schedule &mdash; DeskView reads it and builds your calendar automatically.</p></div>
       <div class="sp-tile reveal"><div class="sp-tile-k">Recap</div><h4>End-of-day recap</h4><p>Every evening, a clear recap of what you sold, what's still open, and exactly what to chase tomorrow.</p></div>
-      <div class="sp-tile reveal"><div class="sp-tile-k">History</div><h4>Deal log &amp; history</h4><p>Every deal you've closed in your pocket &mdash; gross, commission, lender, the works.</p></div>
-      <div class="sp-tile reveal"><div class="sp-tile-k">Alerts</div><h4>Sold notifications</h4><p>Get a text the moment your deal closes, so you always know where your month stands.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Spiffs</div><h4>Spiff &amp; bonus tracking</h4><p>Track every spiff and bonus so you always know exactly what you've earned.</p></div>
       <div class="sp-tile soon reveal"><div class="sp-tile-k">Coming soon</div><h4>Voice deal logging</h4><p>Just say it &mdash; "sold a 2024 Camry, $2,400 front, financed through Chase" &mdash; and the deal logs itself.</p></div>
     </div>
 
@@ -2930,13 +2963,14 @@ section { position: relative; z-index: 2; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler &mdash; live coaching</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Practice Mode &mdash; rehearse against an AI customer</li>
           <li class="plan-features-group-label">Your day, handled</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Smart lead management with AI follow-ups</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Text customers from your private line + AI follow-ups</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Smart lead management with AI scoring</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI work-schedule scanning</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live pace to goal, rank, and streak</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>CSI tracking + AI follow-up messages</li>
           <li class="plan-features-group-label">Always with you</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>End-of-day recap + personal deal log</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>SMS when your deals close</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Spiff &amp; bonus tracking</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Two-factor account security</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA + iOS / Android apps</li>
         </ul>
@@ -2957,26 +2991,46 @@ section { position: relative; z-index: 2; }
 
 <script>
 (function(){
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var phone = document.querySelector('.sp-phone');
   if (!phone) return;
-  var ticking = false;
-  function update(){
-    var rect = phone.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var center = rect.top + rect.height / 2;
-    var p = (center - vh * 0.15) / (vh * 0.85);   // ~1 entering from bottom, ~0 leaving top
-    p = Math.max(-0.25, Math.min(1.25, p));
-    var t = p - 0.5;                                // straightens through center
-    phone.style.setProperty('--rx', (t * 18).toFixed(2) + 'deg');
-    phone.style.setProperty('--rz', (t * 3).toFixed(2) + 'deg');
-    phone.style.setProperty('--py', (t * -26).toFixed(2) + 'px');
-    ticking = false;
+  var sheen = phone.querySelector('.sp-phone-sheen');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce){ phone.style.transform = 'none'; return; }
+  var mx = 0, my = 0;                  // cursor, normalized -1..1
+  var cRx = 0, cRy = 0, cPy = 0, cS = 1;   // eased current values
+  function onMouse(e){
+    var r = phone.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    mx = Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth * 0.5)));
+    my = Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.6)));
   }
-  function onScroll(){ if(!ticking){ window.requestAnimationFrame(update); ticking = true; } }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll, {passive:true});
-  update();
+  function scrollT(){
+    var r = phone.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var center = r.top + r.height / 2;
+    var p = (center - vh * 0.15) / (vh * 0.85);
+    return Math.max(-0.25, Math.min(1.25, p)) - 0.5;
+  }
+  function loop(now){
+    var t = scrollT();
+    var tRy = mx * 11;
+    var tRx = (t * 13) - (my * 7);
+    var tPy = t * -22;
+    var tS  = 1 + 0.045 * (0.5 - Math.min(0.5, Math.abs(t)));
+    cRx += (tRx - cRx) * 0.08;
+    cRy += (tRy - cRy) * 0.08;
+    cPy += (tPy - cPy) * 0.08;
+    cS  += (tS  - cS ) * 0.08;
+    var fl = Math.sin(now / 1500) * 4;   // gentle idle float
+    phone.style.transform = 'rotateX(' + cRx.toFixed(2) + 'deg) rotateY(' + cRy.toFixed(2) + 'deg) translateY(' + (cPy + fl).toFixed(2) + 'px) scale(' + cS.toFixed(3) + ')';
+    if (sheen){
+      sheen.style.transform = 'translateX(' + (cRy * 5).toFixed(1) + '%) translateY(' + (cRx * -2).toFixed(1) + '%)';
+      sheen.style.opacity = (0.08 + Math.min(0.18, Math.abs(cRy) * 0.012)).toFixed(3);
+    }
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('mousemove', onMouse, {passive:true});
+  requestAnimationFrame(loop);
 })();
 </script>
 <footer class="footer">
