@@ -2633,18 +2633,76 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </nav>
-<!-- ============================================================
-     HERO
-     ============================================================ -->
+<style>
+/* ============ salesperson page scoped styles (prefixed sp-) ============ */
+.sp-credstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 26px;margin-top:34px;}
+.sp-cred{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dim);}
+.sp-cred svg{width:14px;height:14px;color:var(--green-bright);flex:none;}
+@media(max-width:560px){.sp-cred{font-size:10.5px;}}
+
+/* problem / agitation */
+.sp-problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:780px;margin:0 auto;}
+@media(max-width:640px){.sp-problem-grid{grid-template-columns:1fr;}}
+.sp-pain{display:flex;gap:13px;align-items:flex-start;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;}
+.sp-pain svg{width:19px;height:19px;color:var(--warn,#ff7d54);flex:none;margin-top:2px;}
+.sp-pain p{margin:0;font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--text-dim);}
+.sp-bridge{text-align:center;max-width:620px;margin:34px auto 0;font-family:var(--display);font-size:19px;font-weight:600;color:var(--text);}
+
+/* symmetrical feature grid 4 / 2 / 1 */
+.sp-feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media(max-width:1000px){.sp-feature-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:540px){.sp-feature-grid{grid-template-columns:1fr;}}
+.sp-tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;transition:transform .2s ease,border-color .2s ease,background .2s ease;}
+.sp-tile:hover{transform:translateY(-3px);border-color:var(--green-line);background:var(--surface-elevated);}
+.sp-tile.soon{border-color:var(--purple-line);}
+.sp-tile.soon:hover{border-color:var(--purple);}
+.sp-tile-k{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green-bright);margin-bottom:12px;}
+.sp-tile.soon .sp-tile-k{color:var(--purple-bright);}
+.sp-tile h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 8px;}
+.sp-tile p{font-family:var(--sans);font-size:13.5px;line-height:1.6;color:var(--text-dim);margin:0;}
+
+/* how it works */
+.sp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:920px;margin:0 auto;}
+@media(max-width:720px){.sp-steps{grid-template-columns:1fr;}}
+.sp-step{padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:16px;}
+.sp-step-n{font-family:var(--display);font-size:42px;font-weight:700;line-height:1;background:var(--gradient-button);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px;}
+.sp-step h4{font-family:var(--display);font-size:18px;font-weight:700;color:var(--text);margin:0 0 8px;}
+.sp-step p{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--text-dim);margin:0;}
+
+/* testimonials (founding-member placeholders) */
+.sp-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
+@media(max-width:820px){.sp-testi-grid{grid-template-columns:1fr;}}
+.sp-quote{padding:26px;background:var(--surface);border:1px dashed var(--line-bright);border-radius:16px;display:flex;flex-direction:column;gap:14px;}
+.sp-quote-mark{font-family:var(--display);font-size:46px;line-height:0.5;color:var(--green-line);}
+.sp-quote p{font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--text-mute);font-style:italic;margin:0;flex:1;}
+.sp-quote-by{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-faint);}
+
+/* FAQ */
+.sp-faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.sp-faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.sp-faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-family:var(--display);font-size:16px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.sp-faq summary::-webkit-details-marker{display:none;}
+.sp-faq summary::after{content:"+";font-family:var(--mono);font-size:22px;color:var(--green-bright);transition:transform .2s ease;flex:none;}
+.sp-faq details[open] summary::after{transform:rotate(45deg);}
+.sp-faq details[open] summary{border-bottom:1px solid var(--line);}
+.sp-faq-a{padding:16px 22px 20px;font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--text-dim);}
+
+/* sticky mobile CTA */
+.sp-sticky{display:none;}
+@media(max-width:720px){
+  .sp-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:rgba(10,13,20,0.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line-bright);}
+  .sp-sticky span{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
+  .sp-sticky .btn{padding:10px 16px;font-size:14px;white-space:nowrap;}
+  body{padding-bottom:66px;}
+}
+</style>
+
+<!-- ============================================================ HERO ============================================================ -->
 <section class="hero" id="main">
   <div class="container">
-    <div class="hero-eyebrow eyebrow reveal">
-      <span class="eyebrow-dot"></span>
-      FOR SALESPEOPLE
-    </div>
+    <div class="hero-eyebrow eyebrow reveal"><span class="eyebrow-dot"></span>FOR SALESPEOPLE</div>
     <h1 class="h1 reveal">Your personal AI sales coach.<br><span class="grad">In your pocket.</span></h1>
     <p class="hero-slogan reveal"><span class="grad">Sell more.</span> Hit your number. Every day.</p>
-
     <p class="lede hero-lede reveal">DeskView AI is built for one person &mdash; you. It knows your numbers, your pace, and your goals, and every morning it tells you exactly what to do to sell more. Live objection coaching on the floor, smart follow-ups for your leads, your schedule, your CSI, your deals. No manager required.</p>
 
     <div class="hero-cta-row reveal">
@@ -2652,10 +2710,17 @@ section { position: relative; z-index: 2; }
       <span style="display:inline-block; margin-left:6px; font-family:var(--mono); font-size:13px; color:var(--text-mute); letter-spacing:0.5px;">$19.99/mo &middot; cancel anytime</span>
     </div>
 
+    <div class="sp-credstrip reveal">
+      <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>10+ AI tools, one app</span>
+      <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Coaching in seconds</span>
+      <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Private by default</span>
+      <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Built by people who've stood on the floor</span>
+    </div>
+
     <!-- Hero device - PLACEHOLDER. Drop a real phone screenshot <img> inside .device-screen. -->
-    <div class="reveal" style="margin-top:64px; display:flex; justify-content:center; position:relative;">
+    <div class="reveal" style="margin-top:56px; display:flex; justify-content:center; position:relative;">
       <div style="position:absolute; width:320px; height:320px; background:radial-gradient(circle, var(--green-glow), transparent 70%); filter:blur(40px); opacity:0.35; top:10%; z-index:0;"></div>
-      <div class="device-phone" style="position:relative; z-index:1; width:300px; aspect-ratio:1284/2778; padding:14px; border-radius:46px; background:linear-gradient(160deg,#222838,#0a0d14); border:1px solid var(--line-bright); box-shadow:0 40px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 0 2px rgba(0,0,0,0.4);">
+      <div style="position:relative; z-index:1; width:300px; aspect-ratio:1284/2778; padding:14px; border-radius:46px; background:linear-gradient(160deg,#222838,#0a0d14); border:1px solid var(--line-bright); box-shadow:0 40px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 0 2px rgba(0,0,0,0.4);">
         <div class="device-screen" style="width:100%; height:100%; border-radius:34px; overflow:hidden; background:var(--surface-solid); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;">
           <div style="width:46px; height:46px; border-radius:13px; background:var(--gradient-button); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:700; color:#04130c; font-size:20px;">D</div>
           <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-mute);">App screenshot here</div>
@@ -2667,17 +2732,31 @@ section { position: relative; z-index: 2; }
   </div>
 </section>
 
-<!-- ============================================================
-     SECTION 1 - AI COACH (HTML chat mockup)
-     ============================================================ -->
+<!-- ============================================================ PROBLEM / AGITATION ============================================================ -->
 <section class="section-padded">
+  <div class="container">
+    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 44px;">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>THE FLOOR IS BRUTAL</div>
+      <h2 class="h2 reveal">Selling cars is hard enough. <span class="grad">Your phone should help.</span></h2>
+    </div>
+    <div class="sp-problem-grid">
+      <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>You start every month back at zero &mdash; and just hope it works out.</p></div>
+      <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>Hot leads go cold because the follow-up slips through the cracks.</p></div>
+      <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>You're guessing who to call next &mdash; and what to say when they push back.</p></div>
+      <div class="sp-pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><p>The rep who knows his numbers and follows up every time outsells you.</p></div>
+    </div>
+    <p class="sp-bridge reveal">DeskView fixes all four. <span class="grad">Here's how.</span></p>
+  </div>
+</section>
+
+<!-- ============================================================ AI COACH ============================================================ -->
+<section class="section-padded" style="padding-top:0;">
   <div class="container">
     <div class="section-head" style="text-align:center; max-width:740px; margin:0 auto 56px;">
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>YOUR AI COACH</div>
       <h2 class="h2 reveal">Stop guessing. <span class="grad">Know what to do next.</span></h2>
       <p class="lede reveal">No charts to decode, no dashboards to learn &mdash; just clear, plain-language coaching. Built on the latest AI, structured around real auto-retail data, tuned to your numbers.</p>
     </div>
-
     <div class="ai-grid">
       <div class="ai-content reveal">
         <div class="ai-tag">EVERY MORNING</div>
@@ -2687,13 +2766,7 @@ section { position: relative; z-index: 2; }
       </div>
       <div class="reveal">
         <div class="ai-chat-slide">
-          <div class="ai-chat-header">
-            <div class="ai-chat-spark">&#10022;</div>
-            <div>
-              <div class="ai-chat-title">Ask DeskView AI</div>
-              <div class="ai-chat-sub">Your personal sales coach</div>
-            </div>
-          </div>
+          <div class="ai-chat-header"><div class="ai-chat-spark">&#10022;</div><div><div class="ai-chat-title">Ask DeskView AI</div><div class="ai-chat-sub">Your personal sales coach</div></div></div>
           <div class="ai-chat-body">
             <div class="ai-chat-bubble user">Am I on pace to hit my goal?</div>
             <div class="ai-chat-bubble assistant">
@@ -2708,21 +2781,13 @@ section { position: relative; z-index: 2; }
   </div>
 </section>
 
-<!-- ============================================================
-     SECTION 2 - OBJECTION HANDLER (HTML chat mockup, reversed)
-     ============================================================ -->
+<!-- ============================================================ OBJECTION HANDLER ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
     <div class="ai-grid">
       <div class="reveal" style="order:2;">
         <div class="ai-chat-slide">
-          <div class="ai-chat-header">
-            <div class="ai-chat-spark">&#10022;</div>
-            <div>
-              <div class="ai-chat-title">Objection Handler</div>
-              <div class="ai-chat-sub">Live deal-saving coaching</div>
-            </div>
-          </div>
+          <div class="ai-chat-header"><div class="ai-chat-spark">&#10022;</div><div><div class="ai-chat-title">Objection Handler</div><div class="ai-chat-sub">Live deal-saving coaching</div></div></div>
           <div class="ai-chat-body">
             <div class="ai-chat-bubble user">Customer says the payment's too high.</div>
             <div class="ai-chat-bubble assistant">
@@ -2743,47 +2808,37 @@ section { position: relative; z-index: 2; }
   </div>
 </section>
 
-<!-- ============================================================
-     SECTION 3 - FEATURE GRID
-     ============================================================ -->
+<!-- ============================================================ HOW IT WORKS ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
-    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 48px;">
+    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 44px;">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>UP AND RUNNING TODAY</div>
+      <h2 class="h2 reveal">Three steps. <span class="grad">No IT, no manager, no contract.</span></h2>
+    </div>
+    <div class="sp-steps">
+      <div class="sp-step reveal"><div class="sp-step-n">1</div><h4>Sign up in two minutes</h4><p>Create your account and pick your plan. It's built for you, the individual rep &mdash; no approval needed.</p></div>
+      <div class="sp-step reveal"><div class="sp-step-n">2</div><h4>Add your world</h4><p>Log your deals in seconds, drop in your leads, and snap a photo of your posted schedule. DeskView reads it all.</p></div>
+      <div class="sp-step reveal"><div class="sp-step-n">3</div><h4>Win every morning</h4><p>Open the app to your Game Plan and live AI coaching, built around your real numbers &mdash; every single day.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FEATURE GRID (8) ============================================================ -->
+<section class="section-padded" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 44px;">
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>ALL IN ONE APP</div>
       <h2 class="h2 reveal">Everything a top rep needs. <span class="grad">Nothing they don't.</span></h2>
     </div>
-
-    <div class="feature-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Leads</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Smart lead management</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Your leads scored by AI for how hot they are &mdash; plus ready-to-send follow-up texts and emails written for each one.</p>
-      </div>
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Schedule</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">AI work-schedule scan</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Snap a photo of the posted schedule &mdash; DeskView reads it and builds your calendar automatically. Shifts, days off, the works.</p>
-      </div>
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Pace</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Pace to goal, live</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Month-to-date units and gross against your goal, your rank, and your streak &mdash; always current, never a day late.</p>
-      </div>
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">CSI</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">CSI tracking + follow-ups</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Track your customer satisfaction score and send AI-drafted follow-up messages that keep it high.</p>
-      </div>
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Alerts</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Sold notifications</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Get a text the moment your deal closes, and keep your own deal log and history in your pocket.</p>
-      </div>
-      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--purple-line); border-radius:16px; padding:24px;">
-        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--purple-bright); text-transform:uppercase; margin-bottom:12px;">Coming soon</div>
-        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Voice deal logging</h4>
-        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Just say it &mdash; "sold a 2024 Camry, $2,400 front, financed through Chase" &mdash; and the deal logs itself.</p>
-      </div>
+    <div class="sp-feature-grid">
+      <div class="sp-tile reveal"><div class="sp-tile-k">Leads</div><h4>Smart lead management</h4><p>Your leads scored by AI for how hot they are &mdash; plus ready-to-send follow-up texts and emails written for each one.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Schedule</div><h4>AI work-schedule scan</h4><p>Snap a photo of the posted schedule &mdash; DeskView reads it and builds your calendar automatically.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Pace</div><h4>Pace to goal, live</h4><p>Month-to-date units and gross against your goal, your rank, and your streak &mdash; always current.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">CSI</div><h4>CSI tracking + follow-ups</h4><p>Track your customer satisfaction score and send AI-drafted follow-ups that keep it high.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Recap</div><h4>End-of-day recap</h4><p>Every evening, a clear recap of what you sold, what's still open, and exactly what to chase tomorrow.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">History</div><h4>Deal log &amp; history</h4><p>Every deal you've closed in your pocket &mdash; gross, commission, lender, the works.</p></div>
+      <div class="sp-tile reveal"><div class="sp-tile-k">Alerts</div><h4>Sold notifications</h4><p>Get a text the moment your deal closes, so you always know where your month stands.</p></div>
+      <div class="sp-tile soon reveal"><div class="sp-tile-k">Coming soon</div><h4>Voice deal logging</h4><p>Just say it &mdash; "sold a 2024 Camry, $2,400 front, financed through Chase" &mdash; and the deal logs itself.</p></div>
     </div>
 
     <div class="ai-risk-block reveal" style="margin-top:24px;">
@@ -2795,59 +2850,88 @@ section { position: relative; z-index: 2; }
   </div>
 </section>
 
-<!-- ============================================================
-     PRICING / CTA
-     ============================================================ -->
+<!-- ============================================================ TESTIMONIALS (founding members) ============================================================ -->
+<section class="section-padded" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 44px;">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>FOUNDING MEMBERS</div>
+      <h2 class="h2 reveal">Real reps. <span class="grad">Real results.</span></h2>
+      <p class="lede reveal">DeskView is being shaped by salespeople on the floor right now. Get in early and your story goes here.</p>
+    </div>
+    <div class="sp-testi-grid">
+      <div class="sp-quote reveal"><div class="sp-quote-mark">&ldquo;</div><p>Your first month with DeskView could read right here.</p><div class="sp-quote-by">&mdash; Founding member spot</div></div>
+      <div class="sp-quote reveal"><div class="sp-quote-mark">&ldquo;</div><p>Closed more, guessed less &mdash; your words, soon.</p><div class="sp-quote-by">&mdash; Founding member spot</div></div>
+      <div class="sp-quote reveal"><div class="sp-quote-mark">&ldquo;</div><p>Be one of the first reps to put DeskView to work. Your win goes here.</p><div class="sp-quote-by">&mdash; Founding member spot</div></div>
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <button type="button" class="btn btn-secondary reveal" data-waitlist-trigger>Become a founding member &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FAQ ============================================================ -->
+<section class="section-padded" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 40px;">
+      <div class="eyebrow reveal"><span class="eyebrow-dot"></span>QUESTIONS</div>
+      <h2 class="h2 reveal">Straight answers. <span class="grad">No fine print.</span></h2>
+    </div>
+    <div class="sp-faq reveal">
+      <details><summary>Does my manager or dealership see my data?</summary><div class="sp-faq-a">No. The Salesperson plan is your own private account. Your deals, leads, and numbers are yours alone &mdash; not shared with your store.</div></details>
+      <details><summary>Do I need my dealership to sign me up?</summary><div class="sp-faq-a">No. It's built for you, the individual rep. Sign up yourself in minutes &mdash; no manager, no IT, no approval needed.</div></details>
+      <details><summary>How does DeskView know my numbers?</summary><div class="sp-faq-a">You log your deals in seconds, add your leads, and snap a photo of your posted schedule. Voice deal logging is coming soon to make it instant.</div></details>
+      <details><summary>Does it work with my CRM or DMS?</summary><div class="sp-faq-a">Today it's your personal app &mdash; you bring your deals in fast. Deeper CRM and DMS connections are on the roadmap.</div></details>
+      <details><summary>Can I cancel anytime?</summary><div class="sp-faq-a">Yes. It's month-to-month at $19.99 &mdash; cancel in a tap. No contract, no penalty.</div></details>
+      <details><summary>Is my data secure?</summary><div class="sp-faq-a">Yes. Your data is encrypted, and you can turn on two-factor authentication for bank-level account security.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PRICING ============================================================ -->
 <section class="section-padded" id="pricing" style="padding-top:0;">
   <div class="container">
     <div class="section-head" style="text-align:center; max-width:720px; margin:0 auto 40px;">
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>SIMPLE PRICING</div>
       <h2 class="h2 reveal">One plan. <span class="grad">Everything included.</span></h2>
     </div>
-
     <div style="max-width:420px; margin:0 auto;">
       <div class="plan-card reveal">
         <h3 class="plan-name">Salesperson</h3>
         <p class="plan-tagline">Your personal AI sales coach.</p>
-
-        <div class="plan-price">
-          <span class="plan-price-amount">$19.99</span>
-          <span class="plan-price-period">/month</span>
-        </div>
+        <div class="plan-price"><span class="plan-price-amount">$19.99</span><span class="plan-price-period">/month</span></div>
         <p class="plan-price-note">Self-checkout &middot; Instant access &middot; Cancel anytime</p>
-
-        <button type="button" class="plan-cta purple" data-waitlist-trigger>
-          Join the waitlist &rarr;
-        </button>
-
+        <button type="button" class="plan-cta purple" data-waitlist-trigger>Join the waitlist &rarr;</button>
         <ul class="plan-features">
           <li class="plan-features-group-label">Your AI coach</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal AI Game Plan, every morning</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Ask DeskView AI about your performance</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler &mdash; live coaching</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Practice Mode &mdash; rehearse against an AI customer</li>
-
           <li class="plan-features-group-label">Your day, handled</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Smart lead management with AI follow-ups</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI work-schedule scanning</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live pace to goal, rank, and streak</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>CSI tracking + AI follow-up messages</li>
-
           <li class="plan-features-group-label">Always with you</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>End-of-day recap + personal deal log</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>SMS when your deals close</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal deal log + history</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Two-factor account security</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA + iOS / Android apps</li>
         </ul>
       </div>
     </div>
-
     <div style="text-align:center; margin-top:40px;">
       <p class="lede reveal" style="margin-bottom:20px;">The standalone Salesperson plan launches soon. Get on the list and you'll be first in.</p>
       <button type="button" class="btn btn-secondary btn-lg reveal" data-waitlist-trigger>Join the waitlist &rarr;</button>
     </div>
   </div>
 </section>
+
+<!-- sticky mobile CTA -->
+<div class="sp-sticky">
+  <span>$19.99/mo &middot; cancel anytime</span>
+  <button type="button" class="btn btn-primary" data-waitlist-trigger>Join the waitlist</button>
+</div>
 <footer class="footer">
   <div class="footer-inner">
     <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
