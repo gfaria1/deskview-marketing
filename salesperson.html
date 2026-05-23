@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0f131c" />
 
+<!-- Fonts (match the rest of the site) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <!-- Primary SEO -->
 <title>DeskView AI for Salespeople — Your personal AI sales coach ($19.99/mo)</title>
 <meta name="description" content="The AI sales coach built for car salespeople. Daily Game Plans, live objection handling, pace-to-goal and CSI tracking, smart lead follow-ups, and AI schedule scanning — $19.99/mo. Join the waitlist." />
@@ -955,6 +960,1656 @@ section { position: relative; z-index: 2; }
   .eyebrow-dot { animation: none !important; }
 }
 </style>
+<style>
+/* Accessibility — skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: 12px 18px;
+  background: #1ee98a;
+  color: #00210f;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: -4px;
+}
+
+/* ============================================================
+   DESIGN TOKENS — DeskView AI
+   ============================================================ */
+:root {
+  /* ============================================================
+     v13 — APP-MATCHED PALETTE
+     Reads from your app: pure dark, white text, sparse color
+     Color only appears as small precise accents, never floods
+     ============================================================ */
+
+  /* Backgrounds — matches app's near-black */
+  --bg: #0a0d14;
+  --bg-2: #060912;
+  --bg-deep: #04060c;
+
+  /* Surfaces — restrained gray, NOT green-tinted */
+  --surface: rgba(20, 24, 36, 0.55);
+  --surface-solid: #141826;
+  --surface-elevated: rgba(28, 33, 48, 0.6);
+
+  /* Lines — neutral gray (was green-tinted, that's why everything looked green) */
+  --line: rgba(255, 255, 255, 0.06);
+  --line-bright: rgba(255, 255, 255, 0.12);
+  --line-glow: rgba(255, 255, 255, 0.18);
+
+  /* Text — white-first */
+  --text: #ffffff;
+  --text-dim: rgba(220, 228, 240, 0.72);
+  --text-mute: rgba(170, 180, 200, 0.5);
+  --text-faint: rgba(140, 150, 170, 0.3);
+
+  /* Brand greens — used SPARINGLY for action/win moments only */
+  --green: #00c27a;
+  --green-bright: #1ee98a;
+  --green-soft: rgba(0, 194, 122, 0.08);
+  --green-line: rgba(0, 194, 122, 0.22);
+  --green-glow: rgba(0, 194, 122, 0.4);
+
+  /* Brand purple — used ONLY for AI/intelligence callouts (matches Ask AI card) */
+  --purple: #7c5cff;
+  --purple-bright: #a481ff;
+  --purple-soft: rgba(124, 92, 255, 0.08);
+  --purple-line: rgba(124, 92, 255, 0.22);
+  --purple-glow: rgba(124, 92, 255, 0.4);
+
+  /* Status colors */
+  --warn: #ffc66e;
+  --hot: #ff8a8a;
+
+  /* No gradient text by default — headlines stay WHITE */
+  --gradient-button: linear-gradient(135deg, #00c27a 0%, #008a55 100%);
+
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
+
+  --max: 1240px;
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+img, svg { display: block; max-width: 100%; }
+
+/* Subtle ambient glow — barely visible, no animated orbs */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg);
+}
+.aurora::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 194, 122, 0.06) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Grid pattern — restored from v11.1 for "tech" texture
+   Subtle, masked to fade out at edges, not loud */
+.grid-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+/* Eyebrow — restrained: white text on subtle dark surface */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-bright);
+  border-radius: 999px;
+}
+.eyebrow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Special-case: AI section eyebrow uses purple dot to match Ask AI card */
+.eyebrow.eyebrow-ai .eyebrow-dot {
+  background: var(--purple);
+  box-shadow: 0 0 8px var(--purple);
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(38px, 7vw, 80px);
+  line-height: 1.0;
+  letter-spacing: -0.038em;
+  margin: 0;
+  color: white;
+}
+/* Pure white headlines like Linear, Stripe, Vercel.
+   .grad span is kept in HTML for layout flexibility but
+   inherits the white color of its parent. No more color flood. */
+.h1 .grad,
+.h2 .grad,
+.h1 em,
+.h2 em {
+  color: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(28px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  margin: 0;
+  color: white;
+}
+
+.lede {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.55;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+section { position: relative; z-index: 2; }
+.section-padded { padding: 96px 0; }
+
+@media (max-width: 720px) {
+  .section-padded { padding: 64px 0; }
+  .container { padding: 0 20px; }
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 19, 28, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-link {
+  font-family: var(--inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: var(--text);
+}
+@media (max-width: 540px) {
+  .nav-right { gap: 14px; }
+  .nav-link { font-size: 13px; }
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green-glow);
+  display: inline-block;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  letter-spacing: -0.005em;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary {
+  background: var(--green);
+  color: #00210f;
+}
+.btn-primary:hover {
+  background: var(--green-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px var(--green-glow);
+}
+.btn-lg {
+  font-size: 15px;
+  padding: 14px 28px;
+}
+
+@media (max-width: 540px) {
+  .nav-inner { padding: 14px 20px; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 80px 0 64px;
+  position: relative;
+  text-align: center;
+}
+@media (max-width: 720px) {
+  .hero { padding: 48px 0 48px; }
+  .hero-eyebrow { margin-bottom: 20px; }
+}
+
+.hero-eyebrow { margin-bottom: 28px; display: inline-flex; }
+.hero h1 { margin: 0 auto 20px; max-width: 1100px; }
+.hero-slogan {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 auto 28px;
+}
+.hero-slogan .grad {
+  color: var(--green-bright);
+}
+
+/* Hero urgency line — confident, on-brand, no fake data */
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--display);
+  font-size: clamp(14px, 1.3vw, 16px);
+  font-weight: 500;
+  color: var(--text);
+  text-align: left;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+  padding: 14px 22px;
+  background: rgba(0, 194, 122, 0.06);
+  border: 1px solid var(--line-bright);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+.hero-urgency-dot {
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green);
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+@media (max-width: 640px) {
+  .hero-urgency { padding: 12px 18px; }
+}
+
+.hero-lede {
+  margin: 0 auto 36px;
+  max-width: 640px;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 56px;
+  justify-content: center;
+}
+
+/* Hero mockup — desktop view of dashboard */
+.hero-mockup-wrap {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
+  perspective: 1800px;
+  perspective-origin: center 25%;
+}
+.hero-mockup-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -50px -100px;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 194, 122, 0.3) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* The laptop SCREEN (lid) — animates from closed to open */
+.mockup-mac {
+  background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px 14px 6px 6px;
+  padding: 14px 14px 18px;
+  position: relative;
+  overflow: visible;
+  transform-origin: center bottom;
+  transform: rotateX(-92deg);
+  animation: lid-open 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  box-shadow:
+    0 80px 160px rgba(0, 0, 0, 0.7),
+    0 40px 80px rgba(0, 194, 122, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+@keyframes lid-open {
+  0% {
+    transform: rotateX(-92deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mockup-mac {
+    animation: none;
+    transform: rotateX(0deg);
+  }
+}
+/* Tiny camera dot at top */
+.mockup-mac::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+/* No chin logo — clean MacBook look */
+.mockup-mac::after { display: none; }
+
+.mockup-mac-screen {
+  position: relative;
+  background: var(--bg-2);
+  border-radius: 6px 6px 3px 3px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+/* The laptop BASE (keyboard portion) — flat, doesn't animate */
+.laptop-base {
+  position: relative;
+  width: 108%;
+  max-width: 1080px;
+  height: 14px;
+  margin: -3px auto 0;
+  background: linear-gradient(180deg, #303339 0%, #1a1d23 35%, #0a0d14 100%);
+  border-radius: 2px 2px 14px 14px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+/* Subtle trackpad notch hint */
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  border-radius: 0 0 4px 4px;
+}
+/* Soft floor shadow under laptop base */
+.laptop-base::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 8%;
+  right: 8%;
+  height: 24px;
+  background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(0, 0, 0, 0.5) 0%, transparent 80%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+.screenshot-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.screenshot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+}
+
+/* ============================================================
+   HERO CAROUSEL — multi-slide product showcase
+   ============================================================ */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 40px auto 0;
+  padding: 10px 18px;
+  background: rgba(20, 24, 36, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  width: fit-content;
+  position: relative;
+  z-index: 5;
+}
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+.carousel-dot.active {
+  background: var(--green-bright);
+  width: 22px;
+  box-shadow: 0 0 12px rgba(0, 194, 122, 0.6);
+}
+.carousel-caption {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.carousel-caption.active {
+  opacity: 1;
+}
+.carousel-captions-wrap {
+  position: relative;
+  height: 18px;
+  margin-top: 32px;
+  z-index: 5;
+}
+
+/* ============================================================
+   AI CHAT SLIDES — rendered HTML, not screenshots
+   ============================================================ */
+.ai-chat-slide {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0a0d14 0%, #11141f 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 4% 6%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 3%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 4%;
+  flex-shrink: 0;
+}
+.ai-chat-spark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2) 0%, rgba(0, 194, 122, 0.15) 100%);
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bfa;
+  font-size: 18px;
+}
+.ai-chat-title {
+  color: var(--text);
+  font-weight: 600;
+  font-size: clamp(13px, 1.4vw, 17px);
+  letter-spacing: -0.01em;
+}
+.ai-chat-sub {
+  color: var(--text-faint);
+  font-size: clamp(10px, 1vw, 12px);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ai-chat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.ai-chat-bubble {
+  font-size: clamp(11px, 1.15vw, 15px);
+  line-height: 1.55;
+  padding: 14px 18px;
+  border-radius: 14px;
+  max-width: 78%;
+}
+.ai-chat-bubble.user {
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.9) 0%, rgba(99, 70, 240, 0.9) 100%);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.25);
+}
+.ai-chat-bubble.assistant {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  max-width: 90%;
+}
+.ai-chat-bubble.assistant strong {
+  color: #fff;
+  font-weight: 600;
+}
+.ai-chat-bubble.assistant .accent {
+  color: var(--brand);
+  font-weight: 600;
+}
+.ai-chat-bubble.assistant p {
+  margin: 0;
+}
+.ai-chat-bubble.assistant p + p {
+  margin-top: 10px;
+}
+.ai-chat-bubble.assistant em {
+  font-style: normal;
+  color: #fda4af;
+  font-weight: 500;
+}
+
+/* ============================================================
+   SOCIAL STRIP — built for stores like yours
+   ============================================================ */
+.social-strip {
+  padding: 40px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+.social-strip-label {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--green-bright);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+.social-strip-sublabel {
+  text-align: center;
+  font-family: var(--inter);
+  font-size: 13px;
+  color: var(--text-mute);
+  margin: 0 auto 28px;
+  max-width: 580px;
+  line-height: 1.55;
+}
+.social-strip-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.social-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dim);
+}
+.social-strip-icon {
+  width: 22px; height: 22px;
+  color: var(--text-mute);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.social-strip-icon svg { width: 100%; height: 100%; }
+.social-strip-text {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.social-strip-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--line-bright);
+}
+@media (max-width: 720px) {
+  .social-strip { padding: 32px 0 40px; }
+  .social-strip-row {
+    gap: 14px 20px;
+    flex-direction: column;
+  }
+  .social-strip-divider { display: none; }
+}
+
+/* ============================================================
+   3 PILLARS
+   ============================================================ */
+.pillars-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.pillars-header .eyebrow { margin-bottom: 22px; }
+.pillars-header .h2 { margin-bottom: 16px; }
+.pillars-header .lede {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.pillar {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.pillar:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+.pillar-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-line);
+  color: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.pillar-icon svg { width: 22px; height: 22px; }
+.pillar-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--text-mute);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.pillar-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: white;
+}
+.pillar-body {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+.results-section {
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.results-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.results-header .eyebrow { margin-bottom: 22px; }
+.results-header .h2 { margin: 0; }
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.result-card {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 26px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.result-card:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+.result-card-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-line);
+  color: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.result-card-icon svg { width: 20px; height: 20px; }
+.result-card-headline {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+.result-card-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 900px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .results-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   AI SECTION — purple accent ONLY (matches Ask DeskView AI card)
+   White headlines, neutral surfaces, color sparingly
+   ============================================================ */
+.ai-section {
+  position: relative;
+}
+.ai-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.ai-header .eyebrow { margin-bottom: 22px; }
+.ai-header .h2 { margin-bottom: 16px; }
+/* AI section H2 stays pure white — no purple flood */
+.ai-header .h2 .grad {
+  color: inherit;
+  font-style: normal;
+}
+.ai-header .lede { margin: 0 auto; }
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.ai-content .ai-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--purple-bright);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.ai-content .ai-tag::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 999px;
+  background: var(--purple);
+  box-shadow: 0 0 8px var(--purple);
+}
+.ai-content h3 {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 18px;
+  color: white;
+}
+.ai-content h3 .grad {
+  color: inherit;
+}
+.ai-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin: 0 0 14px;
+}
+.ai-content p:last-child { margin-bottom: 0; }
+
+.ai-visual-phone {
+  width: 280px;
+  margin: 0 auto;
+  aspect-ratio: 1284 / 2778;
+  background: #000;
+  border: 2px solid var(--line-bright);
+  border-radius: 36px;
+  padding: 8px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+.ai-visual-phone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-2);
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Phone carousel — multi-slide inside the iPhone */
+.phone-carousel { position: absolute; inset: 0; }
+.phone-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.phone-slide.active { opacity: 1; pointer-events: auto; }
+.phone-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.phone-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.phone-dot {
+  width: 7px; height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.phone-dot:hover { background: rgba(255, 255, 255, 0.5); }
+.phone-dot.active {
+  background: var(--purple);
+  width: 22px;
+  box-shadow: 0 0 10px rgba(124, 92, 255, 0.5);
+}
+.phone-caption {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  height: 14px;
+  position: relative;
+}
+.phone-caption span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  white-space: nowrap;
+}
+.phone-caption span.active { opacity: 1; }
+
+.ai-risk-block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.ai-risk-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+.ai-risk-header h3 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: white;
+}
+.ai-risk-header h3 .grad {
+  color: inherit;
+}
+.ai-risk-header p {
+  color: var(--text-dim);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.risk-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.risk-rule {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.3s ease;
+}
+.risk-rule:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-1px);
+}
+.risk-rule-severity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.risk-rule-severity::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 999px;
+}
+.risk-rule-severity.high { color: #ff8a8a; }
+.risk-rule-severity.high::before { background: #ff5e5e; box-shadow: 0 0 8px #ff5e5e80; }
+.risk-rule-severity.medium { color: #ffc66e; }
+.risk-rule-severity.medium::before { background: #ffa726; box-shadow: 0 0 8px #ffa72680; }
+.risk-rule-severity.low { color: var(--green-bright); }
+.risk-rule-severity.low::before { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.risk-rule-name {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.012em;
+  margin: 0 0 4px;
+}
+.risk-rule-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0;
+}
+.risk-rules-more {
+  text-align: center;
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .ai-grid { grid-template-columns: 1fr; gap: 40px; }
+  .risk-rules-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .risk-rules-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   COMPARE + INTEGRATIONS — merged
+   ============================================================ */
+.compare-section {
+  position: relative;
+}
+.compare-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.compare-header .eyebrow { margin-bottom: 22px; }
+.compare-header .h2 { margin-bottom: 16px; }
+.compare-header .lede { margin: 0 auto; }
+
+.compare-table {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 980px;
+  margin: 0 auto 56px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  border-bottom: 1px solid var(--line);
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-row > div {
+  padding: 20px 24px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.compare-row.head > div {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  background: rgba(10, 13, 20, 0.7);
+  padding-top: 22px;
+  padding-bottom: 22px;
+  font-weight: 600;
+}
+.compare-row.head > div:nth-child(3) {
+  color: var(--green-bright);
+  font-weight: 700;
+}
+.compare-row > div:nth-child(1) { color: var(--text-dim); border-right: 1px solid var(--line); font-weight: 500; }
+.compare-row > div:nth-child(2) { color: var(--text-mute); border-right: 1px solid var(--line); }
+.compare-row > div:nth-child(3) { color: white; font-weight: 500; }
+
+@media (max-width: 720px) {
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); padding: 14px 18px; }
+  .compare-row > div:last-child { border-bottom: none; }
+  .compare-row.head { display: none; }
+  .compare-row > div::before {
+    content: attr(data-label);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-right: 12px;
+    min-width: 100px;
+  }
+}
+
+/* Multi-Rooftop section — for dealer groups */
+.multirooftop-section {
+  position: relative;
+  overflow: hidden;
+}
+.multirooftop-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(124, 92, 255, 0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.multirooftop-section .container { position: relative; z-index: 1; }
+.multirooftop-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.multirooftop-header .eyebrow { margin-bottom: 18px; }
+.multirooftop-header .h2 { margin-bottom: 16px; }
+.multirooftop-header .lede { margin: 0 auto; }
+.multirooftop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto 40px;
+}
+.multirooftop-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 32px 28px;
+  transition: all 0.25s ease;
+}
+.multirooftop-card:hover {
+  border-color: var(--line-bright);
+  transform: translateY(-2px);
+}
+.multirooftop-num {
+  font-family: var(--display);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-glow);
+  margin-bottom: 18px;
+}
+.multirooftop-title {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.multirooftop-body {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.multirooftop-cta {
+  text-align: center;
+  margin-top: 12px;
+}
+.multirooftop-note {
+  color: var(--text-dim);
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.multirooftop-note a {
+  color: var(--green-bright);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* DMS Integrations Roadmap — substantial card grid */
+.dms-roadmap {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dms-roadmap-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.dms-roadmap-eyebrow {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--green-bright);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.dms-roadmap-title {
+  font-family: var(--display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  margin: 0 0 14px;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.dms-roadmap-sub {
+  color: var(--text-dim);
+  font-size: 15px;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.dms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.dms-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+.dms-card:hover {
+  border-color: var(--line-bright);
+  background: var(--surface-elevated);
+  transform: translateY(-2px);
+}
+.dms-name {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.dms-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+}
+.dms-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green-glow);
+}
+.dms-note {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.dms-note a { color: var(--green-bright); font-weight: 500; }
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-section {
+  position: relative;
+}
+.faq-section .h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.faq-section .h2 .grad { color: inherit; }
+.faq-section .eyebrow {
+  margin: 0 auto 32px;
+  display: inline-flex !important;
+}
+.faq-eyebrow-wrap {
+  text-align: center;
+}
+.faq-list {
+  max-width: 800px;
+  margin: 56px auto 0;
+}
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  transition: border-color .2s, background .2s;
+  overflow: hidden;
+}
+.faq-item:hover {
+  border-color: var(--line-bright);
+}
+.faq-item[open] {
+  background: var(--surface-elevated);
+  border-color: var(--line-glow);
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  letter-spacing: -0.005em;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--green-bright);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform .2s;
+}
+.faq-item[open] summary::after {
+  content: "−";
+}
+.faq-answer {
+  padding: 0 26px 24px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  font-size: 15px;
+}
+.faq-answer strong { color: white; font-weight: 600; }
+.faq-answer a { color: var(--green-bright); text-decoration: none; }
+.faq-answer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .faq-item summary {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+  .faq-answer {
+    padding: 0 20px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   FOUNDER + CTA — merged section
+   ============================================================ */
+.close-section {
+  text-align: center;
+  position: relative;
+}
+.close-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 194, 122, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.close-eyebrow { margin-bottom: 24px; display: inline-flex !important; }
+.close-section .h2 { margin-bottom: 24px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.close-section .h2 .grad {
+  color: inherit;
+}
+.close-quote {
+  font-family: var(--display);
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-dim);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  letter-spacing: -0.005em;
+}
+.close-quote strong { color: white; font-weight: 600; }
+.close-quote .grad {
+  color: var(--green-bright);
+  font-weight: 600;
+}
+.close-cta-button { margin-bottom: 28px; }
+.cta-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.cta-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.cta-trust-dot {
+  width: 5px; height: 5px;
+  border-radius: 999px;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green);
+}
+.close-fallback {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.close-fallback a {
+  color: var(--green-bright);
+  border-bottom: 1px solid var(--line-glow);
+}
+@media (max-width: 720px) {
+  .cta-trust-row { flex-direction: column; gap: 12px; align-items: center; }
+}
+
+/* ============================================================
+   FOOTER (compact)
+   ============================================================ */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 36px;
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 13, 20, 0.6);
+  backdrop-filter: blur(20px);
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--text-mute);
+  transition: color 0.15s ease;
+}
+.footer-links a:hover { color: var(--green-bright); }
+@media (max-width: 540px) {
+  .footer-inner { flex-direction: column; text-align: center; padding: 0 20px; }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .aurora::before, .aurora::after, .h1 .grad,
+  .hero-urgency-dot, .eyebrow-dot, .cta-trust-dot {
+    animation: none !important;
+  }
+}
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -972,6 +2627,7 @@ section { position: relative; z-index: 2; }
       <span class="logo-dot"></span>
     </a>
     <div class="nav-right">
+      <a href="/salesperson" class="nav-link active">Salespeople</a>
       <a href="/pricing" class="nav-link">Pricing</a>
       <a href="/contact?type=demo" data-track="book_demo" class="btn btn-primary">Book a demo</a>
     </div>
@@ -986,26 +2642,25 @@ section { position: relative; z-index: 2; }
       <span class="eyebrow-dot"></span>
       FOR SALESPEOPLE
     </div>
-    <h1 class="h1 reveal">Your personal AI sales coach. <span class="grad">In your pocket.</span></h1>
+    <h1 class="h1 reveal">Your personal AI sales coach.<br><span class="grad">In your pocket.</span></h1>
     <p class="hero-slogan reveal"><span class="grad">Sell more.</span> Hit your number. Every day.</p>
 
-    <p class="lede hero-lede reveal">DeskView AI is built for one person: you. It knows your numbers, your pace, and your goals — and every morning it tells you exactly what to do to sell more. Live objection coaching on the floor, smart follow-ups for your leads, your schedule, your CSI, your deals. No manager required.</p>
+    <p class="lede hero-lede reveal">DeskView AI is built for one person &mdash; you. It knows your numbers, your pace, and your goals, and every morning it tells you exactly what to do to sell more. Live objection coaching on the floor, smart follow-ups for your leads, your schedule, your CSI, your deals. No manager required.</p>
 
     <div class="hero-cta-row reveal">
-      <button type="button" class="btn btn-primary btn-lg" data-waitlist-trigger>Join the waitlist →</button>
+      <button type="button" class="btn btn-primary btn-lg" data-waitlist-trigger>Join the waitlist &rarr;</button>
+      <span style="display:inline-block; margin-left:6px; font-family:var(--mono); font-size:13px; color:var(--text-mute); letter-spacing:0.5px;">$19.99/mo &middot; cancel anytime</span>
     </div>
-    <p class="hero-lede reveal" style="font-size:14px; margin-top:14px; opacity:0.8;">$19.99/month · Self-checkout · Cancel anytime</p>
 
-    <div class="hero-mockup-wrap reveal" style="margin-top:48px;">
-      <div class="ai-visual-phone" style="margin:0 auto;">
-        <div class="ai-visual-phone-screen">
-          <div class="phone-carousel">
-            <div class="phone-slide active">
-              <img src="/screenshots/salesperson-today.webp"
-                   alt="DeskView AI salesperson Today view on iPhone: gross today, units, rank, streak, and CSI at a glance"
-                   width="1284" height="2778" loading="eager" />
-            </div>
-          </div>
+    <!-- Hero device - PLACEHOLDER. Drop a real phone screenshot <img> inside .device-screen. -->
+    <div class="reveal" style="margin-top:64px; display:flex; justify-content:center; position:relative;">
+      <div style="position:absolute; width:320px; height:320px; background:radial-gradient(circle, var(--green-glow), transparent 70%); filter:blur(40px); opacity:0.35; top:10%; z-index:0;"></div>
+      <div class="device-phone" style="position:relative; z-index:1; width:300px; aspect-ratio:1284/2778; padding:14px; border-radius:46px; background:linear-gradient(160deg,#222838,#0a0d14); border:1px solid var(--line-bright); box-shadow:0 40px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 0 2px rgba(0,0,0,0.4);">
+        <div class="device-screen" style="width:100%; height:100%; border-radius:34px; overflow:hidden; background:var(--surface-solid); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; padding:24px;">
+          <div style="width:46px; height:46px; border-radius:13px; background:var(--gradient-button); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-weight:700; color:#04130c; font-size:20px;">D</div>
+          <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-mute);">App screenshot here</div>
+          <div style="width:60%; height:1px; background:var(--line-bright);"></div>
+          <div style="font-family:var(--sans); font-size:12px; color:var(--text-faint); line-height:1.5;">Today view &middot; Game Plan</div>
         </div>
       </div>
     </div>
@@ -1013,32 +2668,38 @@ section { position: relative; z-index: 2; }
 </section>
 
 <!-- ============================================================
-     SECTION 1 — AI COACH
+     SECTION 1 - AI COACH (HTML chat mockup)
      ============================================================ -->
 <section class="section-padded">
   <div class="container">
-    <div class="section-head" style="text-align:center; max-width:760px; margin:0 auto 56px;">
+    <div class="section-head" style="text-align:center; max-width:740px; margin:0 auto 56px;">
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>YOUR AI COACH</div>
       <h2 class="h2 reveal">Stop guessing. <span class="grad">Know what to do next.</span></h2>
-      <p class="lede reveal">No charts to decode, no dashboards to learn. Just clear, plain-language coaching — built on the latest AI, structured around real auto-retail data.</p>
+      <p class="lede reveal">No charts to decode, no dashboards to learn &mdash; just clear, plain-language coaching. Built on the latest AI, structured around real auto-retail data, tuned to your numbers.</p>
     </div>
 
     <div class="ai-grid">
       <div class="ai-content reveal">
         <div class="ai-tag">EVERY MORNING</div>
         <h3>A personal <span class="grad">Game Plan</span> made for your day.</h3>
-        <p>Open the app and see exactly where you stand and what to focus on: which leads to call back, which deals are slipping, what targets are within reach today. Written for you, refreshed daily, aware of your last 30 days and your pace to goal.</p>
-        <p>Ask <strong>DeskView AI</strong> anything about your own numbers — "Am I on pace?", "How do I improve my back end?" — and get a straight, useful answer.</p>
+        <p>Open the app and see exactly where you stand and what to focus on: which leads to call back, which deals are slipping, what targets are within reach today.</p>
+        <p>Then ask <strong>DeskView AI</strong> anything about your own numbers and get a straight answer &mdash; no spin, no fluff.</p>
       </div>
       <div class="reveal">
-        <div class="ai-visual-phone">
-          <div class="ai-visual-phone-screen">
-            <div class="phone-carousel">
-              <div class="phone-slide active">
-                <img src="/screenshots/salesperson-today-gameplan.webp"
-                     alt="Salesperson Today view with a personalized AI Game Plan for the day"
-                     width="1284" height="2778" loading="lazy" />
-              </div>
+        <div class="ai-chat-slide">
+          <div class="ai-chat-header">
+            <div class="ai-chat-spark">&#10022;</div>
+            <div>
+              <div class="ai-chat-title">Ask DeskView AI</div>
+              <div class="ai-chat-sub">Your personal sales coach</div>
+            </div>
+          </div>
+          <div class="ai-chat-body">
+            <div class="ai-chat-bubble user">Am I on pace to hit my goal?</div>
+            <div class="ai-chat-bubble assistant">
+              <p><strong>You're close &mdash; push this week and you've got it.</strong></p>
+              <p>You're at <strong>9 units / $34k gross</strong> with 11 days left. Your goal is 14. At your current pace you land at ~13 &mdash; one good Saturday closes the gap.</p>
+              <p><em>Fastest win:</em> you've got <strong>3 leads gone cold</strong> from last week. Two were payment objections &mdash; re-run the numbers and call them first.</p>
             </div>
           </div>
         </div>
@@ -1048,20 +2709,26 @@ section { position: relative; z-index: 2; }
 </section>
 
 <!-- ============================================================
-     SECTION 2 — OBJECTION HANDLER
+     SECTION 2 - OBJECTION HANDLER (HTML chat mockup, reversed)
      ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
     <div class="ai-grid">
       <div class="reveal" style="order:2;">
-        <div class="ai-visual-phone">
-          <div class="ai-visual-phone-screen">
-            <div class="phone-carousel">
-              <div class="phone-slide active">
-                <img src="/screenshots/salesperson-performance.webp"
-                     alt="Salesperson month-to-date performance: units against goal and gross"
-                     width="1284" height="2778" loading="lazy" />
-              </div>
+        <div class="ai-chat-slide">
+          <div class="ai-chat-header">
+            <div class="ai-chat-spark">&#10022;</div>
+            <div>
+              <div class="ai-chat-title">Objection Handler</div>
+              <div class="ai-chat-sub">Live deal-saving coaching</div>
+            </div>
+          </div>
+          <div class="ai-chat-body">
+            <div class="ai-chat-bubble user">Customer says the payment's too high.</div>
+            <div class="ai-chat-bubble assistant">
+              <p><strong>Reframe from monthly to value, then narrow the gap.</strong></p>
+              <p>Ask: <em>"Where did you want to be?"</em> &mdash; get the real number. Often it's only $30&ndash;40 off.</p>
+              <p>Then close the gap with term, a different trim, or showing what the extra covers per day. Don't drop price first &mdash; anchor on what they're driving home today.</p>
             </div>
           </div>
         </div>
@@ -1069,7 +2736,7 @@ section { position: relative; z-index: 2; }
       <div class="ai-content reveal" style="order:1;">
         <div class="ai-tag">ON THE FLOOR</div>
         <h3>Stuck on a deal? <span class="grad">Get the line that saves it.</span></h3>
-        <p>The <strong>AI Objection Handler</strong> gives you real, situation-specific coaching the moment a customer pushes back — "payment's too high," "I want to think about it," "your price is higher than the other store." Tap, read, close.</p>
+        <p>The <strong>AI Objection Handler</strong> gives you real, situation-specific coaching the moment a customer pushes back &mdash; payment, price, "let me think about it," trade value. Tap, read, close.</p>
         <p>And <strong>Practice Mode</strong> lets you rehearse against a tough AI customer before you ever hit the floor, so the words come out right when it counts.</p>
       </div>
     </div>
@@ -1077,7 +2744,7 @@ section { position: relative; z-index: 2; }
 </section>
 
 <!-- ============================================================
-     SECTION 3 — EVERYTHING ELSE
+     SECTION 3 - FEATURE GRID
      ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -1086,37 +2753,43 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">Everything a top rep needs. <span class="grad">Nothing they don't.</span></h2>
     </div>
 
-    <div class="risk-rules-grid">
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">Smart lead management</h4>
-        <p class="risk-rule-desc">Your leads, scored by AI for how hot they are — plus ready-to-send follow-up texts and emails written for each one.</p>
+    <div class="feature-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Leads</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Smart lead management</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Your leads scored by AI for how hot they are &mdash; plus ready-to-send follow-up texts and emails written for each one.</p>
       </div>
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">AI work schedule</h4>
-        <p class="risk-rule-desc">Snap a photo of the posted schedule and DeskView reads it and builds your calendar automatically — shifts, days off, the works.</p>
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Schedule</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">AI work-schedule scan</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Snap a photo of the posted schedule &mdash; DeskView reads it and builds your calendar automatically. Shifts, days off, the works.</p>
       </div>
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">Pace to goal, live</h4>
-        <p class="risk-rule-desc">Month-to-date units and gross against your goal, your rank, and your streak — always current, never a day late.</p>
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Pace</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Pace to goal, live</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Month-to-date units and gross against your goal, your rank, and your streak &mdash; always current, never a day late.</p>
       </div>
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">CSI tracking + follow-ups</h4>
-        <p class="risk-rule-desc">Track your customer satisfaction score and send AI-drafted follow-up messages that keep your CSI high.</p>
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">CSI</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">CSI tracking + follow-ups</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Track your customer satisfaction score and send AI-drafted follow-up messages that keep it high.</p>
       </div>
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">Sold notifications</h4>
-        <p class="risk-rule-desc">Get a text the moment your deal closes. Keep your own deal log and history in your pocket.</p>
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--green-bright); text-transform:uppercase; margin-bottom:12px;">Alerts</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Sold notifications</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Get a text the moment your deal closes, and keep your own deal log and history in your pocket.</p>
       </div>
-      <div class="risk-rule reveal">
-        <h4 class="risk-rule-name">Voice deal logging</h4>
-        <p class="risk-rule-desc">Just say it — "sold a 2024 Camry, 2,400 front, financed through Chase" — and it logs the deal for you. <span class="grad">Coming soon.</span></p>
+      <div class="feature-tile reveal" style="background:var(--surface); border:1px solid var(--purple-line); border-radius:16px; padding:24px;">
+        <div style="font-family:var(--mono); font-size:11px; letter-spacing:1.5px; color:var(--purple-bright); text-transform:uppercase; margin-bottom:12px;">Coming soon</div>
+        <h4 style="font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:0 0 8px;">Voice deal logging</h4>
+        <p style="font-family:var(--sans); font-size:14px; line-height:1.6; color:var(--text-dim); margin:0;">Just say it &mdash; "sold a 2024 Camry, $2,400 front, financed through Chase" &mdash; and the deal logs itself.</p>
       </div>
     </div>
 
-    <div class="ai-risk-block reveal" style="margin-top:32px;">
+    <div class="ai-risk-block reveal" style="margin-top:24px;">
       <div class="ai-risk-header">
         <h3>Built secure, from day one.</h3>
-        <p>Your numbers are yours. DeskView AI supports two-factor authentication and modern account protection — the same standard your bank uses — so your performance data stays private.</p>
+        <p>Your numbers are yours. DeskView AI supports two-factor authentication and modern account protection &mdash; the same standard your bank uses &mdash; so your performance data stays private.</p>
       </div>
     </div>
   </div>
@@ -1141,27 +2814,27 @@ section { position: relative; z-index: 2; }
           <span class="plan-price-amount">$19.99</span>
           <span class="plan-price-period">/month</span>
         </div>
-        <p class="plan-price-note">Self-checkout · Instant access · Cancel anytime</p>
+        <p class="plan-price-note">Self-checkout &middot; Instant access &middot; Cancel anytime</p>
 
         <button type="button" class="plan-cta purple" data-waitlist-trigger>
-          Join the waitlist →
+          Join the waitlist &rarr;
         </button>
 
         <ul class="plan-features">
           <li class="plan-features-group-label">Your AI coach</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal AI Game Plan, every morning</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Ask DeskView AI about your performance</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler — live deal-saving coaching</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Practice Mode — rehearse against an AI customer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI Objection Handler &mdash; live coaching</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Practice Mode &mdash; rehearse against an AI customer</li>
 
           <li class="plan-features-group-label">Your day, handled</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Smart lead management with AI follow-up drafts</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Smart lead management with AI follow-ups</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>AI work-schedule scanning</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live pace to goal, rank, and streak</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>CSI tracking + AI follow-up messages</li>
 
           <li class="plan-features-group-label">Always with you</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>SMS notifications when your deals close</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>SMS when your deals close</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal deal log + history</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Two-factor account security</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA + iOS / Android apps</li>
@@ -1170,8 +2843,8 @@ section { position: relative; z-index: 2; }
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <p class="lede reveal" style="margin-bottom:20px;">The standalone Salesperson plan is launching soon. Get on the list and you'll be first in.</p>
-      <button type="button" class="btn btn-secondary btn-lg reveal" data-waitlist-trigger>Join the waitlist →</button>
+      <p class="lede reveal" style="margin-bottom:20px;">The standalone Salesperson plan launches soon. Get on the list and you'll be first in.</p>
+      <button type="button" class="btn btn-secondary btn-lg reveal" data-waitlist-trigger>Join the waitlist &rarr;</button>
     </div>
   </div>
 </section>
@@ -1181,6 +2854,7 @@ section { position: relative; z-index: 2; }
     <div class="footer-links">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
+      <a href="/salesperson">Salespeople</a>
       <a href="/contact">Contact</a>
       <a href="mailto:support@deskview.ai">Support</a>
       <a href="/privacy">Privacy</a>
