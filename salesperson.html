@@ -2640,6 +2640,20 @@ section { position: relative; z-index: 2; }
 .sp-cred svg{width:14px;height:14px;color:var(--green-bright);flex:none;}
 @media(max-width:560px){.sp-cred{font-size:10.5px;}}
 
+/* mobile nav fix - brand on one line, tame the CTA, no green blob */
+@media(max-width:600px){
+  .nav-inner{padding:13px 18px;gap:12px;}
+  .logo{font-size:17px;white-space:nowrap;flex-shrink:0;}
+  .logo-dot{width:7px;height:7px;box-shadow:0 0 7px var(--green-glow);margin-bottom:1px;}
+  .nav-right{gap:15px;}
+  .nav-link{font-size:13px;}
+  .nav .btn-primary{padding:9px 15px;font-size:13px;white-space:nowrap;border-radius:11px;}
+}
+@media(max-width:430px){
+  .nav .btn-primary{display:none;}
+  .nav-right{gap:20px;}
+}
+
 /* hero phone - scroll-driven 3D tilt + pulsing glow */
 .sp-phone-stage{perspective:1400px;perspective-origin:50% 28%;margin-top:56px;display:flex;justify-content:center;position:relative;}
 .sp-phone-glow{position:absolute;width:340px;height:340px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.3;top:5%;z-index:0;animation:sp-glow 6s ease-in-out infinite;}
