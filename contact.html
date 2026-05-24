@@ -438,6 +438,7 @@ a:hover { opacity: .8; }
             <option value="Founding Dealer Program">Founding Dealer Program</option>
             <option value="DMS Integration">DMS integration timeline</option>
             <option value="Multi-Rooftop">Multi-rooftop / dealer group inquiry</option>
+            <option value="Greeter Station">Greeter Station (showroom up system)</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -506,7 +507,8 @@ window.addEventListener('scroll', () => {
     'pricing': { value: 'Pricing', lede: "Get a pricing quote tailored to your dealership. Share a few details and we'll respond within one business day with numbers and next steps." },
     'founding': { value: 'Founding Dealer Program', lede: "Interested in the Founding Dealer Program? Share a few details and we'll be in touch to discuss founding-dealer pricing, direct founder access, and roadmap input." },
     'dms': { value: 'DMS Integration', lede: "Tell us about your DMS and we'll prioritize that integration on the roadmap. Founding dealers help shape what we build first." },
-    'multirooftop': { value: 'Multi-Rooftop', lede: "Running a dealer group? Share a few details and we'll be in touch about multi-rooftop visibility and group pricing." }
+    'multirooftop': { value: 'Multi-Rooftop', lede: "Running a dealer group? Share a few details and we'll be in touch about multi-rooftop visibility and group pricing." },
+    'greeter': { value: 'Greeter Station', lede: "Interested in the Greeter Station? Book a 20-minute demo and we'll show you the up system, fair rotation, and greeter kiosk live \u2014 then tailor a quote to your store." }
   };
   const match = mapping[type.toLowerCase()];
   if (match) {
