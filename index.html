@@ -1968,7 +1968,7 @@ section { position: relative; z-index: 2; }
       <span class="logo-dot"></span>
     </a>
     <div class="nav-right">
-      <a href="/salesperson" class="nav-link">Salespeople</a>
+      <a href="/salespeople" class="nav-link">Salespeople</a>
       <a href="/pricing" class="nav-link">Pricing</a>
       <a href="/contact?type=demo" data-track="book_demo" class="btn btn-primary">Book a demo</a>
     </div>
@@ -2025,7 +2025,7 @@ section { position: relative; z-index: 2; }
      ============================================================ -->
 <section class="social-strip">
   <div class="container">
-    <p class="social-strip-label reveal">IN ACTIVE PILOT · NOW ONBOARDING DEALERS</p>
+    <p class="social-strip-label reveal">BUILT FOR EVERY KIND OF STORE</p>
     <p class="social-strip-sublabel reveal">Built for the executives who buy software and the floor teams who use it daily.</p>
     <div class="social-strip-row reveal">
       <div class="social-strip-item">
@@ -2170,12 +2170,12 @@ section { position: relative; z-index: 2; }
           <div class="ai-visual-phone-screen">
             <div class="phone-carousel" id="phoneCarousel">
               <div class="phone-slide active">
-                <img src="/screenshots/salesperson-today-gameplan.webp"
+                <img src="/screenshots/salespeople-today-gameplan.webp"
                      alt="DeskView AI on iPhone — salesperson Today view with personalized AI Game Plan: $13,700 gross today, 3 units, #1 of 30, 15-day streak, 96.4 CSI"
                      width="1284" height="2778" loading="lazy" />
               </div>
               <div class="phone-slide">
-                <img src="/screenshots/salesperson-performance.webp"
+                <img src="/screenshots/salespeople-performance.webp"
                      alt="Salesperson MTD performance — 31 units against 14-unit goal (221% of goal), $127,750 gross"
                      width="1284" height="2778" loading="lazy" />
               </div>
@@ -2260,6 +2260,9 @@ section { position: relative; z-index: 2; }
         <div class="dv-shot"><div class="dv-shot-island"></div><div class="dv-shot-screen"><img src="/screenshots/sp-earnings.webp" alt="DeskView AI earnings and spiffs view" loading="lazy" width="820"></div></div>
         <div class="dv-shot-cap"><h4>Track every dollar</h4><p>Commission, spiffs, and bonuses &mdash; counted in real time.</p></div>
       </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="/salespeople" class="btn btn-secondary reveal">For salespeople: see the full app &rarr;</a>
     </div>
   </div>
 </section>
@@ -2383,7 +2386,7 @@ section { position: relative; z-index: 2; }
       </div>
     </div>
     <div style="text-align:center; margin-top:32px;">
-      <a href="/salesperson" class="btn btn-secondary reveal">See what salespeople get &rarr;</a>
+      <a href="/salespeople" class="btn btn-secondary reveal">See what salespeople get &rarr;</a>
     </div>
   </div>
 </section>
@@ -2507,7 +2510,7 @@ section { position: relative; z-index: 2; }
     <span>© 2026 DESKVIEW AI · BUILT BY PEOPLE WHO'VE STOOD ON THE FLOOR</span>
     <div class="footer-links">
       <a href="/pricing">Pricing</a>
-      <a href="/salesperson">Salespeople</a>
+      <a href="/salespeople">Salespeople</a>
       <a href="/contact">Contact</a>
       <a href="mailto:support@deskview.ai">Support</a>
       <a href="/privacy">Privacy</a>
@@ -2626,43 +2629,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
 // ============================================================
-// HERO PHONE — 3D tilt (cursor + scroll) + sheen
+// HERO PHONE — static now (calmer); pulsing glow handled in CSS
 // ============================================================
-(() => {
-  const phone = document.querySelector('.dv-phone');
-  if (!phone) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sheen = phone.querySelector('.dv-phone-sheen');
-  let trx = 0, trz = 0, mx = 0, scroll = 0;
-  let rx = 0, rz = 0, py = 0, t = 0;
-  function onMouse(e){
-    const r = phone.getBoundingClientRect();
-    mx = (e.clientX - (r.left + r.width/2)) / (window.innerWidth/2);
-    const my = (e.clientY - (r.top + r.height/2)) / (window.innerHeight/2);
-    trx = Math.max(-1, Math.min(1, -my)) * 6;
-    trz = Math.max(-1, Math.min(1, mx)) * 6;
-  }
-  function onScroll(){
-    const r = phone.getBoundingClientRect();
-    scroll = Math.max(-1, Math.min(1, (window.innerHeight/2 - (r.top + r.height/2)) / window.innerHeight));
-  }
-  function loop(){
-    t += 0.016;
-    const float = Math.sin(t * 0.8) * 1.2;
-    rx += ((trx + scroll * 4 + float) - rx) * 0.08;
-    rz += (trz - rz) * 0.08;
-    py += ((-scroll * 6) - py) * 0.08;
-    phone.style.setProperty('--rx', rx.toFixed(2) + 'deg');
-    phone.style.setProperty('--rz', rz.toFixed(2) + 'deg');
-    phone.style.setProperty('--py', py.toFixed(2) + 'px');
-    if (sheen) sheen.style.transform = 'translateX(' + (mx * 14).toFixed(1) + 'px)';
-    requestAnimationFrame(loop);
-  }
-  window.addEventListener('mousemove', onMouse, {passive:true});
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-  requestAnimationFrame(loop);
-})();
 
 // ============================================================
 // PHONE CAROUSEL — multi-slide salesperson screens (AI section)
