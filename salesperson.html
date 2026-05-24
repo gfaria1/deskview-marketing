@@ -1238,9 +1238,18 @@ section { position: relative; z-index: 2; }
 .nav-link:hover {
   color: var(--text);
 }
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+  .nav-inner { padding: 13px 18px; gap: 12px; }
+  .logo { font-size: 17px; white-space: nowrap; flex-shrink: 0; }
+  .logo-dot { width: 7px; height: 7px; box-shadow: 0 0 7px var(--green-glow); margin-bottom: 1px; }
   .nav-right { gap: 14px; }
   .nav-link { font-size: 13px; }
+  .nav .btn-primary { padding: 9px 15px; font-size: 13px; white-space: nowrap; border-radius: 11px; }
+}
+@media (max-width: 400px) {
+  .nav-right { gap: 11px; }
+  .nav-link { font-size: 12.5px; }
+  .nav .btn-primary { padding: 8px 13px; font-size: 12.5px; }
 }
 
 .logo {
@@ -1289,6 +1298,16 @@ section { position: relative; z-index: 2; }
 .btn-lg {
   font-size: 15px;
   padding: 14px 28px;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-bright);
+}
+.btn-secondary:hover {
+  border-color: var(--green);
+  color: var(--green-bright);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 540px) {
@@ -1585,6 +1604,61 @@ section { position: relative; z-index: 2; }
   height: 18px;
   margin-top: 32px;
   z-index: 5;
+}
+
+/* ============================================================
+   HERO PHONE — modern iPhone frame (store view), tilt + glow
+   ============================================================ */
+.dv-phone-stage{perspective:1400px;perspective-origin:50% 28%;margin:8px auto 0;display:flex;justify-content:center;position:relative;}
+.dv-phone-glow{position:absolute;width:320px;height:320px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.28;top:6%;z-index:0;animation:dv-glow 6s ease-in-out infinite;}
+@keyframes dv-glow{0%,100%{opacity:0.2;transform:scale(0.94);}50%{opacity:0.36;transform:scale(1.06);}}
+.dv-phone{position:relative;z-index:1;width:300px;padding:8px;border-radius:50px;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 40px 90px rgba(0,0,0,0.6),0 1px 2px rgba(255,255,255,0.10),inset 0 0 0 1px rgba(255,255,255,0.12),inset 0 0 0 5px #050609;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateZ(var(--rz,0deg)) translateY(var(--py,0px));will-change:transform;}
+.dv-phone-sheen{position:absolute;inset:0;border-radius:50px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
+.dv-island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#000;border-radius:13px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
+.dv-phone-screen{width:100%;aspect-ratio:9/19.5;overflow-y:auto;overflow-x:hidden;border-radius:42px;background:#05060a;position:relative;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.dv-phone-screen::-webkit-scrollbar{display:none;}
+.dv-phone-screen img{width:100%;height:auto;display:block;scroll-snap-align:start;}
+.dv-scroll-hint{text-align:center;margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-mute);}
+@media(prefers-reduced-motion:reduce){.dv-phone{transform:none!important;}.dv-phone-glow{animation:none;}.dv-phone-sheen{display:none;}}
+
+/* ===== role tabs (hero) ===== */
+.dv-roletabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.dv-roletabs .carousel-dot{width:auto;height:auto;border-radius:999px;padding:8px 16px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.01em;color:var(--text-dim);background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:color .2s ease,background .2s ease,border-color .2s ease;}
+.dv-roletabs .carousel-dot:hover{color:var(--text);border-color:var(--line-bright);}
+.dv-roletabs .carousel-dot.active{color:#05231a;background:var(--green);border-color:var(--green);}
+.dv-hero-caption{text-align:center;margin-top:14px;height:20px;position:relative;}
+.dv-hero-caption .carousel-caption{position:absolute;left:0;right:0;font-family:var(--mono);font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dim);opacity:0;transition:opacity .4s ease;}
+.dv-hero-caption .carousel-caption.active{opacity:1;}
+
+/* ===== phone showcase band ===== */
+.dv-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;align-items:start;}
+@media(max-width:820px){.dv-showcase{grid-template-columns:1fr;gap:42px;max-width:300px;}}
+.dv-shot{width:100%;max-width:250px;margin:0 auto;padding:7px;border-radius:42px;position:relative;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.10),inset 0 0 0 4px #050609;}
+.dv-shot-island{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:70px;height:21px;background:#000;border-radius:11px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
+.dv-shot-screen{width:100%;border-radius:35px;overflow:hidden;background:#05060a;}
+.dv-shot-screen img{width:100%;height:auto;display:block;}
+.dv-shot-cap{text-align:center;margin-top:18px;}
+.dv-shot-cap h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 6px;}
+.dv-shot-cap p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--text-dim);margin:0;}
+
+/* ===== testimonials ===== */
+.dv-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
+@media(max-width:820px){.dv-testi-grid{grid-template-columns:1fr;}}
+.dv-quote{padding:26px;background:var(--surface);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,border-color .2s ease;}
+.dv-quote:hover{transform:translateY(-3px);border-color:var(--green-line);}
+.dv-stars{display:flex;gap:3px;}
+.dv-stars svg{width:16px;height:16px;color:var(--green-bright);fill:currentColor;}
+.dv-quote p{font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--text);margin:0;flex:1;}
+.dv-quote-by strong{display:block;font-family:var(--display);font-weight:600;color:var(--text);font-size:14px;margin-bottom:3px;}
+.dv-quote-store{font-family:var(--mono);font-size:11px;letter-spacing:0.5px;color:var(--text-mute);text-transform:uppercase;}
+
+/* ===== sticky mobile CTA ===== */
+.dv-sticky{display:none;}
+@media(max-width:720px){
+  .dv-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:rgba(10,13,20,0.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line-bright);}
+  .dv-sticky span{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
+  .dv-sticky .btn{padding:10px 16px;font-size:14px;white-space:nowrap;}
+  body{padding-bottom:66px;}
 }
 
 /* ============================================================
@@ -2669,7 +2743,8 @@ section { position: relative; z-index: 2; }
 .sp-carousel img.active{opacity:1;}
 
 /* static device frame for section/showcase shots - frame wraps image */
-.sp-shot{width:100%;max-width:250px;margin:0 auto;padding:7px;border-radius:42px;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.10),inset 0 0 0 4px #050609;}
+.sp-shot{width:100%;max-width:250px;margin:0 auto;padding:7px;border-radius:42px;position:relative;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.10),inset 0 0 0 4px #050609;}
+.sp-shot-island{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:70px;height:21px;background:#000;border-radius:11px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
 .sp-shot-screen{width:100%;border-radius:35px;overflow:hidden;background:#05060a;}
 .sp-shot-screen img{width:100%;height:auto;display:block;}
 
@@ -2937,15 +3012,15 @@ section { position: relative; z-index: 2; }
     </div>
     <div class="sp-showcase">
       <div class="reveal">
-        <div class="sp-shot"><div class="sp-shot-screen"><img src="/screenshots/sp-earnings.webp" alt="DeskView AI earnings &mdash; commission and spiffs tracked" loading="lazy"></div></div>
+        <div class="sp-shot"><div class="sp-shot-island"></div><div class="sp-shot-screen"><img src="/screenshots/sp-earnings.webp" alt="DeskView AI earnings &mdash; commission and spiffs tracked" loading="lazy"></div></div>
         <div class="sp-shot-cap"><h4>Know what you've earned</h4><p>Commission, spiffs, and bonuses tracked in real time &mdash; down to the dollar.</p></div>
       </div>
       <div class="reveal">
-        <div class="sp-shot"><div class="sp-shot-screen"><img src="/screenshots/sp-followup-email.webp" alt="DeskView AI follow-up email draft" loading="lazy"></div></div>
+        <div class="sp-shot"><div class="sp-shot-island"></div><div class="sp-shot-screen"><img src="/screenshots/sp-followup-email.webp" alt="DeskView AI follow-up email draft" loading="lazy"></div></div>
         <div class="sp-shot-cap"><h4>AI writes your follow-ups</h4><p>Pick the goal &mdash; get a ready-to-send email or text in seconds. Edit and send.</p></div>
       </div>
       <div class="reveal">
-        <div class="sp-shot"><div class="sp-shot-screen"><img src="/screenshots/sp-csi-followup.webp" alt="DeskView AI CSI message builder" loading="lazy"></div></div>
+        <div class="sp-shot"><div class="sp-shot-island"></div><div class="sp-shot-screen"><img src="/screenshots/sp-csi-followup.webp" alt="DeskView AI CSI message builder" loading="lazy"></div></div>
         <div class="sp-shot-cap"><h4>Protect your CSI</h4><p>AI-drafted messages for every survey moment &mdash; pre-survey, reminders, recovery.</p></div>
       </div>
     </div>
