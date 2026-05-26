@@ -4,12 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0f131c" />
-
 <!-- Fonts (match the rest of the site) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <!-- Primary SEO -->
 <title>DeskView AI Greeter Station — A fair digital up system for your showroom</title>
 <meta name="description" content="DeskView AI Greeter Station is a digital up system for car dealerships: fair rotation, GPS rep check-in or manager override, SMS alerts to the next rep, walk-in / BDC / service-to-sales tracking, and live close rates by source. Book a demo." />
@@ -17,7 +15,6 @@
 <meta name="author" content="DeskView AI" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://deskview.ai/greeters" />
-
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://deskview.ai/greeters" />
@@ -27,13 +24,11 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="DeskView AI" />
-
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="DeskView AI Greeter Station — A fair digital up system" />
 <meta name="twitter:description" content="Fair rotation, GPS check-in, SMS alerts to the next rep, live close rates by source. No more fighting for ups." />
 <meta name="twitter:image" content="https://deskview.ai/og-image.png" />
-
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -41,7 +36,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="shortcut icon" href="/favicon.ico" />
-
 <!-- Google Analytics 4 (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLBSCSXLN8"></script>
 <script>
@@ -50,12 +44,10 @@
   gtag('js', new Date());
   gtag('config', 'G-FLBSCSXLN8');
 </script>
-
 <!-- Apple PWA -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="DeskView AI" />
-
 <!-- Schema.org — Product + Breadcrumb for the Greeter Station -->
 <script type="application/ld+json">
 {
@@ -89,7 +81,6 @@
   ]
 }
 </script>
-
 <style>
 /* Skip link */
 .skip-link {
@@ -100,7 +91,6 @@
   transition: top 0.2s ease; border-radius: 0 0 8px 0;
 }
 .skip-link:focus { top: 0; }
-
 /* ============================================================
    DESIGN TOKENS (verbatim from index.html for consistency)
    ============================================================ */
@@ -136,7 +126,6 @@
   --radius-md: 14px;
   --radius-sm: 10px;
 }
-
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -153,7 +142,6 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
 img, svg { display: block; max-width: 100%; }
-
 /* Ambient layers */
 .aurora {
   position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
@@ -174,7 +162,6 @@ img, svg { display: block; max-width: 100%; }
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
 }
-
 /* Typography */
 .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
@@ -195,7 +182,6 @@ img, svg { display: block; max-width: 100%; }
   background: var(--purple); box-shadow: 0 0 8px var(--purple);
 }
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.85); } }
-
 .h1 {
   font-family: var(--display); font-weight: 600;
   font-size: clamp(38px, 6vw, 64px); line-height: 1.05;
@@ -211,7 +197,6 @@ img, svg { display: block; max-width: 100%; }
   font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6;
   color: var(--text-dim); font-weight: 400;
 }
-
 /* Layout */
 .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
 section { position: relative; z-index: 2; }
@@ -220,7 +205,6 @@ section { position: relative; z-index: 2; }
   .section-padded { padding: 56px 0; }
   .container { padding: 0 20px; }
 }
-
 /* ============================================================
    NAV (matches index.html)
    ============================================================ */
@@ -285,7 +269,6 @@ section { position: relative; z-index: 2; }
   border-color: var(--line-glow);
 }
 .btn-lg { font-size: 15px; padding: 14px 28px; }
-
 /* ============================================================
    PRICING HERO
    ============================================================ */
@@ -299,7 +282,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 720px) {
   .pricing-hero { padding: 48px 0 32px; }
 }
-
 /* ============================================================
    PLAN SECTIONS
    ============================================================ */
@@ -325,7 +307,6 @@ section { position: relative; z-index: 2; }
   margin: 0 auto;
   font-size: 15px;
 }
-
 /* === All-plans grid (4 cards) === */
 .plans-grid {
   display: grid;
@@ -340,7 +321,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 600px) {
   .plans-grid { grid-template-columns: 1fr; max-width: 480px; gap: 14px; }
 }
-
 /* === Plan card === */
 .plan-card {
   background: var(--surface);
@@ -364,7 +344,6 @@ section { position: relative; z-index: 2; }
   border-color: var(--purple-line);
   background: linear-gradient(180deg, rgba(124, 92, 255, 0.04) 0%, var(--surface) 100%);
 }
-
 /* Featured badge */
 .plan-badge {
   position: absolute;
@@ -386,7 +365,6 @@ section { position: relative; z-index: 2; }
   background: rgba(124, 92, 255, 0.1);
   border-color: var(--purple-line);
 }
-
 /* Plan header */
 .plan-name {
   font-family: var(--display);
@@ -402,7 +380,6 @@ section { position: relative; z-index: 2; }
   margin: 0 0 24px;
   line-height: 1.5;
 }
-
 /* Price block */
 .plan-price {
   display: flex;
@@ -444,7 +421,6 @@ section { position: relative; z-index: 2; }
   color: var(--text-mute);
   margin: 0 0 24px;
 }
-
 /* CTA */
 .plan-cta {
   display: block;
@@ -488,7 +464,6 @@ section { position: relative; z-index: 2; }
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--line-glow);
 }
-
 /* Features list */
 .plan-features {
   list-style: none;
@@ -527,7 +502,6 @@ section { position: relative; z-index: 2; }
   text-transform: uppercase;
 }
 .plan-features-group-label:first-child { margin-top: 0; }
-
 /* ============================================================
    COMPARISON TABLE
    ============================================================ */
@@ -542,7 +516,6 @@ section { position: relative; z-index: 2; }
 .compare-block-header .eyebrow { margin-bottom: 22px; }
 .compare-block-header .h2 { margin-bottom: 16px; }
 .compare-block-header .lede { margin: 0 auto; max-width: 560px; }
-
 .compare-table-wrap {
   background: var(--surface);
   backdrop-filter: blur(20px);
@@ -609,7 +582,6 @@ section { position: relative; z-index: 2; }
   color: var(--text-mute);
   text-transform: uppercase;
 }
-
 /* Mobile: compress the table to fit small viewports */
 @media (max-width: 720px) {
   .compare-table {
@@ -672,11 +644,9 @@ section { position: relative; z-index: 2; }
   .th-full { display: none; }
   .th-short { display: inline; }
 }
-
 /* Default: show full header text on desktop, hide short version */
 .th-full { display: inline; }
 .th-short { display: none; }
-
 /* Extra-small phones: even tighter */
 @media (max-width: 380px) {
   .compare-table th,
@@ -686,7 +656,6 @@ section { position: relative; z-index: 2; }
   .compare-table .check { width: 16px; height: 16px; }
   .compare-table .check svg { width: 9px; height: 9px; }
 }
-
 /* ============================================================
    FAQ
    ============================================================ */
@@ -755,7 +724,6 @@ section { position: relative; z-index: 2; }
   .faq-item summary { padding: 18px 20px; font-size: 16px; }
   .faq-answer { padding: 0 20px 20px; font-size: 14px; }
 }
-
 /* ============================================================
    FINAL CTA
    ============================================================ */
@@ -773,7 +741,6 @@ section { position: relative; z-index: 2; }
 .final-cta .eyebrow { margin-bottom: 24px; display: inline-flex; }
 .final-cta .h2 { margin: 0 auto 24px; max-width: 700px; }
 .final-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -801,7 +768,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 540px) {
   .footer-inner { flex-direction: column; text-align: center; padding: 0 20px; }
 }
-
 /* ============================================================
    WAITLIST MODAL
    ============================================================ */
@@ -890,7 +856,6 @@ section { position: relative; z-index: 2; }
   box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
 }
 .modal-card input[type="email"]::placeholder { color: var(--text-mute); }
-
 /* Override Safari/Chrome autofill yellow background — force dark theme */
 .modal-card input[type="email"]:-webkit-autofill,
 .modal-card input[type="email"]:-webkit-autofill:hover,
@@ -940,7 +905,6 @@ section { position: relative; z-index: 2; }
 .modal-success .check-big svg { width: 28px; height: 28px; }
 .modal-card.success-state .modal-form { display: none; }
 .modal-card.success-state .modal-success { display: block; }
-
 /* Reveal animation */
 .reveal {
   opacity: 0;
@@ -978,7 +942,6 @@ section { position: relative; z-index: 2; }
   outline: 2px solid white;
   outline-offset: -4px;
 }
-
 /* ============================================================
    DESIGN TOKENS — DeskView AI
    ============================================================ */
@@ -988,59 +951,48 @@ section { position: relative; z-index: 2; }
      Reads from your app: pure dark, white text, sparse color
      Color only appears as small precise accents, never floods
      ============================================================ */
-
   /* Backgrounds — matches app's near-black */
   --bg: #0a0d14;
   --bg-2: #060912;
   --bg-deep: #04060c;
-
   /* Surfaces — restrained gray, NOT green-tinted */
   --surface: rgba(20, 24, 36, 0.55);
   --surface-solid: #141826;
   --surface-elevated: rgba(28, 33, 48, 0.6);
-
   /* Lines — neutral gray (was green-tinted, that's why everything looked green) */
   --line: rgba(255, 255, 255, 0.06);
   --line-bright: rgba(255, 255, 255, 0.12);
   --line-glow: rgba(255, 255, 255, 0.18);
-
   /* Text — white-first */
   --text: #ffffff;
   --text-dim: rgba(220, 228, 240, 0.72);
   --text-mute: rgba(170, 180, 200, 0.5);
   --text-faint: rgba(140, 150, 170, 0.3);
-
   /* Brand greens — used SPARINGLY for action/win moments only */
   --green: #00c27a;
   --green-bright: #1ee98a;
   --green-soft: rgba(0, 194, 122, 0.08);
   --green-line: rgba(0, 194, 122, 0.22);
   --green-glow: rgba(0, 194, 122, 0.4);
-
   /* Brand purple — used ONLY for AI/intelligence callouts (matches Ask AI card) */
   --purple: #7c5cff;
   --purple-bright: #a481ff;
   --purple-soft: rgba(124, 92, 255, 0.08);
   --purple-line: rgba(124, 92, 255, 0.22);
   --purple-glow: rgba(124, 92, 255, 0.4);
-
   /* Status colors */
   --warn: #ffc66e;
   --hot: #ff8a8a;
-
   /* No gradient text by default — headlines stay WHITE */
   --gradient-button: linear-gradient(135deg, #00c27a 0%, #008a55 100%);
-
   --display: 'Space Grotesk', system-ui, sans-serif;
   --sans: 'Inter', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
-
   --max: 1240px;
   --radius-lg: 24px;
   --radius-md: 14px;
   --radius-sm: 10px;
 }
-
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -1054,11 +1006,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
-
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
 img, svg { display: block; max-width: 100%; }
-
 /* Subtle ambient glow — barely visible, no animated orbs */
 .aurora {
   position: fixed;
@@ -1079,7 +1029,6 @@ img, svg { display: block; max-width: 100%; }
   background: radial-gradient(ellipse, rgba(0, 194, 122, 0.06) 0%, transparent 70%);
   filter: blur(40px);
 }
-
 /* Grid pattern — restored from v11.1 for "tech" texture
    Subtle, masked to fade out at edges, not loud */
 .grid-pattern {
@@ -1094,7 +1043,6 @@ img, svg { display: block; max-width: 100%; }
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
 }
-
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
@@ -1122,7 +1070,6 @@ img, svg { display: block; max-width: 100%; }
   box-shadow: 0 0 8px var(--green);
   animation: pulse 2s ease-in-out infinite;
 }
-
 /* Special-case: AI section eyebrow uses purple dot to match Ask AI card */
 .eyebrow.eyebrow-ai .eyebrow-dot {
   background: var(--purple);
@@ -1132,7 +1079,6 @@ img, svg { display: block; max-width: 100%; }
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.85); }
 }
-
 .h1 {
   font-family: var(--display);
   font-weight: 600;
@@ -1157,7 +1103,6 @@ img, svg { display: block; max-width: 100%; }
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-
 .h2 {
   font-family: var(--display);
   font-weight: 600;
@@ -1167,14 +1112,12 @@ img, svg { display: block; max-width: 100%; }
   margin: 0;
   color: white;
 }
-
 .lede {
   font-size: clamp(17px, 1.5vw, 20px);
   line-height: 1.55;
   color: var(--text-dim);
   font-weight: 400;
 }
-
 /* ============================================================
    LAYOUT
    ============================================================ */
@@ -1187,12 +1130,10 @@ img, svg { display: block; max-width: 100%; }
 }
 section { position: relative; z-index: 2; }
 .section-padded { padding: 96px 0; }
-
 @media (max-width: 720px) {
   .section-padded { padding: 64px 0; }
   .container { padding: 0 20px; }
 }
-
 /* ============================================================
    NAV
    ============================================================ */
@@ -1207,7 +1148,6 @@ section { position: relative; z-index: 2; }
   transition: border-color 0.2s ease;
 }
 .nav.scrolled { border-bottom-color: var(--line); }
-
 .nav-inner {
   max-width: var(--max);
   margin: 0 auto;
@@ -1247,7 +1187,6 @@ section { position: relative; z-index: 2; }
   .nav-link { font-size: 12.5px; }
   .nav .btn-primary { padding: 8px 13px; font-size: 12.5px; }
 }
-
 .logo {
   display: flex;
   align-items: baseline;
@@ -1268,7 +1207,6 @@ section { position: relative; z-index: 2; }
   margin-bottom: 2px;
   flex-shrink: 0;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1305,11 +1243,9 @@ section { position: relative; z-index: 2; }
   color: var(--green-bright);
   transform: translateY(-1px);
 }
-
 @media (max-width: 540px) {
   .nav-inner { padding: 14px 20px; }
 }
-
 /* ============================================================
    HERO
    ============================================================ */
@@ -1322,7 +1258,6 @@ section { position: relative; z-index: 2; }
   .hero { padding: 48px 0 48px; }
   .hero-eyebrow { margin-bottom: 20px; }
 }
-
 .hero-eyebrow { margin-bottom: 28px; display: inline-flex; }
 .hero h1 { margin: 0 auto 20px; max-width: 1100px; }
 .hero-slogan {
@@ -1336,7 +1271,6 @@ section { position: relative; z-index: 2; }
 .hero-slogan .grad {
   color: var(--green-bright);
 }
-
 /* Hero urgency line — confident, on-brand, no fake data */
 .hero-urgency {
   display: inline-flex;
@@ -1368,12 +1302,10 @@ section { position: relative; z-index: 2; }
 @media (max-width: 640px) {
   .hero-urgency { padding: 12px 18px; }
 }
-
 .hero-lede {
   margin: 0 auto 36px;
   max-width: 640px;
 }
-
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -1381,7 +1313,6 @@ section { position: relative; z-index: 2; }
   margin-bottom: 56px;
   justify-content: center;
 }
-
 /* Hero mockup — desktop view of dashboard */
 .hero-mockup-wrap {
   position: relative;
@@ -1398,7 +1329,6 @@ section { position: relative; z-index: 2; }
   filter: blur(40px);
   z-index: -1;
 }
-
 /* The laptop SCREEN (lid) — animates from closed to open */
 .mockup-mac {
   background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
@@ -1445,7 +1375,6 @@ section { position: relative; z-index: 2; }
 }
 /* No chin logo — clean MacBook look */
 .mockup-mac::after { display: none; }
-
 .mockup-mac-screen {
   position: relative;
   background: var(--bg-2);
@@ -1453,7 +1382,6 @@ section { position: relative; z-index: 2; }
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
-
 /* The laptop BASE (keyboard portion) — flat, doesn't animate */
 .laptop-base {
   position: relative;
@@ -1514,7 +1442,6 @@ section { position: relative; z-index: 2; }
   text-align: center;
   padding: 24px;
 }
-
 /* ============================================================
    HERO CAROUSEL — multi-slide product showcase
    ============================================================ */
@@ -1601,7 +1528,6 @@ section { position: relative; z-index: 2; }
   margin-top: 32px;
   z-index: 5;
 }
-
 /* ============================================================
    HERO PHONE — modern iPhone frame (store view), tilt + glow
    ============================================================ */
@@ -1616,7 +1542,6 @@ section { position: relative; z-index: 2; }
 .dv-phone-screen img{width:100%;height:auto;display:block;scroll-snap-align:start;}
 .dv-scroll-hint{text-align:center;margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-mute);}
 @media(prefers-reduced-motion:reduce){.dv-phone{transform:none!important;}.dv-phone-glow{animation:none;}.dv-phone-sheen{display:none;}}
-
 /* ===== role tabs (hero) ===== */
 .dv-roletabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:24px;}
 .dv-roletabs .carousel-dot{width:auto;height:auto;border-radius:999px;padding:8px 16px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.01em;color:var(--text-dim);background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:color .2s ease,background .2s ease,border-color .2s ease;}
@@ -1625,7 +1550,6 @@ section { position: relative; z-index: 2; }
 .dv-hero-caption{text-align:center;margin-top:14px;height:20px;position:relative;}
 .dv-hero-caption .carousel-caption{position:absolute;left:0;right:0;font-family:var(--mono);font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dim);opacity:0;transition:opacity .4s ease;}
 .dv-hero-caption .carousel-caption.active{opacity:1;}
-
 /* ===== phone showcase band ===== */
 .dv-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;align-items:start;}
 @media(max-width:820px){.dv-showcase{grid-template-columns:1fr;gap:42px;max-width:300px;}}
@@ -1636,7 +1560,6 @@ section { position: relative; z-index: 2; }
 .dv-shot-cap{text-align:center;margin-top:18px;}
 .dv-shot-cap h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 6px;}
 .dv-shot-cap p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--text-dim);margin:0;}
-
 /* ===== testimonials ===== */
 .dv-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
 @media(max-width:820px){.dv-testi-grid{grid-template-columns:1fr;}}
@@ -1647,7 +1570,6 @@ section { position: relative; z-index: 2; }
 .dv-quote p{font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--text);margin:0;flex:1;}
 .dv-quote-by strong{display:block;font-family:var(--display);font-weight:600;color:var(--text);font-size:14px;margin-bottom:3px;}
 .dv-quote-store{font-family:var(--mono);font-size:11px;letter-spacing:0.5px;color:var(--text-mute);text-transform:uppercase;}
-
 /* ===== sticky mobile CTA ===== */
 .dv-sticky{display:none;}
 @media(max-width:720px){
@@ -1656,7 +1578,6 @@ section { position: relative; z-index: 2; }
   .dv-sticky .btn{padding:10px 16px;font-size:14px;white-space:nowrap;}
   body{padding-bottom:66px;}
 }
-
 /* ============================================================
    AI CHAT SLIDES — rendered HTML, not screenshots
    ============================================================ */
@@ -1753,7 +1674,6 @@ section { position: relative; z-index: 2; }
   color: #fda4af;
   font-weight: 500;
 }
-
 /* ============================================================
    SOCIAL STRIP — built for stores like yours
    ============================================================ */
@@ -1825,7 +1745,6 @@ section { position: relative; z-index: 2; }
   }
   .social-strip-divider { display: none; }
 }
-
 /* ============================================================
    3 PILLARS
    ============================================================ */
@@ -1840,7 +1759,6 @@ section { position: relative; z-index: 2; }
   margin: 0 auto;
   max-width: 600px;
 }
-
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1899,7 +1817,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 900px) {
   .pillars-grid { grid-template-columns: 1fr; }
 }
-
 /* ============================================================
    RESULTS
    ============================================================ */
@@ -1964,7 +1881,6 @@ section { position: relative; z-index: 2; }
 }
 @media (max-width: 900px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px) { .results-grid { grid-template-columns: 1fr; } }
-
 /* ============================================================
    AI SECTION — purple accent ONLY (matches Ask DeskView AI card)
    White headlines, neutral surfaces, color sparingly
@@ -1985,7 +1901,6 @@ section { position: relative; z-index: 2; }
   font-style: normal;
 }
 .ai-header .lede { margin: 0 auto; }
-
 .ai-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -2030,7 +1945,6 @@ section { position: relative; z-index: 2; }
   margin: 0 0 14px;
 }
 .ai-content p:last-child { margin-bottom: 0; }
-
 .ai-visual-phone {
   width: 280px;
   margin: 0 auto;
@@ -2053,7 +1967,6 @@ section { position: relative; z-index: 2; }
   position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
   width: 78px; height: 23px; background: #000; border-radius: 12px; z-index: 5;
 }
-
 /* Phone carousel — multi-slide inside the iPhone */
 .phone-carousel { position: absolute; inset: 0; }
 .phone-slide {
@@ -2110,7 +2023,6 @@ section { position: relative; z-index: 2; }
   white-space: nowrap;
 }
 .phone-caption span.active { opacity: 1; }
-
 .ai-risk-block {
   margin-top: 56px;
   padding-top: 48px;
@@ -2200,7 +2112,6 @@ section { position: relative; z-index: 2; }
   color: var(--text-mute);
   font-weight: 500;
 }
-
 @media (max-width: 900px) {
   .ai-grid { grid-template-columns: 1fr; gap: 40px; }
   .risk-rules-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2208,7 +2119,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 540px) {
   .risk-rules-grid { grid-template-columns: 1fr; }
 }
-
 /* ============================================================
    COMPARE + INTEGRATIONS — merged
    ============================================================ */
@@ -2223,7 +2133,6 @@ section { position: relative; z-index: 2; }
 .compare-header .eyebrow { margin-bottom: 22px; }
 .compare-header .h2 { margin-bottom: 16px; }
 .compare-header .lede { margin: 0 auto; }
-
 .compare-table {
   background: var(--surface);
   backdrop-filter: blur(20px);
@@ -2263,7 +2172,6 @@ section { position: relative; z-index: 2; }
 .compare-row > div:nth-child(1) { color: var(--text-dim); border-right: 1px solid var(--line); font-weight: 500; }
 .compare-row > div:nth-child(2) { color: var(--text-mute); border-right: 1px solid var(--line); }
 .compare-row > div:nth-child(3) { color: white; font-weight: 500; }
-
 @media (max-width: 720px) {
   .compare-row { grid-template-columns: 1fr; }
   .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); padding: 14px 18px; }
@@ -2280,7 +2188,6 @@ section { position: relative; z-index: 2; }
     min-width: 100px;
   }
 }
-
 /* Multi-Rooftop section — for dealer groups */
 .multirooftop-section {
   position: relative;
@@ -2363,7 +2270,6 @@ section { position: relative; z-index: 2; }
   font-weight: 500;
   margin-left: 4px;
 }
-
 /* DMS Integrations Roadmap — substantial card grid */
 .dms-roadmap {
   margin-top: 56px;
@@ -2462,7 +2368,6 @@ section { position: relative; z-index: 2; }
   margin: 0 auto;
 }
 .dms-note a { color: var(--green-bright); font-weight: 500; }
-
 /* ============================================================
    FAQ SECTION
    ============================================================ */
@@ -2537,7 +2442,6 @@ section { position: relative; z-index: 2; }
 .faq-answer strong { color: white; font-weight: 600; }
 .faq-answer a { color: var(--green-bright); text-decoration: none; }
 .faq-answer a:hover { text-decoration: underline; }
-
 @media (max-width: 600px) {
   .faq-item summary {
     padding: 18px 20px;
@@ -2548,7 +2452,6 @@ section { position: relative; z-index: 2; }
     font-size: 14px;
   }
 }
-
 /* ============================================================
    FOUNDER + CTA — merged section
    ============================================================ */
@@ -2622,7 +2525,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 720px) {
   .cta-trust-row { flex-direction: column; gap: 12px; align-items: center; }
 }
-
 /* ============================================================
    FOOTER (compact)
    ============================================================ */
@@ -2661,7 +2563,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 540px) {
   .footer-inner { flex-direction: column; text-align: center; padding: 0 20px; }
 }
-
 /* ============================================================
    SCROLL REVEAL
    ============================================================ */
@@ -2674,7 +2575,6 @@ section { position: relative; z-index: 2; }
   opacity: 1;
   transform: translateY(0);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
   .aurora::before, .aurora::after, .h1 .grad,
@@ -2686,10 +2586,8 @@ section { position: relative; z-index: 2; }
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
-
 <div class="aurora"></div>
 <div class="grid-pattern"></div>
-
 <!-- ============================================================
      NAV
      ============================================================ -->
@@ -2713,7 +2611,6 @@ section { position: relative; z-index: 2; }
 .sp-cred{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dim);}
 .sp-cred svg{width:14px;height:14px;color:var(--green-bright);flex:none;}
 @media(max-width:560px){.sp-cred{font-size:10.5px;}}
-
 /* mobile nav fix - brand on one line, tame the CTA, no green blob */
 @media(max-width:600px){
   .nav-inner{padding:13px 18px;gap:12px;}
@@ -2727,7 +2624,6 @@ section { position: relative; z-index: 2; }
   .nav .btn-primary{display:none;}
   .nav-right{gap:20px;}
 }
-
 /* hero phone - scroll-driven 3D tilt + pulsing glow */
 .sp-phone-stage{perspective:1400px;perspective-origin:50% 28%;margin-top:56px;display:flex;justify-content:center;position:relative;}
 .sp-phone-glow{position:absolute;width:340px;height:340px;background:radial-gradient(circle,var(--green-glow),transparent 70%);filter:blur(46px);opacity:0.3;top:5%;z-index:0;animation:sp-glow 6s ease-in-out infinite;}
@@ -2736,26 +2632,22 @@ section { position: relative; z-index: 2; }
 .sp-island{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:25px;background:#000;border-radius:13px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
 .sp-phone-sheen{position:absolute;inset:0;border-radius:50px;pointer-events:none;z-index:4;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,0.14) 50%,transparent 65%);opacity:0.08;mix-blend-mode:screen;}
 @media(prefers-reduced-motion:reduce){.sp-phone{transform:none!important;}.sp-phone-glow{animation:none;}.sp-phone-sheen{display:none;}}
-
 /* hero carousel (inside the phone) - grid stack, image defines height */
 .sp-phone-screen{width:100%;aspect-ratio:9/19.5;overflow-y:auto;overflow-x:hidden;border-radius:42px;background:#05060a;position:relative;scroll-snap-type:y proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .sp-phone-screen::-webkit-scrollbar{display:none;}
 .sp-phone-screen img{width:100%;height:auto;display:block;scroll-snap-align:start;}
 .sp-scroll-hint{text-align:center;margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-mute);}
-
 /* static device frame for section/showcase shots - frame wraps image */
 .sp-shot{width:100%;max-width:250px;margin:0 auto;padding:7px;border-radius:42px;position:relative;background:linear-gradient(150deg,#454a54 0%,#16181f 14%,#0a0b0f 50%,#16181f 86%,#454a54 100%);box-shadow:0 26px 64px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,255,255,0.10),inset 0 0 0 4px #050609;}
 .sp-shot-island{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:70px;height:21px;background:#000;border-radius:11px;z-index:3;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.05);}
 .sp-shot-screen{width:100%;border-radius:35px;overflow:hidden;background:#05060a;}
 .sp-shot-screen img{width:100%;height:auto;display:block;}
-
 /* showcase grid */
 .sp-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;align-items:start;}
 @media(max-width:820px){.sp-showcase{grid-template-columns:1fr;gap:42px;max-width:300px;}}
 .sp-shot-cap{text-align:center;margin-top:18px;}
 .sp-shot-cap h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 6px;}
 .sp-shot-cap p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--text-dim);margin:0;}
-
 /* problem / agitation */
 .sp-problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:780px;margin:0 auto;}
 @media(max-width:640px){.sp-problem-grid{grid-template-columns:1fr;}}
@@ -2763,7 +2655,6 @@ section { position: relative; z-index: 2; }
 .sp-pain svg{width:19px;height:19px;color:var(--warn,#ff7d54);flex:none;margin-top:2px;}
 .sp-pain p{margin:0;font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--text-dim);}
 .sp-bridge{text-align:center;max-width:620px;margin:34px auto 0;font-family:var(--display);font-size:19px;font-weight:600;color:var(--text);}
-
 /* symmetrical feature grid 4 / 2 / 1 */
 .sp-feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 @media(max-width:1000px){.sp-feature-grid{grid-template-columns:repeat(2,1fr);}}
@@ -2776,7 +2667,6 @@ section { position: relative; z-index: 2; }
 .sp-tile.soon .sp-tile-k{color:var(--purple-bright);}
 .sp-tile h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 8px;}
 .sp-tile p{font-family:var(--sans);font-size:13.5px;line-height:1.6;color:var(--text-dim);margin:0;}
-
 /* how it works */
 .sp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:920px;margin:0 auto;}
 @media(max-width:720px){.sp-steps{grid-template-columns:1fr;}}
@@ -2784,7 +2674,6 @@ section { position: relative; z-index: 2; }
 .sp-step-n{font-family:var(--display);font-size:42px;font-weight:700;line-height:1;background:var(--gradient-button);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px;}
 .sp-step h4{font-family:var(--display);font-size:18px;font-weight:700;color:var(--text);margin:0 0 8px;}
 .sp-step p{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--text-dim);margin:0;}
-
 /* testimonials (founding-member placeholders) */
 .sp-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
 @media(max-width:820px){.sp-testi-grid{grid-template-columns:1fr;}}
@@ -2795,7 +2684,6 @@ section { position: relative; z-index: 2; }
 .sp-quote p{font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--text);margin:0;flex:1;}
 .sp-quote-by strong{display:block;font-family:var(--display);font-weight:600;color:var(--text);font-size:14px;margin-bottom:3px;}
 .sp-quote-store{font-family:var(--mono);font-size:11px;letter-spacing:0.5px;color:var(--text-mute);text-transform:uppercase;}
-
 /* FAQ */
 .sp-faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
 .sp-faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
@@ -2805,7 +2693,6 @@ section { position: relative; z-index: 2; }
 .sp-faq details[open] summary::after{transform:rotate(45deg);}
 .sp-faq details[open] summary{border-bottom:1px solid var(--line);}
 .sp-faq-a{padding:16px 22px 20px;font-family:var(--sans);font-size:14px;line-height:1.65;color:var(--text-dim);}
-
 /* sticky mobile CTA */
 .sp-sticky{display:none;}
 @media(max-width:720px){
@@ -2814,7 +2701,6 @@ section { position: relative; z-index: 2; }
   .sp-sticky .btn{padding:10px 16px;font-size:14px;white-space:nowrap;}
   body{padding-bottom:66px;}
 }
-
 /* ============ greeter feature split (gr-) ============ */
 .gr-split{display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:center;max-width:1000px;margin:0 auto;}
 .gr-split.rev{grid-template-columns:300px 1fr;}
@@ -2828,7 +2714,6 @@ section { position: relative; z-index: 2; }
 .gr-split-text p strong{color:var(--text);font-weight:600;}
 @media(max-width:820px){.gr-split,.gr-split.rev{grid-template-columns:1fr;gap:34px;max-width:330px;}.gr-split.rev .gr-split-text{order:1;}.gr-split.rev .gr-shot-col{order:2;}.gr-split-text{text-align:center;}}
 </style>
-
 <!-- ============================================================ HERO ============================================================ -->
 <section class="hero" id="main">
   <div class="container">
@@ -2836,12 +2721,10 @@ section { position: relative; z-index: 2; }
     <h1 class="h1 reveal">Run a fair floor.<br><span class="grad">Capture every up.</span></h1>
     <p class="hero-slogan reveal"><span class="grad">No more fighting for ups.</span> Every customer logged, every rep in line, every number tracked.</p>
     <p class="lede hero-lede reveal">The Greeter Station is DeskView AI's digital up system for your showroom. Reps check in by GPS when they hit the lot, the next rep gets a text so they keep selling instead of crowding the door, and every walk-in &mdash; Floor, BDC, or service-to-sales &mdash; gets logged in seconds. Management watches the whole floor live, with close rates broken out by source.</p>
-
     <div class="reveal" style="display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px;">
       <a href="/contact?type=greeter" data-track="book_demo_greeter" class="btn btn-primary btn-lg">Book a demo &rarr;</a>
       <span style="font-family:var(--mono); font-size:13px; color:var(--text-mute); letter-spacing:0.5px;">15-minute walkthrough &middot; built for your store</span>
     </div>
-
     <div class="sp-credstrip reveal">
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Mobile &amp; desktop</span>
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fair rotation</span>
@@ -2849,7 +2732,6 @@ section { position: relative; z-index: 2; }
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Floor / BDC / Service</span>
       <span class="sp-cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Live close rates</span>
     </div>
-
     <div class="dv-phone-stage">
       <div class="dv-phone-glow"></div>
       <div class="dv-phone">
@@ -2866,7 +2748,6 @@ section { position: relative; z-index: 2; }
     <p class="dv-scroll-hint reveal">Scroll inside the phone to explore the Greeter Station &darr;</p>
   </div>
 </section>
-
 <!-- ============================================================ PROBLEM ============================================================ -->
 <section class="section-padded">
   <div class="container">
@@ -2883,7 +2764,6 @@ section { position: relative; z-index: 2; }
     <p class="sp-bridge reveal">The Greeter Station fixes every one of these. <span class="grad">Here's how.</span></p>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE: FAIR ROTATION + GPS / OVERRIDE ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2900,7 +2780,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE: SMS THE NEXT REP ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2911,7 +2790,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE: LOG AN UP IN SECONDS ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2928,7 +2806,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE: WHY DEALS DIDN'T CLOSE ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2945,7 +2822,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE: MANAGEMENT SEES IT LIVE ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2962,7 +2838,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FEATURE GRID ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -2981,7 +2856,6 @@ section { position: relative; z-index: 2; }
       <div class="sp-tile reveal"><div class="sp-tile-k">Live</div><h4>Real-time manager view</h4><p>Who's working what, today's pace, sold and open, close rate &mdash; the whole floor at a glance.</p></div>
       <div class="sp-tile reveal"><div class="sp-tile-k">Anywhere</div><h4>Mobile &amp; desktop</h4><p>Runs on the greeter's tablet, a screen behind the desk, and every manager's phone &mdash; same live data.</p></div>
     </div>
-
     <div class="ai-risk-block reveal" style="margin-top:24px;">
       <div class="ai-risk-header">
         <h3>One system, not another silo.</h3>
@@ -2990,7 +2864,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ SHOWCASE ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -3014,7 +2887,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ HOW IT WORKS ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -3029,7 +2901,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ FAQ ============================================================ -->
 <section class="section-padded" style="padding-top:0;">
   <div class="container">
@@ -3047,7 +2918,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================ CTA ============================================================ -->
 <section class="section-padded" id="demo" style="padding-top:0;">
   <div class="container">
@@ -3061,13 +2931,11 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- sticky mobile CTA -->
 <div class="sp-sticky">
   <span>Greeter Station &middot; for your store</span>
   <a href="/contact?type=greeter" data-track="book_demo_greeter" class="btn btn-primary">Book a demo</a>
 </div>
-
 <script>
 /* hero phone is static (calmer); pulsing glow handled in CSS */
 </script>
@@ -3082,22 +2950,21 @@ section { position: relative; z-index: 2; }
       <a href="mailto:support@deskview.ai">Support</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
+      <a href="https://www.linkedin.com/company/deskview-ai/" target="_blank" rel="noopener" aria-label="DeskView AI on LinkedIn" style="display:inline-flex;align-items:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a href="https://www.instagram.com/deskviewai/" target="_blank" rel="noopener" aria-label="DeskView AI on Instagram" style="display:inline-flex;align-items:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.44c-3.14 0-3.51.01-4.75.07-.97.04-1.5.21-1.85.34-.46.18-.8.4-1.15.74-.34.35-.56.69-.74 1.15-.13.35-.3.88-.34 1.85-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.97.21 1.5.34 1.85.18.46.4.8.74 1.15.35.34.69.56 1.15.74.35.13.88.3 1.85.34 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.97-.04 1.5-.21 1.85-.34.46-.18.8-.4 1.15-.74.34-.35.56-.69.74-1.15.13-.35.3-.88.34-1.85.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.97-.21-1.5-.34-1.85a3.1 3.1 0 0 0-.74-1.15 3.1 3.1 0 0 0-1.15-.74c-.35-.13-.88-.3-1.85-.34-1.24-.06-1.61-.07-4.75-.07zm0 2.45a5.95 5.95 0 1 1 0 11.9 5.95 5.95 0 0 1 0-11.9zm0 9.82a3.87 3.87 0 1 0 0-7.74 3.87 3.87 0 0 0 0 7.74zm7.57-10.06a1.39 1.39 0 1 1-2.78 0 1.39 1.39 0 0 1 2.78 0z"/></svg></a>
     </div>
   </div>
 </footer>
-
 <!-- ============================================================
      WAITLIST MODAL
      ============================================================ -->
 <div class="modal-overlay" id="waitlistModal" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle">
   <div class="modal-card" id="waitlistCard">
     <button class="modal-close" id="waitlistClose" aria-label="Close">×</button>
-
     <div class="modal-form">
       <div class="modal-eyebrow">Salesperson plan · Coming Soon</div>
       <h3 id="waitlistTitle">Be the first to know.</h3>
       <p>Drop your email and you'll be the first to know when DeskView AI opens the standalone Salesperson plan.</p>
-
       <!-- FormSubmit endpoint — replace sales@deskview.ai with your real address.
            After your first test submission, FormSubmit will email you a confirmation link.
            Click it to activate. They'll also send you a random-string alias URL you can
@@ -3112,7 +2979,6 @@ section { position: relative; z-index: 2; }
         <p class="modal-fine-print">No spam. Just one launch email.</p>
       </form>
     </div>
-
     <div class="modal-success">
       <div class="check-big">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -3122,14 +2988,12 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </div>
-
 <script>
 // Sticky nav border on scroll
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 8);
 }, { passive: true });
-
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -3140,13 +3004,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 // Waitlist modal
 const modal = document.getElementById('waitlistModal');
 const card = document.getElementById('waitlistCard');
 const closeBtn = document.getElementById('waitlistClose');
 const form = document.getElementById('waitlistForm');
-
 document.querySelectorAll('[data-waitlist-trigger]').forEach(btn => {
   btn.addEventListener('click', () => {
     card.classList.remove('success-state');
@@ -3157,17 +3019,14 @@ document.querySelectorAll('[data-waitlist-trigger]').forEach(btn => {
     }
   });
 });
-
 function closeModal() { modal.classList.remove('open'); }
 closeBtn.addEventListener('click', closeModal);
 modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const data = new FormData(form);
   const email = data.get('email');
-
   // Try to POST; gracefully degrade if the endpoint doesn't exist yet
   try {
     const res = await fetch(form.action, {
@@ -3189,9 +3048,7 @@ form.addEventListener('submit', async (e) => {
   } catch (err) {
     // Silently degrade — user still sees success
   }
-
   card.classList.add('success-state');
-
   if (typeof gtag === 'function') {
     gtag('event', 'waitlist_signup', {
       event_category: 'conversion',
@@ -3200,7 +3057,6 @@ form.addEventListener('submit', async (e) => {
     });
   }
 });
-
 // Conversion tracking
 document.addEventListener('click', (e) => {
   const trackable = e.target.closest('[data-track]');
@@ -3215,6 +3071,5 @@ document.addEventListener('click', (e) => {
   });
 });
 </script>
-
 </body>
 </html>
