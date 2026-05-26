@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0f131c" />
-
 <!-- Primary SEO -->
 <title>DeskView AI — Multi-AI dealership intelligence, real-time</title>
 <meta name="description" content="Multi-AI dealership platform built on real-time data. For dealer principals, GMs, managers, salespeople, and greeters. Live UP queue, AI Game Plans, mobile-first." />
@@ -12,7 +11,6 @@
 <meta name="author" content="DeskView AI" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://deskview.ai/" />
-
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://deskview.ai/" />
@@ -22,13 +20,11 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="DeskView AI" />
-
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="DeskView AI — Real-time insight. Real results." />
 <meta name="twitter:description" content="Multi-AI dealership platform. Real-time data, built for every role on your floor — DPs, GMs, managers, salespeople, greeters." />
 <meta name="twitter:image" content="https://deskview.ai/og-image.png" />
-
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -36,7 +32,6 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="shortcut icon" href="/favicon.ico" />
-
 <!-- Google Analytics 4 (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLBSCSXLN8"></script>
 <script>
@@ -45,12 +40,10 @@
   gtag('js', new Date());
   gtag('config', 'G-FLBSCSXLN8');
 </script>
-
 <!-- Apple PWA -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="DeskView AI" />
-
 <!-- Schema.org — multi-entity graph: Organization + SoftwareApplication + WebSite + FAQPage -->
 <script type="application/ld+json">
 {
@@ -79,6 +72,10 @@
         "@type": "Country",
         "name": "United States"
       },
+      "sameAs": [
+        "https://www.linkedin.com/company/deskview-ai/",
+        "https://www.instagram.com/deskviewai/"
+      ],
       "knowsAbout": [
         "Automotive retail",
         "Dealership management",
@@ -221,12 +218,10 @@
   ]
 }
 </script>
-
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
 /* Accessibility — skip to main content link */
 .skip-link {
@@ -249,7 +244,6 @@
   outline: 2px solid white;
   outline-offset: -4px;
 }
-
 /* ============================================================
    DESIGN TOKENS — DeskView AI
    ============================================================ */
@@ -259,59 +253,48 @@
      Reads from your app: pure dark, white text, sparse color
      Color only appears as small precise accents, never floods
      ============================================================ */
-
   /* Backgrounds — matches app's near-black */
   --bg: #0a0d14;
   --bg-2: #060912;
   --bg-deep: #04060c;
-
   /* Surfaces — restrained gray, NOT green-tinted */
   --surface: rgba(20, 24, 36, 0.55);
   --surface-solid: #141826;
   --surface-elevated: rgba(28, 33, 48, 0.6);
-
   /* Lines — neutral gray (was green-tinted, that's why everything looked green) */
   --line: rgba(255, 255, 255, 0.06);
   --line-bright: rgba(255, 255, 255, 0.12);
   --line-glow: rgba(255, 255, 255, 0.18);
-
   /* Text — white-first */
   --text: #ffffff;
   --text-dim: rgba(220, 228, 240, 0.72);
   --text-mute: rgba(170, 180, 200, 0.5);
   --text-faint: rgba(140, 150, 170, 0.3);
-
   /* Brand greens — used SPARINGLY for action/win moments only */
   --green: #00c27a;
   --green-bright: #1ee98a;
   --green-soft: rgba(0, 194, 122, 0.08);
   --green-line: rgba(0, 194, 122, 0.22);
   --green-glow: rgba(0, 194, 122, 0.4);
-
   /* Brand purple — used ONLY for AI/intelligence callouts (matches Ask AI card) */
   --purple: #7c5cff;
   --purple-bright: #a481ff;
   --purple-soft: rgba(124, 92, 255, 0.08);
   --purple-line: rgba(124, 92, 255, 0.22);
   --purple-glow: rgba(124, 92, 255, 0.4);
-
   /* Status colors */
   --warn: #ffc66e;
   --hot: #ff8a8a;
-
   /* No gradient text by default — headlines stay WHITE */
   --gradient-button: linear-gradient(135deg, #00c27a 0%, #008a55 100%);
-
   --display: 'Space Grotesk', system-ui, sans-serif;
   --sans: 'Inter', system-ui, -apple-system, sans-serif;
   --mono: 'JetBrains Mono', 'SF Mono', Monaco, monospace;
-
   --max: 1240px;
   --radius-lg: 24px;
   --radius-md: 14px;
   --radius-sm: 10px;
 }
-
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -325,11 +308,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
-
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
 img, svg { display: block; max-width: 100%; }
-
 /* Subtle ambient glow — barely visible, no animated orbs */
 .aurora {
   position: fixed;
@@ -350,7 +331,6 @@ img, svg { display: block; max-width: 100%; }
   background: radial-gradient(ellipse, rgba(0, 194, 122, 0.06) 0%, transparent 70%);
   filter: blur(40px);
 }
-
 /* Grid pattern — restored from v11.1 for "tech" texture
    Subtle, masked to fade out at edges, not loud */
 .grid-pattern {
@@ -365,7 +345,6 @@ img, svg { display: block; max-width: 100%; }
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
 }
-
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
@@ -393,7 +372,6 @@ img, svg { display: block; max-width: 100%; }
   box-shadow: 0 0 8px var(--green);
   animation: pulse 2s ease-in-out infinite;
 }
-
 /* Special-case: AI section eyebrow uses purple dot to match Ask AI card */
 .eyebrow.eyebrow-ai .eyebrow-dot {
   background: var(--purple);
@@ -403,7 +381,6 @@ img, svg { display: block; max-width: 100%; }
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.85); }
 }
-
 .h1 {
   font-family: var(--display);
   font-weight: 600;
@@ -428,7 +405,6 @@ img, svg { display: block; max-width: 100%; }
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-
 .h2 {
   font-family: var(--display);
   font-weight: 600;
@@ -438,14 +414,12 @@ img, svg { display: block; max-width: 100%; }
   margin: 0;
   color: white;
 }
-
 .lede {
   font-size: clamp(17px, 1.5vw, 20px);
   line-height: 1.55;
   color: var(--text-dim);
   font-weight: 400;
 }
-
 /* ============================================================
    LAYOUT
    ============================================================ */
@@ -458,12 +432,10 @@ img, svg { display: block; max-width: 100%; }
 }
 section { position: relative; z-index: 2; }
 .section-padded { padding: 96px 0; }
-
 @media (max-width: 720px) {
   .section-padded { padding: 64px 0; }
   .container { padding: 0 20px; }
 }
-
 /* ============================================================
    NAV
    ============================================================ */
@@ -478,7 +450,6 @@ section { position: relative; z-index: 2; }
   transition: border-color 0.2s ease;
 }
 .nav.scrolled { border-bottom-color: var(--line); }
-
 .nav-inner {
   max-width: var(--max);
   margin: 0 auto;
@@ -518,7 +489,6 @@ section { position: relative; z-index: 2; }
   .nav-link { font-size: 12.5px; }
   .nav .btn-primary { padding: 8px 13px; font-size: 12.5px; }
 }
-
 .logo {
   display: flex;
   align-items: baseline;
@@ -539,7 +509,6 @@ section { position: relative; z-index: 2; }
   margin-bottom: 2px;
   flex-shrink: 0;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -576,11 +545,9 @@ section { position: relative; z-index: 2; }
   color: var(--green-bright);
   transform: translateY(-1px);
 }
-
 @media (max-width: 540px) {
   .nav-inner { padding: 14px 20px; }
 }
-
 /* ============================================================
    HERO
    ============================================================ */
@@ -593,7 +560,6 @@ section { position: relative; z-index: 2; }
   .hero { padding: 48px 0 48px; }
   .hero-eyebrow { margin-bottom: 20px; }
 }
-
 .hero-eyebrow { margin-bottom: 28px; display: inline-flex; }
 .hero h1 { margin: 0 auto 20px; max-width: 1100px; }
 .hero-slogan {
@@ -607,7 +573,6 @@ section { position: relative; z-index: 2; }
 .hero-slogan .grad {
   color: var(--green-bright);
 }
-
 /* Hero urgency line — confident, on-brand, no fake data */
 .hero-urgency {
   display: inline-flex;
@@ -639,12 +604,10 @@ section { position: relative; z-index: 2; }
 @media (max-width: 640px) {
   .hero-urgency { padding: 12px 18px; }
 }
-
 .hero-lede {
   margin: 0 auto 36px;
   max-width: 640px;
 }
-
 .hero-cta-row {
   display: flex;
   flex-wrap: wrap;
@@ -652,7 +615,6 @@ section { position: relative; z-index: 2; }
   margin-bottom: 56px;
   justify-content: center;
 }
-
 /* Hero mockup — desktop view of dashboard */
 .hero-mockup-wrap {
   position: relative;
@@ -669,7 +631,6 @@ section { position: relative; z-index: 2; }
   filter: blur(40px);
   z-index: -1;
 }
-
 /* The laptop SCREEN (lid) — animates from closed to open */
 .mockup-mac {
   background: linear-gradient(180deg, #2a2d33 0%, #1a1d23 100%);
@@ -716,7 +677,6 @@ section { position: relative; z-index: 2; }
 }
 /* No chin logo — clean MacBook look */
 .mockup-mac::after { display: none; }
-
 .mockup-mac-screen {
   position: relative;
   background: var(--bg-2);
@@ -724,7 +684,6 @@ section { position: relative; z-index: 2; }
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
-
 /* The laptop BASE (keyboard portion) — flat, doesn't animate */
 .laptop-base {
   position: relative;
@@ -785,7 +744,6 @@ section { position: relative; z-index: 2; }
   text-align: center;
   padding: 24px;
 }
-
 /* ============================================================
    HERO CAROUSEL — multi-slide product showcase
    ============================================================ */
@@ -872,7 +830,6 @@ section { position: relative; z-index: 2; }
   margin-top: 32px;
   z-index: 5;
 }
-
 /* ============================================================
    HERO PHONE — modern iPhone frame (store view), tilt + glow
    ============================================================ */
@@ -887,7 +844,6 @@ section { position: relative; z-index: 2; }
 .dv-phone-screen img{width:100%;height:auto;display:block;scroll-snap-align:start;}
 .dv-scroll-hint{text-align:center;margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-mute);}
 @media(prefers-reduced-motion:reduce){.dv-phone{transform:none!important;}.dv-phone-glow{animation:none;}.dv-phone-sheen{display:none;}}
-
 /* ===== role tabs (hero) ===== */
 .dv-roletabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:24px;}
 .dv-roletabs .carousel-dot{width:auto;height:auto;border-radius:999px;padding:8px 16px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.01em;color:var(--text-dim);background:var(--surface);border:1px solid var(--line);cursor:pointer;transition:color .2s ease,background .2s ease,border-color .2s ease;}
@@ -896,7 +852,6 @@ section { position: relative; z-index: 2; }
 .dv-hero-caption{text-align:center;margin-top:14px;height:20px;position:relative;}
 .dv-hero-caption .carousel-caption{position:absolute;left:0;right:0;font-family:var(--mono);font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dim);opacity:0;transition:opacity .4s ease;}
 .dv-hero-caption .carousel-caption.active{opacity:1;}
-
 /* ===== phone showcase band ===== */
 .dv-showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1000px;margin:0 auto;align-items:start;}
 @media(max-width:820px){.dv-showcase{grid-template-columns:1fr;gap:42px;max-width:300px;}}
@@ -907,7 +862,6 @@ section { position: relative; z-index: 2; }
 .dv-shot-cap{text-align:center;margin-top:18px;}
 .dv-shot-cap h4{font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);margin:0 0 6px;}
 .dv-shot-cap p{font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--text-dim);margin:0;}
-
 /* ===== testimonials ===== */
 .dv-testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
 @media(max-width:820px){.dv-testi-grid{grid-template-columns:1fr;}}
@@ -918,7 +872,6 @@ section { position: relative; z-index: 2; }
 .dv-quote p{font-family:var(--sans);font-size:15px;line-height:1.65;color:var(--text);margin:0;flex:1;}
 .dv-quote-by strong{display:block;font-family:var(--display);font-weight:600;color:var(--text);font-size:14px;margin-bottom:3px;}
 .dv-quote-store{font-family:var(--mono);font-size:11px;letter-spacing:0.5px;color:var(--text-mute);text-transform:uppercase;}
-
 /* ===== sticky mobile CTA ===== */
 .dv-sticky{display:none;}
 @media(max-width:720px){
@@ -927,7 +880,6 @@ section { position: relative; z-index: 2; }
   .dv-sticky .btn{padding:10px 16px;font-size:14px;white-space:nowrap;}
   body{padding-bottom:66px;}
 }
-
 /* ============================================================
    AI CHAT SLIDES — rendered HTML, not screenshots
    ============================================================ */
@@ -1024,7 +976,6 @@ section { position: relative; z-index: 2; }
   color: #fda4af;
   font-weight: 500;
 }
-
 /* ============================================================
    SOCIAL STRIP — built for stores like yours
    ============================================================ */
@@ -1096,7 +1047,6 @@ section { position: relative; z-index: 2; }
   }
   .social-strip-divider { display: none; }
 }
-
 /* ============================================================
    3 PILLARS
    ============================================================ */
@@ -1111,7 +1061,6 @@ section { position: relative; z-index: 2; }
   margin: 0 auto;
   max-width: 600px;
 }
-
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1170,7 +1119,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 900px) {
   .pillars-grid { grid-template-columns: 1fr; }
 }
-
 /* ============================================================
    RESULTS
    ============================================================ */
@@ -1235,7 +1183,6 @@ section { position: relative; z-index: 2; }
 }
 @media (max-width: 900px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px) { .results-grid { grid-template-columns: 1fr; } }
-
 /* ============================================================
    AI SECTION — purple accent ONLY (matches Ask DeskView AI card)
    White headlines, neutral surfaces, color sparingly
@@ -1256,7 +1203,6 @@ section { position: relative; z-index: 2; }
   font-style: normal;
 }
 .ai-header .lede { margin: 0 auto; }
-
 .ai-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -1301,7 +1247,6 @@ section { position: relative; z-index: 2; }
   margin: 0 0 14px;
 }
 .ai-content p:last-child { margin-bottom: 0; }
-
 .ai-visual-phone {
   width: 280px;
   margin: 0 auto;
@@ -1324,7 +1269,6 @@ section { position: relative; z-index: 2; }
   position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
   width: 78px; height: 23px; background: #000; border-radius: 12px; z-index: 5;
 }
-
 /* Phone carousel — multi-slide inside the iPhone */
 .phone-carousel { position: absolute; inset: 0; }
 .phone-slide {
@@ -1381,7 +1325,6 @@ section { position: relative; z-index: 2; }
   white-space: nowrap;
 }
 .phone-caption span.active { opacity: 1; }
-
 .ai-risk-block {
   margin-top: 56px;
   padding-top: 48px;
@@ -1471,7 +1414,6 @@ section { position: relative; z-index: 2; }
   color: var(--text-mute);
   font-weight: 500;
 }
-
 @media (max-width: 900px) {
   .ai-grid { grid-template-columns: 1fr; gap: 40px; }
   .risk-rules-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1479,7 +1421,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 540px) {
   .risk-rules-grid { grid-template-columns: 1fr; }
 }
-
 /* ============================================================
    COMPARE + INTEGRATIONS — merged
    ============================================================ */
@@ -1494,7 +1435,6 @@ section { position: relative; z-index: 2; }
 .compare-header .eyebrow { margin-bottom: 22px; }
 .compare-header .h2 { margin-bottom: 16px; }
 .compare-header .lede { margin: 0 auto; }
-
 .compare-table {
   background: var(--surface);
   backdrop-filter: blur(20px);
@@ -1534,7 +1474,6 @@ section { position: relative; z-index: 2; }
 .compare-row > div:nth-child(1) { color: var(--text-dim); border-right: 1px solid var(--line); font-weight: 500; }
 .compare-row > div:nth-child(2) { color: var(--text-mute); border-right: 1px solid var(--line); }
 .compare-row > div:nth-child(3) { color: white; font-weight: 500; }
-
 @media (max-width: 720px) {
   .compare-row { grid-template-columns: 1fr; }
   .compare-row > div { border-right: none !important; border-bottom: 1px solid var(--line); padding: 14px 18px; }
@@ -1551,7 +1490,6 @@ section { position: relative; z-index: 2; }
     min-width: 100px;
   }
 }
-
 /* Multi-Rooftop section — for dealer groups */
 .multirooftop-section {
   position: relative;
@@ -1634,7 +1572,6 @@ section { position: relative; z-index: 2; }
   font-weight: 500;
   margin-left: 4px;
 }
-
 /* DMS Integrations Roadmap — substantial card grid */
 .dms-roadmap {
   margin-top: 56px;
@@ -1733,7 +1670,6 @@ section { position: relative; z-index: 2; }
   margin: 0 auto;
 }
 .dms-note a { color: var(--green-bright); font-weight: 500; }
-
 /* ============================================================
    FAQ SECTION
    ============================================================ */
@@ -1808,7 +1744,6 @@ section { position: relative; z-index: 2; }
 .faq-answer strong { color: white; font-weight: 600; }
 .faq-answer a { color: var(--green-bright); text-decoration: none; }
 .faq-answer a:hover { text-decoration: underline; }
-
 @media (max-width: 600px) {
   .faq-item summary {
     padding: 18px 20px;
@@ -1819,7 +1754,6 @@ section { position: relative; z-index: 2; }
     font-size: 14px;
   }
 }
-
 /* ============================================================
    FOUNDER + CTA — merged section
    ============================================================ */
@@ -1893,7 +1827,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 720px) {
   .cta-trust-row { flex-direction: column; gap: 12px; align-items: center; }
 }
-
 /* ============================================================
    FOOTER (compact)
    ============================================================ */
@@ -1932,7 +1865,6 @@ section { position: relative; z-index: 2; }
 @media (max-width: 540px) {
   .footer-inner { flex-direction: column; text-align: center; padding: 0 20px; }
 }
-
 /* ============================================================
    SCROLL REVEAL
    ============================================================ */
@@ -1945,7 +1877,6 @@ section { position: relative; z-index: 2; }
   opacity: 1;
   transform: translateY(0);
 }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
   .aurora::before, .aurora::after, .h1 .grad,
@@ -1958,10 +1889,8 @@ section { position: relative; z-index: 2; }
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
-
 <div class="aurora"></div>
 <div class="grid-pattern"></div>
-
 <!-- ============================================================
      NAV
      ============================================================ -->
@@ -1979,7 +1908,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </nav>
-
 <!-- ============================================================
      SECTION 1 — HERO
      ============================================================ -->
@@ -1991,18 +1919,14 @@ section { position: relative; z-index: 2; }
     </div>
     <h1 class="h1 reveal">Your dealership floor. <span class="grad">Live in your pocket.</span></h1>
     <p class="hero-slogan reveal"><span class="grad">Real-time data.</span> AI for every role.</p>
-
     <div class="hero-urgency reveal">
       <span class="hero-urgency-dot"></span>
       <span>Every hour your floor isn't visible, you're losing deals you'll never know about.</span>
     </div>
-
     <p class="lede hero-lede reveal">A multi-AI dealership platform built around real-time data. Dealer principals see store-wide pace from anywhere. Sales managers run their floor live. Salespeople get personalized AI Game Plans. Greeters log the UP queue. Everyone on the same page — same time.</p>
-
     <div class="hero-cta-row reveal">
       <a href="/contact?type=demo" data-track="book_demo" class="btn btn-primary btn-lg">Book a 20-min demo →</a>
     </div>
-
     <div class="hero-mockup-wrap reveal">
       <div class="dv-phone-stage">
         <div class="dv-phone-glow"></div>
@@ -2024,7 +1948,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 2 — SOCIAL STRIP
      ============================================================ -->
@@ -2063,7 +1986,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 3 — 3 PILLARS
      ============================================================ -->
@@ -2074,7 +1996,6 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">One platform. Every role. <span class="grad">Live.</span></h2>
       <p class="lede reveal">Real-time data plus multi-AI tools — built so the dealer principal in Florida and the greeter on the floor in Texas see the same source of truth at the same time.</p>
     </div>
-
     <div class="pillars-grid">
       <div class="pillar reveal">
         <div class="pillar-icon">
@@ -2084,7 +2005,6 @@ section { position: relative; z-index: 2; }
         <h3 class="pillar-title">Live floor. Live data.</h3>
         <p class="pillar-body">UP queue managed by your greeters. Sold notifications fire to managers and DPs the second deals close. Live floor activity feed. Vehicle mix and store pace updating by the second. Stale UPs auto-close at midnight so tomorrow starts clean.</p>
       </div>
-
       <div class="pillar reveal">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8h6.1l-4.95 3.6 1.9 5.8L12 14.6 7.05 18.2l1.9-5.8L4 8.8h6.1z"/></svg>
@@ -2093,7 +2013,6 @@ section { position: relative; z-index: 2; }
         <h3 class="pillar-title">AI tools for every role.</h3>
         <p class="pillar-body">Dealer principals get daily AI briefings on store-wide pace and at-risk deals. Sales managers get coaching insights and risk alerts. Salespeople get personalized AI Game Plans every morning. Ask DeskView AI any question in plain language and get answers tied to your live data.</p>
       </div>
-
       <div class="pillar reveal">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
@@ -2105,7 +2024,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 4 — WHAT CHANGES (RESULTS)
      ============================================================ -->
@@ -2115,7 +2033,6 @@ section { position: relative; z-index: 2; }
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>WHAT CHANGES</div>
       <h2 class="h2 reveal">When you can actually <span class="grad">see your floor.</span></h2>
     </div>
-
     <div class="results-grid">
       <div class="result-card reveal">
         <div class="result-card-icon">
@@ -2124,7 +2041,6 @@ section { position: relative; z-index: 2; }
         <h3 class="result-card-headline">Fewer missed UPs</h3>
         <p class="result-card-desc">Every walk-in tracked. Every assignment logged. No more "did anyone help that customer?"</p>
       </div>
-
       <div class="result-card reveal">
         <div class="result-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
@@ -2132,7 +2048,6 @@ section { position: relative; z-index: 2; }
         <h3 class="result-card-headline">Faster TOs</h3>
         <p class="result-card-desc">Managers see who's free, who's working, who needs help. The right person walks over before the moment is gone.</p>
       </div>
-
       <div class="result-card reveal">
         <div class="result-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
@@ -2140,7 +2055,6 @@ section { position: relative; z-index: 2; }
         <h3 class="result-card-headline">Better follow-up</h3>
         <p class="result-card-desc">Lost reasons captured in real time, not three days later. Reps know exactly who to call back and why.</p>
       </div>
-
       <div class="result-card reveal">
         <div class="result-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.8h6.1l-4.95 3.6 1.9 5.8L12 14.6 7.05 18.2l1.9-5.8L4 8.8h6.1z"/></svg>
@@ -2151,7 +2065,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 5 — AI THROUGHOUT (compressed)
      ============================================================ -->
@@ -2162,7 +2075,6 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">You don't need more reports.<br><span class="grad">You need to know what to do next.</span></h2>
       <p class="lede reveal">Game Plans, daily briefings, risk detection — built on the latest AI models, structured around real auto industry data, and fine-tuned daily for better performance. Not generic customer support scripts.</p>
     </div>
-
     <div class="ai-grid">
       <div class="ai-content reveal">
         <div class="ai-tag">PERSONALIZED COACHING</div>
@@ -2193,7 +2105,6 @@ section { position: relative; z-index: 2; }
           </div>
           <div class="ai-phone-island"></div>
         </div>
-
         <!-- Dots beneath the phone, inside the column -->
         <div class="phone-dots" role="tablist" aria-label="Salesperson screens">
           <button class="phone-dot active" data-target="0" aria-label="Today"></button>
@@ -2207,7 +2118,6 @@ section { position: relative; z-index: 2; }
         </div>
       </div>
     </div>
-
     <div class="ai-risk-block reveal">
       <div class="ai-risk-header">
         <h3>Plus a risk engine that catches <span class="grad">money on the table.</span></h3>
@@ -2239,7 +2149,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 5.5 — MULTI-ROOFTOP (for dealer groups)
      ============================================================ -->
@@ -2272,7 +2181,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <section class="section-padded multirooftop-section">
   <div class="container">
     <div class="multirooftop-header">
@@ -2280,7 +2188,6 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">Running 2+ rooftops?<br><span class="grad">You shouldn't need 2+ logins.</span></h2>
       <p class="lede reveal">Group-level pace at a glance. Per-rooftop drill-down. Side-by-side store comparison. Multi-rooftop visibility built for dealer groups who want their entire operation in one mobile view.</p>
     </div>
-
     <div class="multirooftop-grid">
       <div class="multirooftop-card reveal">
         <div class="multirooftop-num">01</div>
@@ -2298,13 +2205,11 @@ section { position: relative; z-index: 2; }
         <div class="multirooftop-body">Group view to store view to rep view in three taps. Identify the underperforming rep at the slipping store without calling anyone.</div>
       </div>
     </div>
-
     <div class="multirooftop-cta reveal">
       <p class="multirooftop-note">Multi-rooftop visibility coming Q3 2026 for dealer groups. <a data-track="multirooftop_interest" href="/contact?type=multirooftop">Talk to us about group pricing →</a></p>
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 6 — DMS COMPARE + INTEGRATIONS (merged)
      ============================================================ -->
@@ -2315,7 +2220,6 @@ section { position: relative; z-index: 2; }
       <h2 class="h2 reveal">Your DMS recaps yesterday.<br><span class="grad">DeskView is what's happening now.</span></h2>
       <p class="lede reveal">Your DMS is essential — for accounting, compliance, and end-of-month reporting. But it can't show your DP the floor at 2pm, or hand a salesperson a Game Plan in the morning. That's what DeskView does.</p>
     </div>
-
     <div class="compare-table reveal">
       <div class="compare-row head">
         <div></div>
@@ -2329,14 +2233,12 @@ section { position: relative; z-index: 2; }
       <div class="compare-row"><div data-label="Category">AI insights</div><div data-label="DMS">Add-on module, extra fee</div><div data-label="DeskView AI">Built in, every plan</div></div>
       <div class="compare-row"><div data-label="Category">Setup</div><div data-label="DMS">Months, with consultants</div><div data-label="DeskView AI">Days. No consultants.</div></div>
     </div>
-
     <div class="dms-roadmap reveal">
       <div class="dms-roadmap-header">
         <span class="dms-roadmap-eyebrow">DMS INTEGRATIONS ROADMAP</span>
         <h3 class="dms-roadmap-title">Built to work <span class="grad">with your stack.</span></h3>
         <p class="dms-roadmap-sub">Standalone today — your team logs deals to get full floor intelligence. Direct DMS integrations on the roadmap, prioritized by what customers actually use.</p>
       </div>
-
       <div class="dms-grid">
         <div class="dms-card">
           <div class="dms-name">CDK Global</div>
@@ -2355,12 +2257,10 @@ section { position: relative; z-index: 2; }
           <div class="dms-status">ON ROADMAP</div>
         </div>
       </div>
-
       <p class="dms-note">Your DMS isn't here? <a data-track="dms_interest" href="/contact?type=dms">Tell us what you use</a> — we prioritize based on customer demand.</p>
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 6.5 — FAQ (objection handling before final CTA)
      ============================================================ -->
@@ -2396,14 +2296,12 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <section class="section-padded faq-section" id="faq">
   <div class="container">
     <div class="faq-eyebrow-wrap">
       <div class="eyebrow reveal"><span class="eyebrow-dot"></span>QUESTIONS DEALERS ACTUALLY ASK</div>
     </div>
     <h2 class="h2 reveal">Common questions.<br><span class="grad">Honest answers.</span></h2>
-
     <div class="faq-list">
       <details class="faq-item reveal">
         <summary>I'm a dealer principal with multiple stores. Does this work for groups?</summary>
@@ -2411,63 +2309,54 @@ section { position: relative; z-index: 2; }
           Yes. DeskView is built so dealer groups can monitor every rooftop from one mobile view — combined pace, side-by-side store comparison, and drill-down into any rooftop, manager, or rep. Group-level visibility is on the roadmap. <a data-track="multirooftop_interest" href="/contact?type=multirooftop">Get in touch</a> if you run 2+ stores.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>How is this different from the daily reports my GM sends me?</summary>
         <div class="faq-answer">
           Your daily reports tell you what already happened. By the time you read them, you can't act on them. DeskView shows you what's happening <strong>right now</strong> — store-wide pace, who's tracking, who's slipping, deals as they close. Plus an auto-generated AI briefing every morning that summarizes the day with the same intelligence a great GM would deliver — without waiting for your GM to put it together. You see what your GM sees, when they see it.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>Does DeskView AI integrate with my DMS?</summary>
         <div class="faq-answer">
           DeskView AI sits <strong>alongside</strong> your DMS, not on top of it. Your DMS handles accounting, compliance, and end-of-month reporting. DeskView AI handles real-time floor intelligence — UPs, sold notifications, salesperson pacing, AI coaching. Direct DMS integrations are on the roadmap based on customer demand.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>How is this different from my CRM?</summary>
         <div class="faq-answer">
           A CRM tracks customer conversations and follow-ups. DeskView AI tracks what's happening on your sales floor <strong>right now</strong>: who took the last UP, who needs coaching, which deals are stuck, who's on pace. Most dealers find DeskView complements their CRM rather than replacing it — your CRM still owns customer records and outreach; DeskView owns floor operations and management intelligence.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>How long does setup take?</summary>
         <div class="faq-answer">
           <strong>Days, not months.</strong> No consultants required. You give us your sales team list and monthly unit goals, and your team starts using DeskView AI the same day. Real-time data flows once your team logs their first few deals — typically within 24-48 hours of go-live.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>What does pricing look like?</summary>
         <div class="faq-answer">
           Flat per-store monthly pricing — <strong>no per-user fees, no per-deal charges, no annual contracts</strong>. Pricing scales with store size so you only pay for what fits. See the full breakdown on the <a href="/pricing">pricing page</a> or email <a data-track="email_sales" href="mailto:sales@deskview.ai">sales@deskview.ai</a> for a quote tailored to your dealership.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>Can I try it before committing?</summary>
         <div class="faq-answer">
           Yes — every evaluation starts with a <strong>20-minute personalized demo</strong> where we walk you through DeskView AI with data shaped like your dealership. After that, qualifying stores can run a <strong>30-day pilot</strong> with real deals and your team. Month-to-month means you're never locked in.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>Do my salespeople need training to use it?</summary>
         <div class="faq-answer">
           No formal training needed. DeskView AI is built for the floor — large tap targets, mobile-first, no menus to learn. Most salespeople pick it up in their first day. The AI Game Plans tell each rep what to do next; the live UP queue tells them whose turn it is. <strong>If they can use a smartphone, they can use DeskView AI.</strong>
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>Will it work on iPhones, iPads, and Android phones?</summary>
         <div class="faq-answer">
           Yes. DeskView AI is mobile-first and installs as a native-feeling app on iPhones, iPads, and Android devices via <strong>Progressive Web App (PWA) technology</strong>. Your team uses their existing devices — no hardware to buy, no app store approval to wait for.
         </div>
       </details>
-
       <details class="faq-item reveal">
         <summary>Is my dealership data secure?</summary>
         <div class="faq-answer">
@@ -2477,7 +2366,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </section>
-
 <!-- ============================================================
      SECTION 7 — FOUNDER + CTA (merged)
      ============================================================ -->
@@ -2486,9 +2374,7 @@ section { position: relative; z-index: 2; }
     <div class="eyebrow close-eyebrow reveal"><span class="eyebrow-dot"></span>BUILT BY OPERATORS</div>
     <h2 class="h2 reveal">Stop guessing.<br><span class="grad">Start seeing.</span></h2>
     <p class="close-quote reveal">DeskView AI was built by <strong>developers who've been in the auto industry for over 20 years.</strong> Every screen, every alert, every metric exists because someone needed it on the floor.</p>
-
     <a href="/contact?type=demo" data-track="book_demo" class="btn btn-primary btn-lg close-cta-button reveal">Book a 20-min demo →</a>
-
     <div class="cta-trust-row reveal">
       <div class="cta-trust-item">
         <span class="cta-trust-dot"></span>
@@ -2503,11 +2389,9 @@ section { position: relative; z-index: 2; }
         <span>Setup in days, not months</span>
       </div>
     </div>
-
     <p class="close-fallback reveal">We answer <a data-track="email_sales" href="mailto:sales@deskview.ai">sales@deskview.ai</a> within one business day.</p>
   </div>
 </section>
-
 <!-- ============================================================
      FOOTER
      ============================================================ -->
@@ -2522,16 +2406,16 @@ section { position: relative; z-index: 2; }
       <a href="mailto:support@deskview.ai">Support</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
+      <a href="https://www.linkedin.com/company/deskview-ai/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/deskviewai/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
-
 <script>
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 8);
 }, { passive: true });
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -2540,25 +2424,20 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 // ============================================================
 // HERO CAROUSEL — auto-rotate + click-to-navigate
 // ============================================================
 (() => {
   const carousel = document.getElementById('hero-carousel');
   if (!carousel) return;
-
   const slides = [...carousel.querySelectorAll('.carousel-slide')];
   const dots = [...document.querySelectorAll('.carousel-dot')];
   const captions = [...document.querySelectorAll('.carousel-caption')];
   if (slides.length < 2) return;
-
   let current = 0;
   let timer = null;
   const ROTATION_MS = 5000;
-
   function goTo(index) {
     const next = ((index % slides.length) + slides.length) % slides.length;
     if (next === current) return;
@@ -2572,7 +2451,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     dots[current]?.setAttribute('aria-selected', 'true');
     captions[current]?.classList.add('active');
   }
-
   function startAuto() {
     stopAuto();
     timer = setInterval(() => goTo(current + 1), ROTATION_MS);
@@ -2581,32 +2459,27 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     if (timer) clearInterval(timer);
     timer = null;
   }
-
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       goTo(i);
       startAuto(); // reset timer on manual nav
     });
   });
-
   // Pause on hover, resume on leave
   const wrap = carousel.closest('.hero-mockup-wrap');
   wrap?.addEventListener('mouseenter', stopAuto);
   wrap?.addEventListener('mouseleave', startAuto);
-
   // Pause when tab is hidden, resume when visible
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopAuto();
     else startAuto();
   });
-
   // Keyboard navigation (arrow keys when carousel is focused)
   carousel.setAttribute('tabindex', '-1');
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') { goTo(current - 1); startAuto(); }
     if (e.key === 'ArrowRight') { goTo(current + 1); startAuto(); }
   });
-
   // Touch swipe — left/right gestures on mobile
   let touchStartX = null;
   let touchStartY = null;
@@ -2615,7 +2488,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     touchStartY = e.touches[0].clientY;
     stopAuto();
   }, { passive: true });
-
   carousel.addEventListener('touchend', (e) => {
     if (touchStartX === null) return;
     const touchEndX = e.changedTouches[0].clientX;
@@ -2631,30 +2503,24 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     touchStartY = null;
     startAuto();
   }, { passive: true });
-
   startAuto();
 })();
-
 // ============================================================
 // HERO PHONE — static now (calmer); pulsing glow handled in CSS
 // ============================================================
-
 // ============================================================
 // PHONE CAROUSEL — multi-slide salesperson screens (AI section)
 // ============================================================
 (() => {
   const carousel = document.getElementById('phoneCarousel');
   if (!carousel) return;
-
   const slides = [...carousel.querySelectorAll('.phone-slide')];
   const dots = [...document.querySelectorAll('.phone-dot')];
   const captions = [...document.querySelectorAll('.phone-caption span')];
   if (slides.length < 2) return;
-
   let current = 0;
   let timer = null;
   const ROTATION_MS = 4500;
-
   function goTo(n) {
     n = ((n % slides.length) + slides.length) % slides.length;
     if (n === current) return;
@@ -2666,21 +2532,16 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     dots[current]?.classList.add('active');
     captions[current]?.classList.add('active');
   }
-
   function startAuto() { stopAuto(); timer = setInterval(() => goTo(current + 1), ROTATION_MS); }
   function stopAuto() { if (timer) clearInterval(timer); timer = null; }
-
   dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); startAuto(); }));
-
   // Pause on hover (desktop) or while scrolled off-screen
   const phone = carousel.closest('.ai-visual-phone');
   phone?.addEventListener('mouseenter', stopAuto);
   phone?.addEventListener('mouseleave', startAuto);
-
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopAuto(); else startAuto();
   });
-
   // Swipe support on the phone screen
   let touchX = null;
   carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; stopAuto(); }, { passive: true });
@@ -2691,7 +2552,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     touchX = null;
     startAuto();
   }, { passive: true });
-
   startAuto();
 })();
 document.addEventListener('click', (e) => {
@@ -2707,12 +2567,10 @@ document.addEventListener('click', (e) => {
   });
 });
 </script>
-
 <!-- sticky mobile CTA -->
 <div class="dv-sticky">
   <span>Book a 20-min demo</span>
   <a href="/contact?type=demo" data-track="book_demo" class="btn btn-primary">Book a demo &rarr;</a>
 </div>
-
 </body>
 </html>
