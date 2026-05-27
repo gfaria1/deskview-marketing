@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- Primary SEO -->
 <title>DeskView AI for Salespeople — Your personal AI sales coach ($19.99/mo)</title>
-<meta name="description" content="The AI sales coach built for car salespeople. Daily Game Plans, live objection handling, pace-to-goal and CSI tracking, smart lead follow-ups, and AI schedule scanning — $19.99/mo. Join the waitlist." />
+<meta name="description" content="The AI sales coach built for car salespeople. Daily Game Plans, live objection handling, pace-to-goal and CSI tracking, smart lead follow-ups, and AI schedule scanning — $19.99/mo. Start today, cancel anytime." />
 <meta name="keywords" content="car salesperson app, AI sales coach, automotive sales app, car sales tracking app, salesperson performance tracker, dealership sales app, sales game plan, objection handling app, car sales goal tracker, CSI tracking" />
 <meta name="author" content="DeskView AI" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -71,7 +71,7 @@
           "billingIncrement": 1,
           "unitCode": "MON"
         },
-        "availability": "https://schema.org/PreOrder",
+        "availability": "https://schema.org/InStock",
         "url": "https://deskview.ai/salespeople"
       }
     },
@@ -2306,7 +2306,7 @@ section { position: relative; z-index: 2; }
     <p class="hero-slogan reveal"><span class="grad">Sell more.</span> Hit your number. Every day. Every month.</p>
     <p class="lede hero-lede reveal">DeskView AI is built for one person &mdash; you. It knows your numbers, your pace, and your goals, and every morning it tells you exactly what to do to sell more. Live objection coaching on the floor, smart follow-ups for your leads, your schedule, your CSI, your deals. No manager required.</p>
     <div class="reveal" style="display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:8px;">
-      <button type="button" class="btn btn-primary btn-lg" data-waitlist-trigger>Join the waitlist &rarr;</button>
+      <a class="btn btn-primary btn-lg" data-checkout data-track="checkout_start">Get started &rarr;</a>
       <span style="font-family:var(--mono); font-size:13px; color:var(--text-mute); letter-spacing:0.5px;">$19.99/mo &middot; cancel anytime</span>
     </div>
     <div class="sp-credstrip reveal">
@@ -2526,7 +2526,7 @@ section { position: relative; z-index: 2; }
       </div>
     </div>
     <div style="text-align:center; margin-top:32px;">
-      <button type="button" class="btn btn-secondary reveal" data-waitlist-trigger>Join the waitlist &rarr;</button>
+      <a class="btn btn-secondary reveal" data-checkout data-track="checkout_start">Get started &rarr;</a>
     </div>
   </div>
 </section>
@@ -2560,7 +2560,7 @@ section { position: relative; z-index: 2; }
         <p class="plan-tagline">Your personal AI sales coach.</p>
         <div class="plan-price"><span class="plan-price-amount">$19.99</span><span class="plan-price-period">/month</span></div>
         <p class="plan-price-note">Self-checkout &middot; Instant access &middot; Cancel anytime</p>
-        <button type="button" class="plan-cta purple" data-waitlist-trigger>Join the waitlist &rarr;</button>
+        <a class="plan-cta purple" data-checkout data-track="checkout_start">Get started &rarr;</a>
         <ul class="plan-features">
           <li class="plan-features-group-label">Your AI coach</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Personal AI Game Plan, every morning</li>
@@ -2582,15 +2582,15 @@ section { position: relative; z-index: 2; }
       </div>
     </div>
     <div style="text-align:center; margin-top:40px;">
-      <p class="lede reveal" style="margin-bottom:20px;">The standalone Salesperson plan launches soon. Get on the list and you'll be first in.</p>
-      <button type="button" class="btn btn-secondary btn-lg reveal" data-waitlist-trigger>Join the waitlist &rarr;</button>
+      <p class="lede reveal" style="margin-bottom:20px;">The Salesperson plan is live. Sign up in two minutes &mdash; $19.99/mo, cancel anytime.</p>
+      <a class="btn btn-secondary btn-lg reveal" data-checkout data-track="checkout_start">Get started &rarr;</a>
     </div>
   </div>
 </section>
 <!-- sticky mobile CTA -->
 <div class="sp-sticky">
   <span>$19.99/mo &middot; cancel anytime</span>
-  <button type="button" class="btn btn-primary" data-waitlist-trigger>Join the waitlist</button>
+  <a class="btn btn-primary" data-checkout data-track="checkout_start">Get started</a>
 </div>
 <script>
 /* hero phone is static now (calmer); pulsing glow handled in CSS */
@@ -2612,39 +2612,6 @@ section { position: relative; z-index: 2; }
     </div>
   </div>
 </footer>
-<!-- ============================================================
-     WAITLIST MODAL
-     ============================================================ -->
-<div class="modal-overlay" id="waitlistModal" role="dialog" aria-modal="true" aria-labelledby="waitlistTitle">
-  <div class="modal-card" id="waitlistCard">
-    <button class="modal-close" id="waitlistClose" aria-label="Close">×</button>
-    <div class="modal-form">
-      <div class="modal-eyebrow">Salesperson plan · Coming Soon</div>
-      <h3 id="waitlistTitle">Be the first to know.</h3>
-      <p>Drop your email and you'll be the first to know when DeskView AI opens the standalone Salesperson plan.</p>
-      <!-- FormSubmit endpoint — replace sales@deskview.ai with your real address.
-           After your first test submission, FormSubmit will email you a confirmation link.
-           Click it to activate. They'll also send you a random-string alias URL you can
-           swap in for the raw email (better spam protection). -->
-      <form id="waitlistForm" action="https://formsubmit.co/ajax/sales@deskview.ai" method="POST">
-        <input type="hidden" name="plan" value="salesperson" />
-        <input type="hidden" name="source" value="salesperson_page" />
-        <div class="form-field">
-          <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-          <button type="submit">Join →</button>
-        </div>
-        <p class="modal-fine-print">No spam. Just one launch email.</p>
-      </form>
-    </div>
-    <div class="modal-success">
-      <div class="check-big">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h3>You're on the list.</h3>
-      <p>We'll email you the second the Salesperson plan goes live.</p>
-    </div>
-  </div>
-</div>
 <script>
 // Sticky nav border on scroll
 const nav = document.getElementById('nav');
@@ -2661,59 +2628,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-// Waitlist modal
-const modal = document.getElementById('waitlistModal');
-const card = document.getElementById('waitlistCard');
-const closeBtn = document.getElementById('waitlistClose');
-const form = document.getElementById('waitlistForm');
-document.querySelectorAll('[data-waitlist-trigger]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    card.classList.remove('success-state');
-    modal.classList.add('open');
-    setTimeout(() => modal.querySelector('input[type=email]')?.focus(), 100);
-    if (typeof gtag === 'function') {
-      gtag('event', 'waitlist_open', { event_category: 'cta', event_label: 'salesperson_plan' });
-    }
-  });
-});
-function closeModal() { modal.classList.remove('open'); }
-closeBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const email = data.get('email');
-  // Try to POST; gracefully degrade if the endpoint doesn't exist yet
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        email,
-        plan: data.get('plan'),
-        source: data.get('source'),
-        timestamp: new Date().toISOString(),
-        _subject: 'New Salesperson waitlist signup',
-        _captcha: 'false'
-      })
-    });
-    // FormSubmit returns { success: 'true' } on a successful AJAX submission
-  } catch (err) {
-    // Silently degrade — user still sees success
-  }
-  card.classList.add('success-state');
-  if (typeof gtag === 'function') {
-    gtag('event', 'waitlist_signup', {
-      event_category: 'conversion',
-      event_label: 'salesperson_plan',
-      value: 19
-    });
-  }
-});
+// Checkout wiring — single source of truth for the Stripe destination.
+// PASTE your live Stripe checkout URL (Payment Link or app signup route) below.
+const CHECKOUT_URL = 'https://app.deskview.ai/?signup=1';
+document.querySelectorAll('[data-checkout]').forEach(a => a.setAttribute('href', CHECKOUT_URL));
 // Conversion tracking
 document.addEventListener('click', (e) => {
   const trackable = e.target.closest('[data-track]');
