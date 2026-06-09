@@ -1942,6 +1942,94 @@ section { position: relative; z-index: 2; }
             <img src="/screenshots/sp-csi.webp" alt="DeskView AI CSI score" loading="lazy" width="820" />
             <img src="/screenshots/sp-earnings.webp" alt="DeskView AI earnings and spiffs" loading="lazy" width="820" />
           </div>
+          <!-- live notification overlay -->
+<style>
+  .dvlive-overlay{position:absolute;inset:8px;border-radius:42px;overflow:hidden;
+    pointer-events:none;z-index:3;container-type:inline-size;}
+  .dvlive-badge{position:absolute;top:5cqw;left:5cqw;display:inline-flex;align-items:center;
+    gap:1.6cqw;font-family:var(--mono,monospace);font-size:2.7cqw;font-weight:600;
+    letter-spacing:.1em;color:var(--green-bright,#1ee98a);background:rgba(5,8,12,.72);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    border:1px solid var(--green-line,rgba(0,194,122,.22));padding:1.3cqw 2.6cqw;border-radius:999px;}
+  .dvlive-dot{width:2cqw;height:2cqw;border-radius:50%;background:var(--green-bright,#1ee98a);animation:dvlive-pulse 2s ease-out infinite;}
+  .dvlive-toast{position:absolute;top:11cqw;left:4cqw;right:4cqw;display:flex;align-items:center;gap:2.6cqw;
+    background:rgba(16,20,30,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border:1px solid var(--line-bright,rgba(255,255,255,.12));border-radius:var(--radius-md,14px);
+    padding:2.7cqw 3cqw;box-shadow:0 6cqw 16cqw rgba(0,0,0,.5);
+    opacity:0;transform:translateY(-150%);transition:opacity .4s ease,transform .55s cubic-bezier(.2,.85,.2,1);}
+  .dvlive-toast.dvlive-show{opacity:1;transform:translateY(0);}
+  .dvlive-ic{width:7.4cqw;height:7.4cqw;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .dvlive-ic svg{width:4cqw;height:4cqw;}
+  .dvlive-ic.sold{background:var(--green-soft,rgba(0,194,122,.08));color:var(--green-bright,#1ee98a);border:1px solid var(--green-line,rgba(0,194,122,.22));}
+  .dvlive-ic.up{background:var(--purple-soft,rgba(124,92,255,.08));color:var(--purple-bright,#a481ff);border:1px solid var(--purple-line,rgba(124,92,255,.22));}
+  .dvlive-tx{flex:1;min-width:0;}
+  .dvlive-tt{font-family:var(--sans,sans-serif);font-size:3.1cqw;font-weight:600;color:var(--text,#fff);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .dvlive-ts{font-family:var(--sans,sans-serif);font-size:2.6cqw;color:var(--text-mute,#8a93a8);margin-top:.5cqw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .dvlive-ta{font-family:var(--display,sans-serif);font-weight:700;font-size:3.3cqw;color:var(--green,#00c27a);flex-shrink:0;}
+  .dvlive-ta.muted{color:var(--text-mute,#8a93a8);font-family:var(--mono,monospace);font-weight:500;font-size:2.7cqw;}
+  @keyframes dvlive-pulse{0%{box-shadow:0 0 0 0 var(--green-glow,rgba(0,194,122,.5));}70%{box-shadow:0 0 0 2.6cqw transparent;}100%{box-shadow:0 0 0 0 transparent;}}
+  @media(prefers-reduced-motion:reduce){.dvlive-dot{animation:none;}.dvlive-toast{transition:none;}}
+</style>
+
+<div class="dvlive-overlay" id="dvliveOverlay">
+  <div class="dvlive-badge"><span class="dvlive-dot"></span>LIVE</div>
+  <div class="dvlive-toast" id="dvliveToast">
+    <div class="dvlive-ic sold" id="dvliveIc"></div>
+    <div class="dvlive-tx">
+      <div class="dvlive-tt" id="dvliveTt">—</div>
+      <div class="dvlive-ts" id="dvliveTs">—</div>
+    </div>
+    <div class="dvlive-ta" id="dvliveTa">—</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toast = document.getElementById('dvliveToast');
+  if(!toast || toast.dataset.dvInit) return;
+  toast.dataset.dvInit = '1';
+  var ic = document.getElementById('dvliveIc'),
+      tt = document.getElementById('dvliveTt'),
+      ts = document.getElementById('dvliveTs'),
+      ta = document.getElementById('dvliveTa');
+
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  var USER  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/></svg>';
+
+  var events = [
+    {k:'sold', t:'Marcus T. · New Rogue',      s:'Deal closed · front $3,200', a:'+$4,100'},
+    {k:'up',   t:'New UP · Front lot',          s:'Greeter logged · just now',  a:'live'},
+    {k:'sold', t:'Dana R. · Used Altima',       s:'Deal closed · front $2,100', a:'+$3,500'},
+    {k:'sold', t:'Priya S. · New Pathfinder',   s:'Deal closed · front $4,100', a:'+$4,800'},
+    {k:'up',   t:'New UP · Internet lead',      s:'Assigned to Luis · 0:08',    a:'live'},
+    {k:'sold', t:'Andre B. · CPO Frontier',     s:'Deal closed · front $2,650', a:'+$3,900'}
+  ];
+
+  function render(ev){
+    ic.className = 'dvlive-ic ' + (ev.k === 'sold' ? 'sold' : 'up');
+    ic.innerHTML = ev.k === 'sold' ? CHECK : USER;
+    tt.textContent = ev.t;
+    ts.textContent = ev.s;
+    ta.textContent = ev.a;
+    ta.className = 'dvlive-ta' + (ev.k === 'sold' ? '' : ' muted');
+  }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ render(events[0]); toast.classList.add('dvlive-show'); return; }
+
+  var i = 0;
+  function cycle(){
+    render(events[i % events.length]);
+    toast.classList.add('dvlive-show');
+    setTimeout(function(){
+      toast.classList.remove('dvlive-show');
+      i++;
+      setTimeout(cycle, 1400);
+    }, 3600);
+  }
+  setTimeout(cycle, 1500);
+})();
+</script>
         </div>
       </div>
       <p class="dv-scroll-hint reveal">Scroll inside the phone to explore the app &darr;</p>
